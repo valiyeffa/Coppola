@@ -1,0 +1,42 @@
+#home {
+    .scnd-home-sect {
+        background-color: #000000;
+        font-family: $textfontname;
+
+        .container-fluid {
+            width: 95%;
+
+            .scnd-sect-title {
+                width: 100%;
+                padding-top: 100px;
+                margin-left: 25px;
+
+                .row {
+                    align-items: center;
+
+                    span {
+                        color: white;
+                        font-size: 1.1em;
+                    }
+
+                    .scnd-title {
+                        color: white;
+
+                        h3 {
+                            width: 70%;
+                            font-size: 2.8em;
+                            word-spacing: 5px;
+                            line-height: 45px;
+                        }
+
+                        p {
+                            width: 67%;
+                            font-size: 1.1em;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
