@@ -2,6 +2,10 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { RiPlayLargeLine } from "react-icons/ri";
 
+import home1portlist1 from '../../assets/images/home-1-port-list-1.jpg'
+import home1portlist2 from '../../assets/images/home-1-port-list-2.jpg'
+import home1portlist3 from '../../assets/images/home-1-port-list-3.jpg'
+
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
@@ -56,7 +60,7 @@ export default function SecondHomeSect() {
           className="mySwiper"
         >
           <SwiperSlide>
-            <img src="src\assets\images\home-1-port-list-1.jpg" />
+            <img src={home1portlist1} />
             <button className='slider-btn'><RiPlayLargeLine /></button>
             <div className="slider-text">
               <h4>HOTEL ROSE</h4>
@@ -64,7 +68,7 @@ export default function SecondHomeSect() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="src\assets\images\home-1-port-list-2.jpg" />
+            <img src={home1portlist2} />
             <button className='slider-btn'><RiPlayLargeLine /></button>
             <div className="slider-text">
               <h4>BLUE ROOM</h4>
@@ -72,7 +76,7 @@ export default function SecondHomeSect() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="src\assets\images\home-1-port-list-3.jpg" />
+            <img src={home1portlist3} />
             <button className='slider-btn'><RiPlayLargeLine /></button>
             <div className="slider-text">
               <h4>BERLIN, TEXAS</h4>
@@ -80,7 +84,7 @@ export default function SecondHomeSect() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="src\assets\images\home-1-port-list-1.jpg" />
+            <img src={home1portlist1} />
             <button className='slider-btn'><RiPlayLargeLine /></button>
             <div className="slider-text">
               <h4>HOTEL ROSE</h4>
@@ -88,7 +92,7 @@ export default function SecondHomeSect() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="src\assets\images\home-1-port-list-2.jpg" />
+            <img src={home1portlist2} />
             <button className='slider-btn'><RiPlayLargeLine /></button>
             <div className="slider-text">
               <h4>BLUE ROOM</h4>
@@ -96,7 +100,7 @@ export default function SecondHomeSect() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <img src="src\assets\images\home-1-port-list-3.jpg" />
+            <img src={home1portlist3} />
             <button className='slider-btn'><RiPlayLargeLine /></button>
             <div className="slider-text">
               <h4>BERLIN, TEXAS</h4>
