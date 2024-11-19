@@ -20,12 +20,12 @@ export default function SecondHomeSect() {
         <div className="scnd-sect-title">
           <div className="row">
             <span>SYNOPSIS</span>
-            <div className="col-12 col-lg-6 col-md-6 col-sm-12">
+            <div className="col-12 col-lg-6 col-md-12 col-sm-12">
               <div className="scnd-title">
                 <h3>THE TELLING OF TWO INTERTWINING LIVES. MASS <del>DESTRUCTION</del>.</h3>
               </div>
             </div>
-            <div className="col-12 col-lg-6 col-md-6 col-sm-12">
+            <div className="col-12 col-lg-6 col-md-12 col-sm-12">
               <div className="scnd-title">
                 <p>Cum sociis Theme natoque penatibus et magnis dis part montes,
                   nascetur ridiculus mus. Aliquam loremante, dapibus in, viverra.
@@ -53,7 +53,7 @@ export default function SecondHomeSect() {
             slideShadows: true,
           }}
           autoplay={{
-            delay: 3000,
+            delay: 3500,
             disableOnInteraction: false,
           }}
           modules={[EffectCoverflow, Autoplay]}

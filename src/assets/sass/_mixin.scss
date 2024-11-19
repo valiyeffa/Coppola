@@ -25,3 +25,9 @@ $textfontnametwo : "Bebas Neue", sans-serif;
     justify-content: space-between;
     align-items: center;
 }
+
+@mixin centerflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

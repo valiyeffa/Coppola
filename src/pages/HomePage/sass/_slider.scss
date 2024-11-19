@@ -1,56 +1,93 @@
-.swiper {
-  width: 100%;
-  padding-top: 50px;
-  padding-bottom: 50px;
-}
-
-.swiper-slide {
-  width: 55rem;
-  overflow: hidden;
-  position: relative;
-
-  .slider-btn {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    @include button();
-    border: 2px solid white;
-    color: white;
-    border-radius: 50%;
-    padding: 13px 20px;
-    font-size: 1.4em;
-    transition: all 0.3s ease;
-
-    &:hover{
-      background-color: white;
-      color: black;
-    }
-  }
-
-  .slider-text {
-    position: absolute;
-    bottom: 20px;
-    color: white;
-    left: 25px;
-    line-height: 15px;
-
-    h4 {
-      font-size: 2em;
-    }
-
-    p {
-      font-size: 1.2em;
-    }
-  }
-}
-
 .collection {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include centerflex();
+  padding-top: 100px;
+
+  .swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .swiper-slide {
+    width: 55em;
+    overflow: hidden;
+    position: relative;
+    cursor: default;
+
+    img {
+      width: 100%;
+    }
+
+    .slider-btn {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      @include button();
+      border: 2px solid white;
+      color: white;
+      border-radius: 50%;
+      padding: 13px 20px;
+      font-size: 1.4em;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+
+    .slider-text {
+      position: absolute;
+      bottom: 20px;
+      color: white;
+      left: 25px;
+      line-height: 15px;
+
+      h4 {
+        font-size: 2em;
+      }
+
+      p {
+        font-size: 1.2em;
+      }
+    }
+  }
 }
 
-.swiper-slide img {
-  width: 100%;
+@media (max-width: 768px) {
+  .collection {
+    padding-top: 50px;
+
+    .swiper-slide {
+      width: 35em;
+    }
+  }
+}
+
+@media (max-width: 426px) {
+  .collection {
+    padding-top: 30px;
+
+    .swiper-slide {
+      width: 100%;
+
+      .slider-btn {
+        padding: 11px 15px;
+        font-size: 1em;
+      }
+
+      .slider-text {
+        bottom: 0;
+        left: 15px;
+
+        h4 {
+          font-size: 1.5em;
+        }
+
+        p {
+          font-size: 1em;
+        }
+      }
+    }
+  }
 }

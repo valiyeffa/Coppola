@@ -23,18 +23,41 @@
                         color: white;
 
                         h3 {
-                            width: 70%;
+                            width: 77%;
                             font-size: 2.8em;
                             word-spacing: 5px;
                             line-height: 45px;
                         }
 
                         p {
-                            width: 67%;
+                            width: 69%;
                             font-size: 1.1em;
                         }
                     }
 
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:992px) {
+    #home {
+        .scnd-home-sect {
+            .container-fluid {
+                .scnd-sect-title {
+                    margin-left: 0;
+                    .row {
+                        .scnd-title {
+                            h3 {
+                                width: 100%;
+                            }
+
+                            p {
+                                width: 100%;
+                            }
+                        }
+                    }
                 }
             }
         }
