@@ -2,9 +2,15 @@
     color: $textcolor !important;
 }
 
+.scroll {
+    background-color: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    animation: header_Animate 0.7s;
+}
+
 header {
     width: 100%;
-    position: fixed;
+    position: absolute;
     z-index: 1000;
     font-family: $textfontname;
 
@@ -104,13 +110,16 @@ header {
 @media (max-width:992px) {
     header {
         position: static;
+
         nav {
             background-color: black;
+
             .container-fluid {
                 .collapse {
                     .navbar-nav {
                         padding-left: 0;
                     }
+
                     .nav-right-side {
                         .account-btn {
                             .enter-account {
@@ -122,5 +131,15 @@ header {
                 }
             }
         }
+    }
+}
+
+@keyframes header_Animate {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0);
     }
 }

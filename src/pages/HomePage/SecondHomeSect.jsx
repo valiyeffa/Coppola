@@ -110,6 +110,5 @@ export default function SecondHomeSect() {
         </Swiper>
       </div >
     </div>
-
   );
 }

@@ -1,7 +1,7 @@
 #home {
     .home-first-section {
         @include width();
-        background-image: url("https://coppola.qodeinteractive.com/wp-content/uploads/2021/11/h1-rev-bg-img-new.jpg");
+        background-image: url('../../../assets/images/h1-rev-bg-img-new.jpg');
         background-position: center;
         background-size: cover;
         overflow: hidden;
