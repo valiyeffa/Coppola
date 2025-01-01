@@ -1,4 +1,5 @@
 import React from 'react'
+import { MdArrowOutward } from "react-icons/md";
 import bloglist1 from '../../assets/images/blog-list-main-1.jpg'
 import bloglist2 from '../../assets/images/blog-list-main-2.jpg'
 
@@ -11,17 +12,34 @@ const ThirdHomeSect = () => {
                 </div>
 
                 <div className="row">
-                    <div className="col-12 col-lg-6 col-md-6 col-sm-12">
+                    <div className="col-12 col-lg-6 col-md-12 col-sm-12">
                         <div className="news-blog">
                             <img src={bloglist1} alt="" />
-                            <div className="left-side-text">
-                                
+                            <div className="blog-textbox">
+                                <div className="textbox-catg">
+                                    <p><span>ARTWORK</span> DECEMBER 10</p>
+                                </div>
+                                <div className="textbox-title">
+                                    <a href="#" className='textbox-text'>Interview with movie producer Brian harington</a>
+                                    <a href='#' className='view-more-btn'>View More <MdArrowOutward className='submit-arrow' /></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-6 col-md-6 col-sm-12">
+                    <div className="col-12 col-lg-6 col-md-12 col-sm-12">
                         <div className="news-blog">
-                            <img src={bloglist2} alt="" />
+                            <div className="news-blog-img">
+                                <img src={bloglist2} alt="" />
+                            </div>
+                            <div className="blog-textbox-scnd">
+                                <div className="textbox-catg">
+                                    <p><span>ARTWORK</span> DECEMBER 10</p>
+                                </div>
+                                <div className="textbox-title">
+                                    <a href="#" className='textbox-text'>Interview in london with movie producer sebastian ring</a>
+                                    <a href='#' className='view-more-btn'>View More <MdArrowOutward className='submit-arrow' /></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

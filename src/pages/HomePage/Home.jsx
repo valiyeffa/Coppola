@@ -2,6 +2,7 @@ import React from 'react'
 import FirstHomeSect from './FirstHomeSect'
 import SecondHomeSect from './SecondHomeSect'
 import ThirdHomeSect from './ThirdHomeSect'
+import FourthHomeSect from './FourthHomeSect'
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <FirstHomeSect />
       <SecondHomeSect/>
       <ThirdHomeSect/>
+      <FourthHomeSect/>
     </div>
   )
 }

@@ -17,7 +17,7 @@ const Header = () => {
     }, [])
 
     return (
-        <header className={scroll && "scroll"}>
+        <header className={scroll ? "scroll": undefined}>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#home"><img src="https://coppola.qodeinteractive.com/wp-content/uploads/2021/12/logo-main-light-height14px.png" width={110} alt="" /></a>
