@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaRegUser } from "react-icons/fa";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
+import { MdKeyboardArrowRight } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
@@ -17,7 +18,7 @@ const Header = () => {
     }, [])
 
     return (
-        <header className={scroll ? "scroll": undefined}>
+        <header className={scroll ? "scroll" : 'header'}>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#home"><img src="https://coppola.qodeinteractive.com/wp-content/uploads/2021/12/logo-main-light-height14px.png" width={110} alt="" /></a>
@@ -27,19 +28,19 @@ const Header = () => {
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li className="nav-item">
-                                <NavLink to="/" className="nav-link active" aria-current="page" >HOME</NavLink>
+                                <NavLink to="/" className="nav-link active" aria-current="page" >HOME <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">MOVIES</a>
+                                <a className="nav-link" href="#">MOVIES <MdKeyboardArrowRight className='collapse-right-arr' /></a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">ABOUT US</a>
+                                <a className="nav-link" href="#">ABOUT US <MdKeyboardArrowRight className='collapse-right-arr' /></a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">SERVICES</a>
+                                <a className="nav-link" href="#">SERVICES <MdKeyboardArrowRight className='collapse-right-arr' /></a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">CONTACT</a>
+                                <a className="nav-link" href="#">CONTACT <MdKeyboardArrowRight className='collapse-right-arr' /></a>
                             </li>
                         </ul>
                         <div className="nav-right-side">

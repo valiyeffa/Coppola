@@ -3,14 +3,115 @@
 }
 
 .scroll {
-    background-color: rgba(0, 0, 0, 0.9);
     position: fixed;
     animation: header_Animate 0.7s;
+    width: 100%;
+    z-index: 1000;
+    font-family: $textfontname;
+    background-color: black;
 
-    
+    nav {
+        width: 100%;
+        height: fit-content;
+        background-color: transparent;
+        transition: all 0.4s ease;
+
+        &:hover {
+            background-color: #000000;
+        }
+
+        .container-fluid {
+            width: 95%;
+            padding: 1px 0;
+
+            .navbar-toggler {
+                @include button();
+                color: white;
+                font-size: 1.7em;
+            }
+
+            .collapse {
+                .navbar-nav {
+                    padding-left: 60px;
+                    gap: 25px;
+
+                    .nav-item {
+                        @include flex();
+
+                        .nav-link {
+                            color: white;
+                            font-size: 0.8em;
+                            font-weight: 500;
+                            position: relative;
+
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                background-color: $textcolor;
+                                width: 0;
+                                height: 1px;
+                                left: 0;
+                                bottom: 0;
+                                transition: all 0.4s ease;
+                            }
+
+                            &:hover::after {
+                                width: 100%;
+                            }
+                        }
+
+                        // !======================================================================================
+
+                        .collapse-right-arr {
+                            display: none;
+                        }
+                    }
+                }
+
+                .nav-right-side {
+                    @include flex();
+                    justify-content: start;
+                    gap: 30px;
+
+                    .get-basket-btn {
+                        @include button();
+                        border: 2px solid;
+                        color: white;
+                        font-weight: $boldfontweight;
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            background-color: white;
+                            color: black;
+                        }
+
+                        span {
+                            font-weight: $thinfontweight;
+                        }
+                    }
+
+                    .account-btn {
+                        @include button();
+                        color: white;
+                        font-size: 20px;
+                        padding-left: 20px;
+                        border-left: 1px solid rgba(255, 255, 255, 0.333);
+
+                        .enter-account {
+                            display: none;
+                        }
+
+                        &:hover {
+                            color: $textcolor;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
-header {
+.header {
     width: 100%;
     position: absolute;
     z-index: 1000;
@@ -42,6 +143,8 @@ header {
                     gap: 25px;
 
                     .nav-item {
+                        @include flex();
+
                         .nav-link {
                             color: white;
                             font-size: 0.8em;
@@ -62,6 +165,12 @@ header {
                             &:hover::after {
                                 width: 100%;
                             }
+                        }
+
+                        // !======================================================================================
+
+                        .collapse-right-arr {
+                            display: none;
                         }
                     }
                 }
@@ -110,16 +219,68 @@ header {
 }
 
 @media (max-width:992px) {
-    header {
-        position: static;
-
+    .header {
         nav {
             background-color: black;
 
             .container-fluid {
+                padding: 10px 0;
+
                 .collapse {
                     .navbar-nav {
                         padding-left: 0;
+                        gap: 0;
+
+                        .nav-item {
+                            .nav-link {
+                                width: 98%;
+                                @include flex();
+
+                                .collapse-right-arr {
+                                    display: block;
+                                    font-size: 20px;
+                                    color: white;
+                                }
+                            }
+                        }
+                    }
+
+                    .nav-right-side {
+                        .account-btn {
+                            .enter-account {
+                                display: block;
+                                font-size: 0.8em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .scroll {
+        nav {
+            background-color: black;
+
+            .container-fluid {
+
+                .collapse {
+                    .navbar-nav {
+                        padding-left: 0;
+                        gap: 0;
+
+                        .nav-item {
+                            .nav-link {
+                                width: 98%;
+                                @include flex();
+
+                                .collapse-right-arr {
+                                    display: block;
+                                    font-size: 20px;
+                                    color: white;
+                                }
+                            }
+                        }
                     }
 
                     .nav-right-side {
@@ -135,6 +296,8 @@ header {
         }
     }
 }
+
+
 
 @keyframes header_Animate {
     0% {
