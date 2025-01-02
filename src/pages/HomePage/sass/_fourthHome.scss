@@ -1,0 +1,189 @@
+.fouth-home-sect {
+    width: 100%;
+    height: fit-content;
+    background-image: url('../../../../src/assets/images/h1-bg-img1.jpg');
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    font-family: $textfontname;
+
+    .swiper {
+        width: 100%;
+        height: 35%;
+
+        .swiper-pagination {
+            color: white;
+        }
+
+        .custom-button-prev,
+        .custom-button-next {
+            position: absolute;
+            padding: 20px 0;
+            top: 70%;
+            font-size: 20px;
+            z-index: 10;
+            color: #fff;
+            width: 40px;
+            @include centerflex();
+            cursor: pointer;
+        }
+
+        .custom-button-prev {
+            left: 10px;
+            border-right: 1px solid #51514F;
+        }
+
+        .custom-button-next {
+            right: 10px;
+            border-left: 1px solid #51514F;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            @include centerflex();
+            flex-direction: column;
+            padding-top: 120px;
+            opacity: 0 !important;
+
+            h4 {
+                width: 50%;
+                @include centerflex();
+                color: $textcolortwo;
+                text-transform: uppercase;
+                font-weight: 500;
+                padding-top: 15px;
+                font-size: 2.1rem;
+                text-align: center;
+                letter-spacing: 0.8px;
+            }
+
+            p {
+                padding: 25px 0;
+                font-size: 18px;
+                color: white;
+            }
+        }
+
+        .swiper-slide-active {
+            opacity: 1 !important;
+        }
+    }
+
+    // * =========BOTTOM-MOVIE-SIDE===========
+
+    .movie {
+        width: 100%;
+        padding: 160px 0;
+
+        .container-fluid {
+            width: 95%;
+
+            .left-side-movie-photo {
+                img {
+                    width: 100%;
+                }
+            }
+
+            .right-side-movie-text {
+                width: 80%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                row-gap: 35px;
+                padding-left: 75px;
+
+                .movie-text-body {
+                    color: white;
+
+                    p {
+                        margin: 10px 0;
+                        font-weight: 500;
+                        font-size: 18px;
+                    }
+
+                    h3 {
+                        font-size: 44px;
+                        line-height: 1.02em;
+                    }
+                }
+
+                .btn-shop {
+                    width: fit-content;
+                    border-radius: 0;
+                    border: 2px solid;
+                    padding: 8px 19px;
+                    font-size: 17px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .fouth-home-sect {
+        .swiper {
+
+            .custom-button-prev,
+            .custom-button-next {
+                display: none;
+            }
+
+            .swiper-wrapper {
+                .swiper-slide {
+                    padding-top: 80px;
+
+                    h4 {
+                        width: 90%;
+                    }
+                }
+            }
+        }
+
+        .movie {
+            padding: 90px 0;
+
+            .container-fluid {
+                width: 90%;
+
+                .right-side-movie-text {
+                    width: 95%;
+                    padding-left: 0;
+                    margin-top: 25px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:376px) {
+    .fouth-home-sect {
+        .swiper {
+            .swiper-slide {
+                p {
+                    padding: 10px 0;
+                    margin-bottom: 50px;
+                }
+            }
+        }
+
+        .movie {
+            .container-fluid {
+                width: 98%;
+                .right-side-movie-text {
+                    .movie-text-body {
+                        h3 {
+                            font-size: 38px;
+                        }
+                    }
+
+                    .btn-shop {
+                        font-size: 15px;
+                        padding: 9px 20px;
+                    }
+                }
+            }
+        }
+    }
+}
