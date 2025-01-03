@@ -109,16 +109,17 @@
                     }
                 }
 
-                .btn-shop {
-                    width: fit-content;
-                    border-radius: 0;
-                    border: 2px solid;
-                    padding: 8px 19px;
-                    font-size: 17px;
-                }
             }
         }
     }
+}
+
+.btn-shop {
+    width: fit-content;
+    border-radius: 0;
+    border: 2px solid;
+    padding: 8px 19px;
+    font-size: 17px;
 }
 
 @media (max-width:768px) {
@@ -171,6 +172,7 @@
         .movie {
             .container-fluid {
                 width: 98%;
+
                 .right-side-movie-text {
                     .movie-text-body {
                         h3 {
