@@ -4,6 +4,7 @@ import SecondHomeSect from './SecondHomeSect'
 import ThirdHomeSect from './ThirdHomeSect'
 import FourthHomeSect from './FourthHomeSect'
 import FifthHomeSect from './FifthHomeSect'
+import SixthHomeSect from './SixthHomeSect'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <ThirdHomeSect/>
       <FourthHomeSect/>
       <FifthHomeSect/>
+      <SixthHomeSect/>
     </div>
   )
 }

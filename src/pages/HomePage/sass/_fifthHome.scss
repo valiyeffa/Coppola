@@ -1,0 +1,113 @@
+.fifth-home-sect {
+    width: 100%;
+    height: fit-content;
+    background-image: url('../../../assets/images/h1-bg-img2.jpg');
+    background-position: center;
+    background-size: cover;
+    font-family: $textfontname;
+
+    .story-about-sect {
+        width: 100%;
+        @include centerflex();
+        flex-direction: column;
+        padding: 160px 0;
+
+        h6 {
+            color: white;
+            font-size: 18px;
+        }
+
+        .ad-container {
+            width: 100%;
+            overflow: hidden;
+            color: #F1A619;
+            position: relative;
+
+            .ad-content {
+                display: flex;
+                animation: scrollBanner 25s linear infinite;
+
+                span {
+                    font-family: $textfontnamethree;
+                    font-size: 340px;
+                    line-height: 340px;
+                    padding-right: 250px;
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                width: 100%;
+                height: 100%;
+                background-image: url('../../../assets/images/fifthSectPus.png');
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+
+    .story-starring-team {
+        width: 100%;
+        padding-bottom: 80px;
+
+        .container-fluid {
+            width: 94%;
+
+            h6 {
+                color: white;
+                font-size: 18px;
+                padding-bottom: 40px;
+            }
+
+            .row {
+                .starring-box {
+                    .starring-box-img {
+                        position: relative;
+
+                        img {
+                            width: 100%;
+                        }
+                        
+                        &:hover {
+                            &::after {
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                content: '';
+                                top: 0;
+                                left: 0;
+                                background-image: url('../../../assets/images/hover-team-image.png');
+                                background-size: contain;
+                            }
+                        }
+
+                    }
+
+                    .starring-box-text {
+                        color: white;
+                        padding: 25px 0;
+
+                        h5 {
+                            font-size: 25px;
+                        }
+
+                        p {
+                            font-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes scrollBanner {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-180%);
+    }
+}

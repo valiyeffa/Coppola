@@ -37,7 +37,7 @@ const Header = () => {
                                 <a className="nav-link" href="#">ABOUT US <MdKeyboardArrowRight className='collapse-right-arr' /></a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">SERVICES <MdKeyboardArrowRight className='collapse-right-arr' /></a>
+                                <a className="nav-link" href="#">BLOG <MdKeyboardArrowRight className='collapse-right-arr' /></a>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="#">CONTACT <MdKeyboardArrowRight className='collapse-right-arr' /></a>
