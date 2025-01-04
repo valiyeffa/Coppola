@@ -1,4 +1,5 @@
 import React from 'react'
+import bgimg from '../../../src/assets/images/aboutus/aboutus-bg1.jpg'
 import client1 from '../../../src/assets/images/aboutus/client-img-1.png'
 import client2 from '../../../src/assets/images/aboutus/client-img-2.png'
 import client3 from '../../../src/assets/images/aboutus/client-img-3.png'
@@ -8,10 +9,12 @@ import client6 from '../../../src/assets/images/aboutus/client-img-6.png'
 import client7 from '../../../src/assets/images/aboutus/client-img-7.png'
 import client8 from '../../../src/assets/images/aboutus/client-img-8.png'
 
+
 const FirstAboutSect = () => {
   return (
     <div className='first-about-sect'>
       <div className="ffirst-about-sect">
+        <img src={bgimg} alt="" />
       </div>
 
       <div className="fscnd-about-sect">
