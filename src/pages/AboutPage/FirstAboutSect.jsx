@@ -10,8 +10,8 @@ import client8 from '../../../src/assets/images/aboutus/client-img-8.png'
 
 const FirstAboutSect = () => {
   return (
-    <div >
-      <div className="first-about-sect">
+    <div className='first-about-sect'>
+      <div className="ffirst-about-sect">
       </div>
 
       <div className="fscnd-about-sect">

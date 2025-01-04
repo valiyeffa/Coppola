@@ -1,76 +1,78 @@
 .first-about-sect {
-    width: 100%;
-    height: 85vh;
-    // background-image: url('../../../../src/pages/AboutPage/aboutus-bg1.jpg');
-    background-image: url('../../../../src/assets/images/h1-big-bg.jpg') !important;
-    background-size: cover;
-}
+    .ffirst-about-sect {
+        width: 100%;
+        height: 85vh;
+        background-image: url('../../../../src/pages/AboutPage/aboutus-bg1.jpg');
+        background-size: cover;
+    }
 
-.fscnd-about-sect {
-    font-family: $textfontname;
-    padding: 130px 0;
+    .fscnd-about-sect {
+        font-family: $textfontname;
+        padding: 130px 0;
 
-    .container-fluid {
-        width: 93%;
+        .container-fluid {
+            width: 93%;
 
-        .about-mini-title {
-            font-weight: 500;
-            font-size: 19px;
-            text-transform: uppercase;
-        }
+            .about-mini-title {
+                font-weight: 500;
+                font-size: 19px;
+                text-transform: uppercase;
+            }
 
-        .row {
-            row-gap: 25px;
-            align-items: center;
+            .row {
+                row-gap: 25px;
+                align-items: center;
 
-            .about-textbox {
-                color: black;
+                .about-textbox {
+                    color: black;
 
-                p {
-                    width: 94%;
-                    font-size: 19px;
-                }
+                    p {
+                        width: 94%;
+                        font-size: 19px;
+                    }
 
-                h1 {
-                    text-transform: uppercase;
-                    font-weight: 500;
-                    width: 80%;
-                    font-size: 63px;
-                    letter-spacing: 3px;
-                    line-height: 1em;
-                    word-spacing: 2px;
+                    h1 {
+                        text-transform: uppercase;
+                        font-weight: 500;
+                        width: 80%;
+                        font-size: 63px;
+                        letter-spacing: 3px;
+                        line-height: 1em;
+                        word-spacing: 2px;
+                    }
                 }
             }
         }
     }
-}
 
-.fthrd-about-sect {
-    width: 100%;
+    .fthrd-about-sect {
+        width: 100%;
 
-    .container-fluid {
-        .row {
-            .brands-icons {
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                padding: 30px 0;
+        .container-fluid {
+            .row {
+                .brands-icons {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    padding: 30px 0;
+                }
             }
         }
     }
+
 }
-
-
 
 
 @media (max-width:426px) {
-    .fscnd-about-sect {
-        .container-fluid {
-            .row {
-                .about-textbox {
-                    h1 {
-                        width: 100%;
-                        font-size: 40px;
+    .first-about-sect {
+        .fscnd-about-sect {
+            .container-fluid {
+                .row {
+                    .about-textbox {
+                        h1 {
+                            width: 100%;
+                            font-size: 40px;
+                        }
                     }
                 }
             }
