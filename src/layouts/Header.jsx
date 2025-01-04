@@ -19,13 +19,16 @@ const Header = () => {
         window.addEventListener("scroll", handleScroll);
     }, [])
 
+    const topPage = () => {
+        window.scrollTo(0, 0);
+    }
 
-    if (location.pathname !== "/about-us") {
+    if (location.pathname !== "/about-us" && location.pathname !== "/contact-us") {
         return (
             <header className={scroll ? "scroll" : 'header'}>
                 <nav className="navbar navbar-expand-lg">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="#home"><img src="https://coppola.qodeinteractive.com/wp-content/uploads/2021/12/logo-main-light-height14px.png" width={110} alt="" /></a>
+                        <a className="navbar-brand" href="/"><img src="https://coppola.qodeinteractive.com/wp-content/uploads/2021/12/logo-main-light-height14px.png" width={110} alt="" /></a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <HiMiniBars3BottomRight />
                         </button>
@@ -38,13 +41,13 @@ const Header = () => {
                                     <a className="nav-link" href="#">MOVIES <MdKeyboardArrowRight className='collapse-right-arr' /></a>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink to="/about-us" className="nav-link">ABOUT US <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
+                                    <NavLink to="/about-us" onClick={topPage} className="nav-link">ABOUT US <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">BLOG <MdKeyboardArrowRight className='collapse-right-arr' /></a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">CONTACT <MdKeyboardArrowRight className='collapse-right-arr' /></a>
+                                    <NavLink to='/contact-us' onClick={topPage} className="nav-link">CONTACT <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                                 </li>
                             </ul>
                             <div className="nav-right-side">
@@ -61,7 +64,7 @@ const Header = () => {
             <header className='other-header'>
                 <nav className="navbar navbar-expand-lg">
                     <div className="container-fluid">
-                        <a className="navbar-brand" href="#home"><img src="https://coppola.qodeinteractive.com/wp-content/uploads/2021/12/logo-main-light-height14px.png" width={110} alt="" /></a>
+                        <a className="navbar-brand" href="/"><img src="https://coppola.qodeinteractive.com/wp-content/uploads/2021/12/logo-main-light-height14px.png" width={110} alt="" /></a>
                         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <HiMiniBars3BottomRight />
                         </button>
@@ -74,13 +77,13 @@ const Header = () => {
                                     <a className="nav-link" href="#">MOVIES <MdKeyboardArrowRight className='collapse-right-arr' /></a>
                                 </li>
                                 <li className="nav-item">
-                                    <NavLink to="/about-us" className="nav-link">ABOUT US <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
+                                    <NavLink to="/about-us" onClick={topPage} className="nav-link">ABOUT US <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#">BLOG <MdKeyboardArrowRight className='collapse-right-arr' /></a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">CONTACT <MdKeyboardArrowRight className='collapse-right-arr' /></a>
+                                    <NavLink to='/contact-us' onClick={topPage} className="nav-link">CONTACT <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                                 </li>
                             </ul>
                             <div className="nav-right-side">

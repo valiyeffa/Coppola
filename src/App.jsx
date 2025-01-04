@@ -5,6 +5,8 @@ import Home from './pages/HomePage/Home'
 import NotFoundPage from './components/NotFoundPage'
 import Footer from './layouts/Footer'
 import AboutUs from './pages/AboutPage/AboutUs'
+import ContactUs from './pages/ContactPage/ContactUs'
+import Team from './pages/HomePage/Team'
 
 const App = () => {
   return (
@@ -13,7 +15,8 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/about-us' element={<AboutUs/>}></Route>
-        {/* <Route path='/blog' element={<AboutUs/>}></Route> */}
+        <Route path='/contact-us' element={<ContactUs/>}></Route>
+        <Route path='/our-team' element={<Team/>}></Route>
         <Route path='*' element={<NotFoundPage/>}></Route>
       </Routes>
       <Footer/>

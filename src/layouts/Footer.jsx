@@ -2,8 +2,13 @@ import React from 'react'
 import footerImg from '../assets/images/footer-img.png'
 import { FaInstagram, FaYoutube, FaVimeoV, FaTwitter } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
+    const topPage = () => {
+        window.scrollTo(0, 0);
+    }
+
     return (
         <div className="footer">
             <div className="container">
@@ -17,21 +22,20 @@ const Footer = () => {
                     <div className="col mb-3"></div>
                     <div className="col mb-3">
                         <ul className="nav flex-column">
-                            <li className="nav-item mb-2"><a href="#" className="nav-link p-0">WHAT WE DO</a></li>
-                            <li className="nav-item mb-2"><a href="#" className="nav-link p-0">ABOUT US</a></li>
+                            <li className="nav-item mb-2"><NavLink to='/about-us' onClick={topPage} className="nav-link p-0">ABOUT US</NavLink></li>
                             <li className="nav-item mb-2"><a href="#" className="nav-link p-0">HELP AND FAQ</a></li>
-                        </ul>
-                    </div>
-                    <div className="col mb-3">
-                        <ul className="nav flex-column">
-                            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 ">TEAM</a></li>
-                            <li className="nav-item mb-2"><a href="#" className="nav-link p-0 ">CONTACT US</a></li>
                             <li className="nav-item mb-2"><p className="nav-link p-0">LANGUAGE:
                                 <select className='lang-btn btn p-0 mx-2'>
                                     <option value="en" className='btn'>En</option>
                                     <option value="az" className='btn'>Az</option>
                                 </select>
                             </p></li>
+                        </ul>
+                    </div>
+                    <div className="col mb-3">
+                        <ul className="nav flex-column">
+                            <li className="nav-item mb-2"><NavLink to='/our-team' onClick={topPage} className="nav-link p-0 ">TEAM</NavLink></li>
+                            <li className="nav-item mb-2"><NavLink to='/contact-us' onClick={topPage} className="nav-link p-0 ">CONTACT US</NavLink></li>
                         </ul>
                     </div>
                     <div className="col mb-3">
