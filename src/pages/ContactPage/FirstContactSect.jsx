@@ -5,7 +5,6 @@ const FirstContactSect = () => {
         <div className='first-contact-sect'>
             <div className="container-fluid">
                 <div className="contact-body">
-
                     <div className="row">
                         <div className="col-12 col-lg-6 col-md-12 col-sm-12">
                             <div className="left-side-text">
