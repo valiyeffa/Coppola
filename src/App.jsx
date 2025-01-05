@@ -7,6 +7,7 @@ import Footer from './layouts/Footer'
 import AboutUs from './pages/AboutPage/AboutUs'
 import ContactUs from './pages/ContactPage/ContactUs'
 import Team from './pages/HomePage/Team'
+import AccLogReg from './pages/Auth/AccLogReg'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/about-us' element={<AboutUs/>}></Route>
         <Route path='/contact-us' element={<ContactUs/>}></Route>
         <Route path='/our-team' element={<Team/>}></Route>
+        <Route path='/login-register' element={<AccLogReg/>}></Route>
         <Route path='*' element={<NotFoundPage/>}></Route>
       </Routes>
       <Footer/>

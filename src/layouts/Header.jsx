@@ -23,7 +23,7 @@ const Header = () => {
         window.scrollTo(0, 0);
     }
 
-    if (location.pathname !== "/about-us" && location.pathname !== "/contact-us") {
+    if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/login-register") {
         return (
             <header className={scroll ? "scroll" : 'header'}>
                 <nav className="navbar navbar-expand-lg">
@@ -52,7 +52,7 @@ const Header = () => {
                             </ul>
                             <div className="nav-right-side">
                                 <button className='btn get-basket-btn'>Get Basket <span>|</span> 0</button>
-                                <button className='btn account-btn'><FaRegUser /><span className='enter-account'>ACCOUNT</span></button>
+                                <NavLink to='/login-register' className='btn account-btn'><FaRegUser /><span className='enter-account'>ACCOUNT</span></NavLink>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@ const Header = () => {
                             </ul>
                             <div className="nav-right-side">
                                 <button className='btn get-basket-btn'>Get Basket <span>|</span> 0</button>
-                                <button className='btn account-btn'><FaRegUser /><span className='enter-account'>ACCOUNT</span></button>
+                                <NavLink to='/login-register' className='btn account-btn'><FaRegUser /><span className='enter-account'>ACCOUNT</span></NavLink>
                             </div>
                         </div>
                     </div>
