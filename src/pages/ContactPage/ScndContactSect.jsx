@@ -1,5 +1,5 @@
 import React from 'react'
-import innerImg from '../../../src/assets/images/contactus/inner-img-2.jpg'
+import innerImg from '../../../public/assets/contactus/inner-img-2.jpg'
 const ScndContactSect = () => {
     return (
         <div className='scnd-contact-sect'>
