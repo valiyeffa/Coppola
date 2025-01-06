@@ -26,8 +26,8 @@ const AccLogReg = () => {
         })
             .then(res => {
                 if (res.status === 201 || res.status === 200) {
-                    cookies.set("x-auth-token", res.data);
-                    localStorage.setItem("user", 'true');
+                    // cookies.set("x-auth-token", res.data);
+                    // localStorage.setItem("user", 'true');
                     Swal.fire({
                         title: "Login is successfull",
                         icon: "success",
@@ -48,6 +48,15 @@ const AccLogReg = () => {
                 email: regEmailRef.current.value,
                 password: regPassRef.current.value
             })
+            // if (regsData.status === 201 || regsData.status === 200) {
+            //     // Cookies.set("x-auth-token", res.data);
+            //     // localStorage.setItem("user", 'true');
+            //     Swal.fire({
+            //         title: "Register is successfull",
+            //         icon: "success",
+            //         preConfirm: () => { navigate('/') }
+            //     })
+            // }
 
             console.log("salam",regsData);
             
@@ -57,15 +66,15 @@ const AccLogReg = () => {
         }
       
             // .then(res => {
-            //     // if (res.status === 201 || res.status === 200) {
-            //     //     // Cookies.set("x-auth-token", res.data);
-            //     //     // localStorage.setItem("user", 'true');
-            //     //     Swal.fire({
-            //     //         title: "Register is successfull",
-            //     //         icon: "success",
-            //     //         preConfirm: () => { navigate('/') }
-            //     //     })
-            //     // }
+                // if (res.status === 201 || res.status === 200) {
+                //     // Cookies.set("x-auth-token", res.data);
+                //     // localStorage.setItem("user", 'true');
+                //     Swal.fire({
+                //         title: "Register is successfull",
+                //         icon: "success",
+                //         preConfirm: () => { navigate('/') }
+                //     })
+                // }
             //     console.log()
             // })
            

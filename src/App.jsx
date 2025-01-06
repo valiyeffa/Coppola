@@ -8,20 +8,22 @@ import AboutUs from './pages/AboutPage/AboutUs'
 import ContactUs from './pages/ContactPage/ContactUs'
 import Team from './pages/HomePage/Team'
 import AccLogReg from './pages/Auth/AccLogReg'
+import MoviesShop from './pages/Movies/MoviesShop'
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/about-us' element={<AboutUs/>}></Route>
-        <Route path='/contact-us' element={<ContactUs/>}></Route>
-        <Route path='/our-team' element={<Team/>}></Route>
-        <Route path='/login-register' element={<AccLogReg/>}></Route>
-        <Route path='*' element={<NotFoundPage/>}></Route>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/about-us' element={<AboutUs />}></Route>
+        <Route path='/contact-us' element={<ContactUs />}></Route>
+        <Route path='/our-team' element={<Team />}></Route>
+        <Route path='/login-register' element={<AccLogReg />}></Route>
+        <Route path='/movies-shop' element={<MoviesShop />}></Route>
+        <Route path='*' element={<NotFoundPage />}></Route>
       </Routes>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
   )
 }

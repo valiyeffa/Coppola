@@ -17,8 +17,8 @@ const FourthHomeSect = () => {
         spaceBetween={30}
         effect={'fade'}
         navigation={{
-          prevEl: '.custom-button-prev', // Xüsusi prev düyməsi
-          nextEl: '.custom-button-next', // Xüsusi next düyməsi
+          prevEl: '.custom-button-prev',
+          nextEl: '.custom-button-next',
         }}
         pagination={{
           type: 'fraction',
