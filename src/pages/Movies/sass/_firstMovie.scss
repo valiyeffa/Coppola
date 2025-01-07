@@ -29,10 +29,14 @@
     .container-fluid {
         width: 95%;
         padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         .row {
             width: 100%;
             justify-content: center;
+            row-gap: 25px;
 
             .movie-left-side {
                 width: 100%;
@@ -181,9 +185,11 @@
 
                         .movie-card {
                             width: 100%;
-                            .card-body{
+
+                            .card-body {
                                 padding-top: 20px;
-                                .movie-ctg{
+
+                                .movie-ctg {
                                     text-transform: uppercase;
                                     font-weight: 600;
                                     border-radius: 0;
@@ -191,11 +197,11 @@
 
                                 }
 
-                                .card-title{
+                                .card-title {
                                     text-transform: uppercase;
                                 }
 
-                                .card-text{
+                                .card-text {
                                     margin: 0;
                                 }
 
@@ -207,4 +213,18 @@
         }
     }
 
+}
+
+@media (max-width: 426px) {
+    .head-sect-movie {
+        .container-fluid {
+            .row {
+                .movie-right-side {
+                    .movie-right-top-carousel {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 }

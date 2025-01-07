@@ -1,8 +1,10 @@
 import React from 'react'
-import { FaRegUser } from "react-icons/fa";
+import { FaRegUser, FaRegHeart } from "react-icons/fa";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
+import { Badge, ConfigProvider, Space } from 'antd';
+
 
 const HeaderComp = () => {
     const topPage = () => {
@@ -36,6 +38,19 @@ const HeaderComp = () => {
                     </ul>
                     <div className="nav-right-side">
                         <button className='btn get-basket-btn'>Get Basket <span>|</span> 0</button>
+                        <button className='btn get-fav-btn'>
+                            <ConfigProvider theme={{
+                                components: {
+                                    Badge: {
+                                        indicatorHeight:15
+                                    },
+                                },
+                            }}>
+                                <Badge count={2} color='#EAA57F'>
+                                    <FaRegHeart className='fav-btn' />
+                                </Badge>
+                            </ConfigProvider>
+                        </button>
                         <NavLink to='/login-register' className='btn account-btn'><FaRegUser /><span className='enter-account'>ACCOUNT</span></NavLink>
                     </div>
                 </div>

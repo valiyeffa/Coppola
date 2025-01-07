@@ -36,7 +36,7 @@ const HeadMovie = () => {
             <div className="container-fluid">
                 <h2 className='py-5' style={{ textAlign: 'center' }}>Movies / Shop</h2>
                 <div className="row">
-                    <div className="col-12 col-lg-2 col-md-2 col-sm-12">
+                    <div className="col-12 col-lg-2 col-md-11 col-sm-12">
                         <img style={{ width: '100%', padding: '50px 0' }} src={logoDark} alt="" />
                         <div className="movie-left-side">
                             <div className="left-side-body">
@@ -94,7 +94,7 @@ const HeadMovie = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-10 col-md-10 col-sm-12">
+                    <div className="col-12 col-lg-10 col-md-12 col-sm-12">
                         <div className="movie-right-side">
                             <div className="movie-right-top-carousel">
                                 <Swiper

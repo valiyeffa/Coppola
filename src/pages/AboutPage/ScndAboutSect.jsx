@@ -18,8 +18,14 @@ import award3 from '../../../src/assets/images/aboutus/client-img-11.png'
 import award4 from '../../../src/assets/images/aboutus/client-img-12.png'
 import award5 from '../../../src/assets/images/aboutus/client-img-13.png'
 import award6 from '../../../src/assets/images/aboutus/client-img-14.png'
+import { NavLink } from 'react-router-dom';
 
 const ScndAboutSect = () => {
+
+    const topPage = () => {
+        window.scrollTo(0, 0);
+    }
+
     return (
         <div className='scnd-about-sect'>
             <div className="fscnd-about-sect">
@@ -34,7 +40,7 @@ const ScndAboutSect = () => {
                             <div className="movie-tale tale-text ">
                                 <p>A TALE OF</p>
                                 <h3>ROMANTIC MOVIE CRIME COMEDY-DRAMA</h3>
-                                <button className='btn-shop btn btn-outline-dark px-4'>Get Tickets</button>
+                                <NavLink to='/movies-shop' onClick={topPage} className='btn-shop btn btn-outline-dark px-4'>Get Tickets</NavLink>
                             </div>
                         </div>
                     </div>
@@ -140,7 +146,7 @@ const ScndAboutSect = () => {
                             <div className="about-textbox">
                                 <h2>DROP US A <span>NOTE</span> WE WILL GET BACK TO YOU SOON</h2>
                             </div>
-                            <button className='btn-shop btn btn-outline-dark px-4'>Contact Us</button>
+                            <NavLink to='/contact-us' onClick={topPage} className='btn-shop btn btn-outline-dark px-4'>Contact Us</NavLink>
                         </div>
 
                         <div className="col-12 col-lg-6 col-md-12 col-sm-6 ">

@@ -2,7 +2,6 @@
     color: $textcolor !important;
 }
 
-
 .other-header {
     position: static;
     width: 100%;
@@ -96,7 +95,7 @@
                 .nav-right-side {
                     @include flex();
                     justify-content: start;
-                    gap: 30px;
+                    gap: 12px;
 
                     .get-basket-btn {
                         @include button();
@@ -112,6 +111,21 @@
 
                         span {
                             font-weight: $thinfontweight;
+                        }
+                    }
+
+                    .get-fav-btn {
+                        border: none;
+
+                        .fav-btn {
+                            color: white;
+                            font-size: 23px;
+                            transition: all 0.3s ease;
+
+                            &:hover {
+                                color: $textcolor;
+                            }
+
                         }
                     }
 
@@ -196,7 +210,7 @@ nav {
             .nav-right-side {
                 @include flex();
                 justify-content: start;
-                gap: 30px;
+                gap: 12px;
 
                 .get-basket-btn {
                     @include button();
@@ -212,6 +226,21 @@ nav {
 
                     span {
                         font-weight: $thinfontweight;
+                    }
+                }
+
+                .get-fav-btn {
+                    border: none;
+
+                    .fav-btn {
+                        color: white;
+                        font-size: 22px;
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            color: $textcolor;
+                        }
+
                     }
                 }
 

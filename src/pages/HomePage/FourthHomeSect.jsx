@@ -9,8 +9,14 @@ import 'swiper/css/effect-fade';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './sass/home.scss'
+import { NavLink } from 'react-router-dom';
 
 const FourthHomeSect = () => {
+
+  const topPage = () => {
+    window.scrollTo(0, 0);
+  }
+
   return (
     <div className='fouth-home-sect'>
       <Swiper
@@ -64,7 +70,7 @@ const FourthHomeSect = () => {
                   <p>ROMANCE</p>
                   <h3>MESMERIZING LOVE STORY FOR <del>ROMATICS</del></h3>
                 </div>
-                <button className='btn-shop btn btn-outline-light'>Get Tickets</button>
+                <NavLink to='/movies-shop' onClick={topPage} className='btn-shop btn btn-outline-light'>Get Tickets</NavLink>
               </div>
             </div>
           </div>
