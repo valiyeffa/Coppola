@@ -18,87 +18,71 @@ const AccLogReg = () => {
     const regEmailRef = useRef();
     const regPassRef = useRef();
 
-    const loginSubmit = (e) => {
-        e.preventDefault();
-        axios.post(`https://coppola-movie.vercel.app/api/auth/login`, {
-            email: emailRef.current.value,
-            password: passwordRef.current.value
-        })
-            .then(res => {
-                if (res.status === 201 || res.status === 200) {
-                    // cookies.set("x-auth-token", res.data);
-                    // localStorage.setItem("user", 'true');
-                    Swal.fire({
-                        title: "Login is successfull",
-                        icon: "success",
-                        preConfirm: () => { navigate('/') }
-                    })
-                }
-                console.log(res.data)
+    const loginSubmit = async (e) => {
+        try {
+            e.preventDefault();
+            const response = await axios.post(`https://coppola-movie.vercel.app/api/auth/login`, {
+                email: emailRef.current.value,
+                password: passwordRef.current.value
             })
-            .catch(err => console.log(err))
+
+            console.log(response.data);
+            if (response.status === 201 || response.status === 200) {
+                localStorage.setItem("token", response.data?.token);
+                Swal.fire({
+                    title: `${response.data.message}`,
+                    icon: "success",
+                    preConfirm: () => { navigate('/') }
+                })
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     const registerSubmit = async (e) => {
-        e.preventDefault();
         try {
-            const regsData = await axios.post("http://localhost:3002/api/auth/register", {
+            e.preventDefault();
+            const regsData = await axios.post("https://coppola-movie.vercel.app/api/auth/register", {
                 name: regNameRef.current.value,
                 surname: regSnameRef.current.value,
                 email: regEmailRef.current.value,
                 password: regPassRef.current.value
             })
-            // if (regsData.status === 201 || regsData.status === 200) {
-            //     // Cookies.set("x-auth-token", res.data);
-            //     // localStorage.setItem("user", 'true');
-            //     Swal.fire({
-            //         title: "Register is successfull",
-            //         icon: "success",
-            //         preConfirm: () => { navigate('/') }
-            //     })
-            // }
+            if (regsData.status === 201 || regsData.status === 200) {
+                // Cookies.set("x-auth-token", res.data);
+                // localStorage.setItem("user", 'true');
+                Swal.fire({
+                    title: `${regsData.data.message}`,
+                    icon: "success",
+                    preConfirm: () => { navigate('/') }
+                })
+            }
+            console.log(regsData);
 
-            console.log("salam",regsData);
-            
         } catch (error) {
             console.log(error);
-            
-        }
-      
-            // .then(res => {
-                // if (res.status === 201 || res.status === 200) {
-                //     // Cookies.set("x-auth-token", res.data);
-                //     // localStorage.setItem("user", 'true');
-                //     Swal.fire({
-                //         title: "Register is successfull",
-                //         icon: "success",
-                //         preConfirm: () => { navigate('/') }
-                //     })
-                // }
-            //     console.log()
-            // })
-           
-            // .catch(err => {
-            //     console.log(err);
 
-            //     // if (err.status === 400 || err.status === 401) {
-            //     //     let alertText = "";
-            //     //     if (err.response.data.match("password")) {
-            //     //         alertText = err.response.data
-            //     //     } else if (err.response.data.match("empty")) {
-            //     //         alertText = err.response.data
-            //     //     } else if (err.response.data.match("email")) {
-            //     //         alertText = err.response.data
-            //     //     }
-            //     //     else if (err.response.data.match("already")) {
-            //     //         alertText = err.response.data
-            //     //     }
-            //     //     Swal.fire({
-            //     //         title: alertText,
-            //     //         icon: "error"
-            //     //     })
-            //     // }
-            // })
+        }
+
+        if (err.status === 400 || err.status === 401) {
+            let alertText = "";
+            if (err.response.data.match("password")) {
+                alertText = err.response.data
+            } else if (err.response.data.match("empty")) {
+                alertText = err.response.data
+            } else if (err.response.data.match("email")) {
+                alertText = err.response.data
+            }
+            else if (err.response.data.match("already")) {
+                alertText = err.response.data
+            }
+            Swal.fire({
+                title: alertText,
+                icon: "error"
+            })
+        }
     }
 
     const passToggleShow = () => {
@@ -122,7 +106,7 @@ const AccLogReg = () => {
                         <input ref={regEmailRef} type="email" placeholder="Email" />
                         <div className="pass-box">
                             <input ref={regPassRef} type={inputType} placeholder="Password" className='pass-input' />
-                            <button onClick={passToggleShow} className='btn btn-toggle-show'>{eye === true ? <FaRegEye /> : <FaRegEyeSlash />}</button>
+                            <button type='button' onClick={passToggleShow} className='btn btn-toggle-show'>{eye === true ? <FaRegEye /> : <FaRegEyeSlash />}</button>
                         </div>
                         <button type='submit' className='btn-send btn btn-outline-dark btn-shop px-3 py-2'>Sign Up</button>
                     </form>
@@ -134,7 +118,7 @@ const AccLogReg = () => {
                         <input type="email" ref={emailRef} placeholder="Email" />
                         <div className="pass-box">
                             <input type={inputType} ref={passwordRef} placeholder="Password" className='pass-input' />
-                            <button onClick={passToggleShow} className='btn btn-toggle-show'>{eye === true ? <FaRegEye /> : <FaRegEyeSlash />}</button>
+                            <button type='button' onClick={passToggleShow} className='btn btn-toggle-show'>{eye === true ? <FaRegEye /> : <FaRegEyeSlash />}</button>
                         </div>
                         <a href="#">Forget Your Password?</a>
                         <button type='submit' className='btn btn-outline-dark btn-shop px-3 py-2'>Sign In</button>

@@ -5,7 +5,6 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import { NavLink } from 'react-router-dom';
 import { Badge, ConfigProvider, Space } from 'antd';
 
-
 const HeaderComp = () => {
     const topPage = () => {
         window.scrollTo(0, 0);
