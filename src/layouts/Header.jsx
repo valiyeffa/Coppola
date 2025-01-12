@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
-import HeaderComp from './HeaderComp';
+import HeaderComp from '../components/HeaderComp';
+import SideHeader from '../components/SideHeader';
 
 const Header = () => {
     const [scroll, setScroll] = useState(false);
@@ -17,24 +18,31 @@ const Header = () => {
         window.addEventListener("scroll", handleScroll);
     }, [])
 
-    if (location.pathname !== "/login-register") {
-        if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop") {
-            return (
-                <header className={scroll ? "scroll" : 'header'}>
-                    <HeaderComp />
-                </header>
-            )
+    if (location.pathname !== "/dashboard" && location.pathname !== '/movie-list' && location.pathname !== '/blog-list') {
+        if (location.pathname !== "/login-register") {
+            if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop") {
+                return (
+                    <header className={scroll ? "scroll" : 'header'}>
+                        <HeaderComp />
+                    </header>
+                )
+            } else {
+                return (
+                    <header className='other-header'>
+                        <HeaderComp />
+                    </header>
+                )
+            }
         } else {
-            return (
-                <header className='other-header'>
-                    <HeaderComp />
-                </header>
-            )
+            return null;
         }
     } else {
-        return null;
+        return (
+            <>
+                <SideHeader />
+            </>
+        )
     }
-
 }
 
 export default Header

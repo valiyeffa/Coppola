@@ -14,6 +14,7 @@ import prod3 from './images/product-3-300x425.jpg'
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
+import MovieCard from '../../components/MovieCard';
 
 const marks = {
     10: {
@@ -89,7 +90,7 @@ const HeadMovie = () => {
                                             marks={marks}
                                         />
                                     </ConfigProvider>
-                                    <button className='btn btn-outline-dark btn-shop px-4 py-1'>Apply</button>
+                                    <button className='btn btn-outline-dark btn-shop btn-shop-dark px-4 py-1'>Apply</button>
                                 </div>
                             </div>
                         </div>
@@ -154,6 +155,7 @@ const HeadMovie = () => {
 
                             <div className="movie-right-body-products">
                                 <div className="row">
+                                    <MovieCard/>
                                     <div className="col-12 col-lg-4 col-md-4 col-sm-12">
                                         <div className="movie-card">
                                             <img src={prod1} className="card-img-top" alt="..." />

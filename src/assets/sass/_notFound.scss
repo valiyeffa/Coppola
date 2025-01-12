@@ -44,3 +44,31 @@
         }
     }
 }
+
+@media (max-width:768px) {
+    .not-found {
+        .err-404-text {
+            @include flex();
+        }
+
+        p {
+            width: 70%;
+        }
+    }
+}
+
+
+@media (max-width:426px) {
+    .not-found {
+
+        .err-404-text {
+            font-size: 50vw;
+        }
+
+        p {
+            width: 80%;
+            line-height: 1em;
+            padding-bottom: 20px;
+        }
+    }
+}

@@ -23,7 +23,7 @@ const HeaderComp = () => {
                             <NavLink to="/" className="nav-link" aria-current="page" >HOME <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/movies-shop" className="nav-link">MOVIES <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
+                            <NavLink to="/movies-shop" onClick={topPage} className="nav-link">MOVIES <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink to="/about-us" onClick={topPage} className="nav-link">ABOUT US <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
@@ -34,6 +34,9 @@ const HeaderComp = () => {
                         <li className="nav-item">
                             <NavLink to='/contact-us' onClick={topPage} className="nav-link">CONTACT <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                         </li>
+                        <li className="nav-item">
+                            <NavLink to='/dashboard' onClick={topPage} className="nav-link">DASHBOARD <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
+                        </li>
                     </ul>
                     <div className="nav-right-side">
                         <button className='btn get-basket-btn'>Get Basket <span>|</span> 0</button>
@@ -41,7 +44,7 @@ const HeaderComp = () => {
                             <ConfigProvider theme={{
                                 components: {
                                     Badge: {
-                                        indicatorHeight:15
+                                        indicatorHeight: 15
                                     },
                                 },
                             }}>

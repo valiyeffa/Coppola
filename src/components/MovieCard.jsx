@@ -1,14 +1,18 @@
 import React from 'react'
+import { FaStar, FaRegStar } from "react-icons/fa";
+
+import prod1 from '../pages/Movies/images/product-1-300x425.jpg'
 
 const MovieCard = () => {
   return (
-    <div className='movie-product-card'>
-      <div className="card" style={{ width: '18rem' }}>
-        <img src="..." className="card-img-top" alt="..." />
+    <div className="col-12 col-lg-4 col-md-4 col-sm-12">
+      <div className="movie-card">
+        <img src={prod1} className="card-img-top" alt="..." />
         <div className="card-body">
-          <h5 className="card-title">Card title</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" className="btn btn-primary">Go somewhere</a>
+          <span className='movie-ctg'>Drama</span>
+          <h5 className="card-title">Black Bird</h5>
+          <p className="card-text"><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /></p>
+          <span className="card-price">$12</span>
         </div>
       </div>
     </div>

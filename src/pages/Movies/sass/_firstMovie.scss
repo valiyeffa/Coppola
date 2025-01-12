@@ -79,7 +79,6 @@
                         }
                     }
 
-                    .prices {}
                 }
             }
 
@@ -212,7 +211,14 @@
             }
         }
     }
+}
 
+.btn-shop-dark{
+    &:hover{
+        background-color: black;
+        color: white;
+        border-color: black;
+    }
 }
 
 @media (max-width: 426px) {

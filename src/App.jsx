@@ -9,6 +9,9 @@ import ContactUs from './pages/ContactPage/ContactUs'
 import Team from './pages/HomePage/Team'
 import AccLogReg from './pages/Auth/AccLogReg'
 import MoviesShop from './pages/Movies/MoviesShop'
+import Dashboard from './pages/Dashboard/DashBoard'
+import MoviesList from './pages/Dashboard/MoviesProducts/MoviesList'
+import BlogList from './pages/Dashboard/Blog/BlogList'
 
 const App = () => {
   return (
@@ -21,6 +24,9 @@ const App = () => {
         <Route path='/our-team' element={<Team />}></Route>
         <Route path='/login-register' element={<AccLogReg />}></Route>
         <Route path='/movies-shop' element={<MoviesShop />}></Route>
+        <Route path='/dashboard' element={<Dashboard />}></Route>
+        <Route path='/movie-list' element={<MoviesList />}></Route>
+        <Route path='/blog-list' element={<BlogList />}></Route>
         <Route path='*' element={<NotFoundPage />}></Route>
       </Routes>
       <Footer />

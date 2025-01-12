@@ -11,7 +11,7 @@ const Footer = () => {
         window.scrollTo(0, 0);
     }
 
-    if (location.pathname !== '/login-register') {
+    if (location.pathname !== '/login-register' && location.pathname !== "/dashboard" && location.pathname !== '/movie-list' && location.pathname !== '/blog-list') {
         return (
             <div className="footer">
                 <div className="container">
