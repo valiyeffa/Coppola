@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import HeaderComp from '../components/HeaderComp';
-import SideHeader from '../components/SideHeader';
+import SideHeader from '../components/SideBar'; 
 
 const Header = () => {
     const [scroll, setScroll] = useState(false);
@@ -18,7 +18,7 @@ const Header = () => {
         window.addEventListener("scroll", handleScroll);
     }, [])
 
-    if (location.pathname !== "/dashboard" && location.pathname !== '/movie-list' && location.pathname !== '/blog-list') {
+    if (location.pathname !== "/dashboard" && location.pathname !== '/movie-list' && location.pathname !== '/blog-list' && location.pathname !== '/categories-list' && location.pathname !== '/add-categories-list') {
         if (location.pathname !== "/login-register") {
             if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop") {
                 return (

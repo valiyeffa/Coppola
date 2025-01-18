@@ -9,9 +9,11 @@ import ContactUs from './pages/ContactPage/ContactUs'
 import Team from './pages/HomePage/Team'
 import AccLogReg from './pages/Auth/AccLogReg'
 import MoviesShop from './pages/Movies/MoviesShop'
-import Dashboard from './pages/Dashboard/DashBoard'
+import Dashboard from './pages/Dashboard/Dashboard'
 import MoviesList from './pages/Dashboard/MoviesProducts/MoviesList'
 import BlogList from './pages/Dashboard/Blog/BlogList'
+import Categories from './pages/Dashboard/CategoriesList/Categories'
+import AddCategory from './pages/Dashboard/CategoriesList/AddCategory'
 
 const App = () => {
   return (
@@ -26,6 +28,15 @@ const App = () => {
         <Route path='/movies-shop' element={<MoviesShop />}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
         <Route path='/movie-list' element={<MoviesList />}></Route>
+
+        //!=================CATEGORY-START=================
+
+        <Route path='/categories-list' element={<Categories />}></Route>
+        <Route path='/add-categories-list' element={<AddCategory />}></Route>
+
+        //!=================CATEGORY-END==================
+
+
         <Route path='/blog-list' element={<BlogList />}></Route>
         <Route path='*' element={<NotFoundPage />}></Route>
       </Routes>

@@ -1,0 +1,13 @@
+.dashboard{
+    .movie-list{
+        .movie-list-body{
+            .list-group{
+                box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.215);
+                .list-group-item{
+                    border: none;
+                    border-bottom: 1px solid rgba(128, 128, 128, 0.244);
+                }
+            }
+        }
+    }
+}

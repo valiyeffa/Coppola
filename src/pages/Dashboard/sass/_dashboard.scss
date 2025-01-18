@@ -1,0 +1,79 @@
+.dashboard {
+    font-family: $textfontname;
+    position: absolute;
+    width: calc(100% - 320px);
+    left: 280px;
+    margin-top: 40px;
+
+    .user-panel-dropdown {
+        position: absolute;
+        right: 0;
+
+        p {
+            cursor: pointer;
+        }
+    }
+
+    .dashboard-head {
+        width: 100%;
+        margin: 200px 0;
+
+        .left-side-text {
+            h1 {
+                font-weight: 500;
+            }
+        }
+
+
+    }
+
+    .dashboard-body {
+        width: 100%;
+
+
+    }
+}
+
+.list {
+    width: 100%;
+    box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.216);
+    border-radius: 10px;
+
+    .table {
+        width: 99%;
+        margin: 0 5px;
+
+        thead {
+            tr {
+                th {
+                    font-weight: 500;
+                    font-size: 14px;
+                    color: grey;
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                padding-right: 50px;
+                color: black;
+                font-weight: 600;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        width: calc(100% - 100px);
+        left: 80px;
+    }
+}
+
+@media (max-width: 426px) {
+    .dashboard {
+        width: calc(100% - 20px);
+        left: 10px;
+        margin-top: 30px;
+    }
+}
