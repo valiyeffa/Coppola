@@ -30,7 +30,7 @@
     .dashboard-body {
         width: 100%;
 
-
+        @include centerflex();
     }
 }
 

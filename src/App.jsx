@@ -9,11 +9,12 @@ import ContactUs from './pages/ContactPage/ContactUs'
 import Team from './pages/HomePage/Team'
 import AccLogReg from './pages/Auth/AccLogReg'
 import MoviesShop from './pages/Movies/MoviesShop'
-import Dashboard from './pages/Dashboard/Dashboard'
 import MoviesList from './pages/Dashboard/MoviesProducts/MoviesList'
 import BlogList from './pages/Dashboard/Blog/BlogList'
 import Categories from './pages/Dashboard/CategoriesList/Categories'
 import AddCategory from './pages/Dashboard/CategoriesList/AddCategory'
+import Overview from './pages/Dashboard/Overview'
+import AddMovies from './pages/Dashboard/MoviesProducts/AddMovies'
 
 const App = () => {
   return (
@@ -26,16 +27,19 @@ const App = () => {
         <Route path='/our-team' element={<Team />}></Route>
         <Route path='/login-register' element={<AccLogReg />}></Route>
         <Route path='/movies-shop' element={<MoviesShop />}></Route>
-        <Route path='/dashboard' element={<Dashboard />}></Route>
-        <Route path='/movie-list' element={<MoviesList />}></Route>
 
-        //!=================CATEGORY-START=================
+        <Route path='/dashboard/overview' element={<Overview />}></Route>
 
-        <Route path='/categories-list' element={<Categories />}></Route>
-        <Route path='/add-categories-list' element={<AddCategory />}></Route>
+        //!=================MOVIE-START=================
+        <Route path='/dashboard/movie-list' element={<MoviesList />}></Route>
+        <Route path='/dashboard/movie-list/add-movie' element={<AddMovies />}></Route>
+        //!=================MOVIE-END===================
 
+
+        //!=================CATEGORY-START================
+        <Route path='/dashboard/categories-list' element={<Categories />}></Route>
+        <Route path='/dashboard/categories-list/add-category' element={<AddCategory />}></Route>
         //!=================CATEGORY-END==================
-
 
         <Route path='/blog-list' element={<BlogList />}></Route>
         <Route path='*' element={<NotFoundPage />}></Route>

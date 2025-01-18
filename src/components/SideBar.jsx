@@ -31,13 +31,13 @@ const SideHeader = () => {
             </div>
             <ul>
               <li>
-                <NavLink to='/dashboard' className='nav-link'><LuLayoutDashboard className='left-icon' /> <span className='sidebar-title'>Overview</span></NavLink>
+                <NavLink to='/dashboard/overview' className='nav-link'><LuLayoutDashboard className='left-icon' /> <span className='sidebar-title'>Overview</span></NavLink>
               </li>
               <li>
-                <NavLink to='/categories-list' className='nav-link'><BiCategory className='left-icon' /> <span className='sidebar-title'>Categories</span></NavLink>
+                <NavLink to='/dashboard/categories-list' className='nav-link'><BiCategory className='left-icon' /> <span className='sidebar-title'>Categories</span></NavLink>
               </li>
               <li>
-                <NavLink to='/movie-list' className='nav-link'><MdOutlineMovie className='left-icon' /> <span className='sidebar-title'>Movies List</span></NavLink>
+                <NavLink to='/dashboard/movie-list' className='nav-link'><MdOutlineMovie className='left-icon' /> <span className='sidebar-title'>Movies List</span></NavLink>
               </li>
               <li>
                 <NavLink to='/blog-list' className='nav-link'><FaRegNewspaper className='left-icon' /> <span className='sidebar-title'>Blog List</span></NavLink>

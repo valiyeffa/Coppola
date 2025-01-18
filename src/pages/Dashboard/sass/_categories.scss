@@ -5,14 +5,8 @@
         align-items: center;
 
         .ctg-list-body {
-
-            .add-btn {
-                width: 100%;
-                display: flex;
-                justify-content: end;
-
-
-            }
+            @include centerflex();
+            flex-direction: column;
 
             .list {
                 .list-group {
@@ -26,13 +20,17 @@
                 }
             }
         }
-
-
     }
 }
 
+.add-btn {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
 .btn-add {
-    font-size: 15px;
+    font-size: 17px;
     border-radius: 0;
 }
 

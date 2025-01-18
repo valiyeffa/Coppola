@@ -35,7 +35,7 @@ const HeaderComp = () => {
                             <NavLink to='/contact-us' onClick={topPage} className="nav-link">CONTACT <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                         </li>
                         <li style={{display:'block'}} className="nav-item">
-                            <NavLink to='/dashboard' onClick={topPage} className="nav-link">DASHBOARD <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
+                            <NavLink to='/dashboard/overview' onClick={topPage} className="nav-link">DASHBOARD <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                         </li>
                     </ul>
                     <div className="nav-right-side">

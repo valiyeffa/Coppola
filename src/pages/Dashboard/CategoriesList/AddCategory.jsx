@@ -12,7 +12,7 @@ const AddCategory = () => {
 
                 <div className="ctg-add-body my-5 col-5">
                     <Form text1={'Category Name'} text2={'Category Slug'} text3={'Category Order'} />
-                    <Link to={'/categories-list'} className='btn btn-outline-dark btn-shop my-1'>Back To Page</Link>
+                    <Link to={'/dashboard/categories-list'} className='btn btn-outline-dark btn-shop my-1'>Back To Page</Link>
                 </div>
             </div>
         </div>

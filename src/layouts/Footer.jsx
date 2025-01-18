@@ -11,7 +11,9 @@ const Footer = () => {
         window.scrollTo(0, 0);
     }
 
-    if (location.pathname !== '/login-register' && location.pathname !== "/dashboard" && location.pathname !== '/movie-list' && location.pathname !== '/blog-list' && location.pathname !== '/add-categories-list' && location.pathname !== '/categories-list') {
+    if (location.pathname !== '/login-register' && location.pathname !== "/dashboard/overview" && location.pathname !== '/dashboard/movie-list'
+         && location.pathname !== '/dashboard/movie-list/add-movie' && location.pathname !== '/blog-list' 
+         && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== '/dashboard/categories-list') {
         return (
             <div className="footer">
                 <div className="container">

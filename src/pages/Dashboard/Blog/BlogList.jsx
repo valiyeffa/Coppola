@@ -2,6 +2,7 @@ import React from 'react'
 import { DownOutlined } from '@ant-design/icons';
 import { Dropdown, Space } from 'antd';
 import { FaRegUser } from 'react-icons/fa';
+import Preloader from '../../../components/Preloader';
 
 const BlogList = () => {
   const items = [
@@ -28,6 +29,7 @@ const BlogList = () => {
                 </div>
 
                 <div className="blog-list-body d-flex justify-content-center my-5">
+                <Preloader/>
 
                 </div>
             </div>

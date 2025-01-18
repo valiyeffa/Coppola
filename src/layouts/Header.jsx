@@ -18,7 +18,9 @@ const Header = () => {
         window.addEventListener("scroll", handleScroll);
     }, [])
 
-    if (location.pathname !== "/dashboard" && location.pathname !== '/movie-list' && location.pathname !== '/blog-list' && location.pathname !== '/categories-list' && location.pathname !== '/add-categories-list') {
+    if (location.pathname !== "/dashboard/overview" && location.pathname !== '/dashboard/movie-list' 
+        && location.pathname !== '/blog-list' && location.pathname !== '/dashboard/categories-list' 
+        && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== '/dashboard/movie-list/add-movie') {
         if (location.pathname !== "/login-register") {
             if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop") {
                 return (
