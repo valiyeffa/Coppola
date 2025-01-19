@@ -9,18 +9,18 @@ import { BiCategory } from "react-icons/bi";
 import logoDark from '../../src/assets/images/logo-main-dark.png'
 
 const SideHeader = () => {
-  const [toggleBtn, setToggleBtn] = useState('side-bar-header');
+  const [toggleBtn, setToggleBtn] = useState('');
 
   const toggle = () => {
-    if (toggleBtn == 'side-bar-header') {
+    if (toggleBtn == '') {
       setToggleBtn('toggle-active');
     } else {
-      setToggleBtn('side-bar-header');
+      setToggleBtn('');
     }
   }
 
   return (
-      <div className={toggleBtn}>
+      <div className={`${toggleBtn} side-bar-header`}>
         <div className='side-nav' >
         <div className="toggle-btn" onClick={toggle}>
           <FaBars />
@@ -31,19 +31,19 @@ const SideHeader = () => {
             </div>
             <ul>
               <li>
-                <NavLink to='/dashboard/overview' className='nav-link'><LuLayoutDashboard className='left-icon' /> <span className='sidebar-title'>Overview</span></NavLink>
+                <NavLink to='/dashboard/overview' onClick={toggle} className='nav-link'><LuLayoutDashboard className='left-icon' /> <span className='sidebar-title'>Overview</span></NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/categories-list' className='nav-link'><BiCategory className='left-icon' /> <span className='sidebar-title'>Categories</span></NavLink>
+                <NavLink to='/dashboard/categories-list' onClick={toggle} className='nav-link'><BiCategory className='left-icon' /> <span className='sidebar-title'>Categories</span></NavLink>
               </li>
               <li>
-                <NavLink to='/dashboard/movie-list' className='nav-link'><MdOutlineMovie className='left-icon' /> <span className='sidebar-title'>Movies List</span></NavLink>
+                <NavLink to='/dashboard/movie-list' onClick={toggle} className='nav-link'><MdOutlineMovie className='left-icon' /> <span className='sidebar-title'>Movies List</span></NavLink>
               </li>
               <li>
-                <NavLink to='/blog-list' className='nav-link'><FaRegNewspaper className='left-icon' /> <span className='sidebar-title'>Blog List</span></NavLink>
+                <NavLink to='/blog-list' onClick={toggle} className='nav-link'><FaRegNewspaper className='left-icon' /> <span className='sidebar-title'>Blog List</span></NavLink>
               </li>
               <li>
-                <NavLink to='/' className='nav-link'><IoHomeOutline className='left-icon' /> <span className='sidebar-title'>Back To Home</span></NavLink>
+                <NavLink to='/' onClick={toggle} className='nav-link'><IoHomeOutline className='left-icon' /> <span className='sidebar-title'>Back To Home</span></NavLink>
               </li>
             </ul>
           </div>
