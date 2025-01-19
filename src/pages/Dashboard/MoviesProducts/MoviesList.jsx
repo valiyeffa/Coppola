@@ -40,36 +40,38 @@ const MoviesList = () => {
         </div>
 
         <div className="movie-list-body d-flex align-items-center flex-column my-5">
-          <div className="add-btn ">
-            <Link to={'/dashboard/movie-list/add-movie'} className='btn btn-outline-dark btn-shop btn-add'>Add New</Link>
-          </div>
           {data.length == 0 ? <Preloader /> :
-            <div className="list my-4">
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.map((item, i) => (
-                    <tr key={item._id}>
-                      <th scope="row">{i + 1}</th>
-                      <td><img height={100} src={item.image.url} /></td>
-                      <td>{item.title}</td>
-                      <td>{item.category.name}</td>
-                      <td><Link to={`/dashboard/`} className='btn btn-warning'>Edit</Link></td>
-                      <td><button className='btn btn-danger'>Delete</button></td>
+            <>
+              <div className="add-btn ">
+                <Link to={'/dashboard/movie-list/add-movie'} className='btn btn-outline-dark btn-shop btn-add'>Add New</Link>
+              </div>
+              <div className="list my-4">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">No</th>
+                      <th scope="col">Image</th>
+                      <th scope="col">Title</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Delete</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody>
+                    {data.map((item, i) => (
+                      <tr key={item._id}>
+                        <th scope="row">{i + 1}</th>
+                        <td><img height={100} src={item.image} /></td>
+                        <td>{item.title}</td>
+                        <td>{item.category.name}</td>
+                        <td><Link to={`/dashboard/`} className='btn list-btn btn-outline-warning'>Edit</Link></td>
+                        <td><button className='btn btn-outline-danger list-btn'>Delete</button></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
           }
         </div>
       </div>

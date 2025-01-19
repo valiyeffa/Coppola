@@ -9,7 +9,7 @@ import { BiCategory } from "react-icons/bi";
 import logoDark from '../../src/assets/images/logo-main-dark.png'
 
 const SideHeader = () => {
-  const [toggleBtn, setToggleBtn] = useState('');
+  const [toggleBtn, setToggleBtn] = useState('toggle-active');
 
   const toggle = () => {
     if (toggleBtn == '') {

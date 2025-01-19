@@ -1,11 +1,85 @@
-.dashboard{
-    .movie-list{
-        .movie-list-body{
-            .list-group{
+.dashboard {
+    .movie-list {
+        width: 100%;
+
+        .movie-list-body {
+            width: 100%;
+
+            .list-group {
                 box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.215);
-                .list-group-item{
+
+                .list-group-item {
                     border: none;
                     border-bottom: 1px solid rgba(128, 128, 128, 0.244);
+                }
+            }
+        }
+    }
+
+    .movies-list-add {
+        width: 100%;
+
+        .movie-add-body {
+            @include centerflex();
+            flex-direction: column;
+
+            form {
+                input,
+                textarea {
+                    box-shadow: none;
+                    outline: none;
+                    border-radius: 0;
+                    border: 1px solid grey;
+                    width: 100%;
+                }
+
+                textarea {
+                    height: 160px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:768px) {
+    .dashboard {
+        .movie-list {
+            width: 100%;
+
+            .movie-list-body {
+                width: 100%;
+
+                .list-group {
+                    box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.215);
+
+                    .list-group-item {
+                        border: none;
+                        border-bottom: 1px solid rgba(128, 128, 128, 0.244);
+                    }
+                }
+            }
+        }
+
+        .movies-list-add {
+            .movie-add-body {
+                form {
+                    width: 95%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:376px) {
+    .dashboard {
+        .movie-list {
+            width: 100% !important;
+
+            .movie-list-body {
+                width: 100%;
+
+                .list {
+                    width: 100%;
                 }
             }
         }

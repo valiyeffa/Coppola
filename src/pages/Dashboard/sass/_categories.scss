@@ -8,19 +8,27 @@
             @include centerflex();
             flex-direction: column;
 
-            .list {
-                .list-group {
-                    .list-group-item {
-                        .list-btns {
-                            .list-btn {
-                                border-radius: 0;
-                            }
-                        }
-                    }
+        }
+
+        .ctg-add-body {
+            width: 100%;
+            @include centerflex();
+            flex-direction: column;
+
+            form {
+                input {
+                    box-shadow: none;
+                    outline: none;
+                    border-radius: 0;
+                    border: 1px solid grey;
                 }
             }
         }
     }
+}
+
+.list-btn {
+    border-radius: 0;
 }
 
 .add-btn {
@@ -37,9 +45,11 @@
 @media (max-width:768px) {
     .dashboard {
         .categories-list {
-
             .ctg-add-body {
-                width: 95%;
+                form {
+                    width: 95%;
+
+                }
             }
 
             .ctg-list-body {
