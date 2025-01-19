@@ -20,6 +20,7 @@ const MoviesList = () => {
       .then(res => setData(res.data))
       .catch(err => console.log(err))
   }, [])
+  console.log(data);
 
   return (
     <div className='dashboard'>
@@ -53,19 +54,22 @@ const MoviesList = () => {
                       <th scope="col">Image</th>
                       <th scope="col">Title</th>
                       <th scope="col">Category</th>
-                      <th scope="col">Edit</th>
-                      <th scope="col">Delete</th>
+                      <th scope="col">Price</th>
+                      <th scope="col">Edit / Delete</th>
                     </tr>
                   </thead>
                   <tbody>
                     {data.map((item, i) => (
                       <tr key={item._id}>
                         <th scope="row">{i + 1}</th>
-                        <td><img height={100} src={item.image} /></td>
+                        <td><img height={100} src='http://localhost:3002/api/uploads/1737296870581.jpg' /></td>
                         <td>{item.title}</td>
                         <td>{item.category.name}</td>
-                        <td><Link to={`/dashboard/`} className='btn list-btn btn-outline-warning'>Edit</Link></td>
-                        <td><button className='btn btn-outline-danger list-btn'>Delete</button></td>
+                        <td>{item.price}$</td>
+                        <td>
+                          <Link to={`/dashboard/`} className='btn list-btn btn-outline-warning'>Edit</Link>
+                          <button className='btn btn-outline-danger list-btn ms-2'>Delete</button>
+                        </td>
                       </tr>
                     ))}
                   </tbody>

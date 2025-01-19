@@ -6,6 +6,7 @@ import { environment } from '../../../environments/environment';
 
 const AddMovies = () => {
   const [cat, setCat] = useState([]);
+  
   useEffect(() => {
     axios.get(`${environment.categoryUrl}`)
       .then((res) => {
