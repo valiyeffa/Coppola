@@ -4,10 +4,10 @@
         flex-direction: column;
         align-items: center;
 
-        .ctg-list-body {
+        .ctg-list-body{
+            width: 55%;
             @include centerflex();
             flex-direction: column;
-
         }
 
         .ctg-add-body {

@@ -29,6 +29,7 @@ const AccLogReg = () => {
             console.log(response.data);
             if (response.status === 201 || response.status === 200) {
                 localStorage.setItem("token", response.data?.token);
+                localStorage.setItem("role", response.data.user.role);
                 Swal.fire({
                     title: `${response.data.message}`,
                     icon: "success",

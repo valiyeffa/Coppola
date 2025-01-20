@@ -12,7 +12,7 @@ const Footer = () => {
     }
 
     if (location.pathname !== '/login-register' && location.pathname !== "/dashboard/overview" && location.pathname !== '/dashboard/movie-list'
-         && location.pathname !== '/dashboard/movie-list/add-movie' && location.pathname !== '/blog-list' 
+         && location.pathname !== '/dashboard/movie-list/add-movie' && location.pathname !== '/dashboard/blog-list' 
          && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== '/dashboard/categories-list') {
         return (
             <div className="footer">

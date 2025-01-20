@@ -1,25 +1,35 @@
+import React from 'react'
 import { Dropdown, Space } from 'antd';
-import React, { useEffect, useState } from 'react'
 import { FaRegUser } from 'react-icons/fa';
 import { DownOutlined } from '@ant-design/icons';
-import axios from 'axios';
-import { environment } from '../../../environments/environment';
 import { Link } from 'react-router-dom';
 import Preloader from '../../../components/Preloader';
+import { useDeleteCategoryMutation, useGetCategoriesQuery } from '../../../tools/services/categoryApi';
+import Swal from 'sweetalert2';
 
 const Categories = () => {
-    const [catData, setCatData] = useState([]);
+    const { data: ctgData, isLoading } = useGetCategoriesQuery();
+    const [delCategory] = useDeleteCategoryMutation();
+
     const items = [
         {
             label: 'Sign Out',
         }
     ];
 
-    useEffect(() => {
-        axios.get(`${environment.categoryUrl}`)
-            .then(res => setCatData(res.data))
-            .catch(err => console.log(err))
-    }, [])
+    const deleteCtg = async (id) => {
+        try {
+            await delCategory(id);
+            Swal.fire({
+                title: "Success",
+                text: "Category deleted!",
+                icon: "success",
+                preConfirm: () => { window.location.reload() }
+            })
+        } catch (err) {
+            console.log('Failed to delete the category', err);
+        }
+    }
 
     return (
         <div className='dashboard'>
@@ -40,21 +50,36 @@ const Categories = () => {
                 </div>
 
                 <div className="ctg-list-body my-5 col-5">
-                    {catData.length == 0 ? <Preloader /> : <>
+                    {isLoading ? <Preloader /> : <>
                         <div className="add-btn">
                             <Link to={'/dashboard/categories-list/add-category'} className='btn btn-outline-dark btn-shop btn-add'>Add New</Link>
                         </div>
                         <div className="list my-4">
-                            <ul className="list-group">
-                                {catData.map(item => (
-                                    <li key={item._id} className="list-group-item d-flex align-items-center justify-content-between">{item.name}
-                                        <div className="list-btns">
-                                            <button className='btn btn-outline-warning list-btn'>Edit</button>
-                                            <button className='ms-2 btn btn-outline-danger list-btn'>Delete</button>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Slug</th>
+                                        <th scope="col">Edit / Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {ctgData && ctgData.map((item) => (
+                                        <tr key={item._id}>
+                                            <th scope="row">{item.order}</th>
+                                            <td>{item.name}</td>
+                                            <td>{item.slug}</td>
+                                            <td>
+                                                <div className="list-btns">
+                                                    <button type='button' className='btn btn-outline-warning list-btn'>Edit</button>
+                                                    <button onClick={()=>{deleteCtg(item._id)}} type='button' className='ms-2 btn btn-outline-danger list-btn'>Delete</button>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         </div></>
                     }
                 </div>

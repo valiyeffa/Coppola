@@ -19,7 +19,7 @@ const Header = () => {
     }, [])
 
     if (location.pathname !== "/dashboard/overview" && location.pathname !== '/dashboard/movie-list' 
-        && location.pathname !== '/blog-list' && location.pathname !== '/dashboard/categories-list' 
+        && location.pathname !== '/dashboard/blog-list' && location.pathname !== '/dashboard/categories-list' 
         && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== '/dashboard/movie-list/add-movie') {
         if (location.pathname !== "/login-register") {
             if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop") {

@@ -40,7 +40,7 @@ const SideHeader = () => {
                 <NavLink to='/dashboard/movie-list' onClick={toggle} className='nav-link'><MdOutlineMovie className='left-icon' /> <span className='sidebar-title'>Movies List</span></NavLink>
               </li>
               <li>
-                <NavLink to='/blog-list' onClick={toggle} className='nav-link'><FaRegNewspaper className='left-icon' /> <span className='sidebar-title'>Blog List</span></NavLink>
+                <NavLink to='/dashboard/blog-list' onClick={toggle} className='nav-link'><FaRegNewspaper className='left-icon' /> <span className='sidebar-title'>Blog List</span></NavLink>
               </li>
               <li>
                 <NavLink to='/' onClick={toggle} className='nav-link'><IoHomeOutline className='left-icon' /> <span className='sidebar-title'>Back To Home</span></NavLink>

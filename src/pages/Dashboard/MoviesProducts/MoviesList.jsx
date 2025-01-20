@@ -40,7 +40,7 @@ const MoviesList = () => {
           <h1>Movies List</h1>
         </div>
 
-        <div className="movie-list-body d-flex align-items-center flex-column my-5">
+        <div className="movie-list-body my-5">
           {data.length == 0 ? <Preloader /> :
             <>
               <div className="add-btn ">
@@ -60,17 +60,18 @@ const MoviesList = () => {
                   </thead>
                   <tbody>
                     {data.map((item, i) => (
-                      <tr key={item._id}>
-                        <th scope="row">{i + 1}</th>
-                        <td><img height={100} src='http://localhost:3002/api/uploads/1737296870581.jpg' /></td>
-                        <td>{item.title}</td>
-                        <td>{item.category.name}</td>
-                        <td>{item.price}$</td>
-                        <td>
-                          <Link to={`/dashboard/`} className='btn list-btn btn-outline-warning'>Edit</Link>
-                          <button className='btn btn-outline-danger list-btn ms-2'>Delete</button>
-                        </td>
-                      </tr>
+                      // console.log(`${environment.baseUrl}${item.image.url}`)
+                    <tr key={item._id}>
+                      <th scope="row">{i + 1}</th>
+                      <td><img height={100} src='' /></td>
+                      <td>{item.title}</td>
+                      <td>{item.category.name}</td>
+                      <td>{item.price}$</td>
+                      <td>
+                        <Link to={`/dashboard/`} className='btn list-btn btn-outline-warning'>Edit</Link>
+                        <button className='btn btn-outline-danger list-btn ms-2'>Delete</button>
+                      </td>
+                    </tr>
                     ))}
                   </tbody>
                 </table>

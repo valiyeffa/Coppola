@@ -1,18 +1,14 @@
 .dashboard {
     .movie-list {
         width: 100%;
+        @include centerflex();
+        flex-direction: column;
 
         .movie-list-body {
-            width: 100%;
+            width: 80%;
+            @include centerflex();
+            flex-direction: column;
 
-            .list-group {
-                box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.215);
-
-                .list-group-item {
-                    border: none;
-                    border-bottom: 1px solid rgba(128, 128, 128, 0.244);
-                }
-            }
         }
     }
 
@@ -24,6 +20,7 @@
             flex-direction: column;
 
             form {
+
                 input,
                 textarea {
                     box-shadow: none;
