@@ -6,6 +6,7 @@ import Preloader from '../../../components/Preloader';
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import { useGetBlogsQuery } from '../../../tools/services/blogApi';
+import Swal from 'sweetalert2';
 
 const BlogList = () => {
   const { data: blogsData, isLoading } = useGetBlogsQuery();
@@ -15,7 +16,14 @@ const BlogList = () => {
   const logout = () => {
     cookies.remove('role');
     cookies.remove('x-auth-token');
-    navigate('/');
+    cookies.remove('user');
+    cookies.remove('user-id');
+    Swal.fire({
+      title: "Goodbye!",
+      text: "See you later.",
+      icon: "success",
+      preConfirm: () => { window.location.reload(); navigate('/'); }
+    })
   }
 
   const items = [

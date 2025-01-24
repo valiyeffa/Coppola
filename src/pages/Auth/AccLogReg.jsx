@@ -7,6 +7,7 @@ import Cookies from 'universal-cookie';
 
 const AccLogReg = () => {
     const cookies = new Cookies(null, { path: '/' });
+
     const navigate = useNavigate();
     const [active, setActive] = useState(false);
     const [eye, setEye] = useState(true);
@@ -18,6 +19,7 @@ const AccLogReg = () => {
     const regSnameRef = useRef();
     const regEmailRef = useRef();
     const regPassRef = useRef();
+
 
     const loginSubmit = async (e) => {
         try {
@@ -31,61 +33,62 @@ const AccLogReg = () => {
             if (response.status === 201 || response.status === 200) {
                 cookies.set("x-auth-token", response.data.token, { path: '/' });
                 cookies.set("role", response.data.user.role, { path: '/' });
+                cookies.set("user-id", response.data.user._id, { path: '/' });
+                cookies.set('user', true);
 
                 Swal.fire({
-                    title: `${response.data.message}`,
+                    title: `Welcome! ${response.data.message}`,
                     icon: "success",
                     preConfirm: () => { navigate('/') }
                 })
             }
-
         } catch (error) {
-            console.log(error);
+            Swal.fire({
+                title: `${error.response.data.error}`,
+                icon: "error",
+            })
+            console.log(error.response.data.error);
         }
     }
 
     const registerSubmit = async (e) => {
-        try {
-            e.preventDefault();
-            const regsData = await axios.post("https://coppola-movie.vercel.app/api/auth/register", {
-                name: regNameRef.current.value,
-                surname: regSnameRef.current.value,
-                email: regEmailRef.current.value,
-                password: regPassRef.current.value
-            })
-            if (regsData.status === 201 || regsData.status === 200) {
-                cookies.set("x-auth-token", res.data.token, { path: '/' });
-                cookies.set("role", response.data.user.role, { path: '/' });
-
-                Swal.fire({
-                    title: `${regsData.data.message}`,
-                    icon: "success",
-                    preConfirm: () => { navigate('/') }
-                })
-            }
-            console.log(regsData);
-
-        } catch (error) {
-            console.log(error);
-
-        }
-
-        if (err.status === 400 || err.status === 401) {
-            let alertText = "";
-            if (err.response.data.match("password")) {
-                alertText = err.response.data
-            } else if (err.response.data.match("empty")) {
-                alertText = err.response.data
-            } else if (err.response.data.match("email")) {
-                alertText = err.response.data
-            }
-            else if (err.response.data.match("already")) {
-                alertText = err.response.data
-            }
+        e.preventDefault();
+        if (!regNameRef.current.value || !regEmailRef.current.value || !regPassRef.current.value || !regSnameRef.current.value) {
             Swal.fire({
-                title: alertText,
-                icon: "error"
+                title: 'Please fill inputs!',
+                icon: "warning"
             })
+        } else {
+            try {
+                const regsData = await axios.post("https://coppola-movie.vercel.app/api/auth/register", {
+                    name: regNameRef.current.value,
+                    surname: regSnameRef.current.value,
+                    email: regEmailRef.current.value,
+                    password: regPassRef.current.value
+                })
+                if (regsData.status === 201 || regsData.status === 200) {
+                    Swal.fire({
+                        title: `Welcome! You can login your account now!`,
+                        icon: "success",
+                        preConfirm: () => { window.location.reload() }
+                    })
+                }
+                console.log(regsData.data.token);
+
+            } catch (err) {
+                console.log(err.response.data);
+
+                if (err.status === 400 || err.status === 401) {
+                    let alertText = "";
+                    if (err.response.data.match('6')) {
+                        alertText = err.response.data.errors.message;
+                    }
+                    Swal.fire({
+                        title: alertText,
+                        icon: "error"
+                    })
+                }
+            }
         }
     }
 

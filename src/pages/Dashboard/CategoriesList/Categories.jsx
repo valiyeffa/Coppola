@@ -17,7 +17,15 @@ const Categories = () => {
     const logout = () => {
         cookies.remove('role');
         cookies.remove('x-auth-token');
-        navigate('/');
+        cookies.remove('user');
+        cookies.remove('user-id');
+
+        Swal.fire({
+            title: "Goodbye!",
+            text: "See you later.",
+            icon: "success",
+            preConfirm: () => { window.location.reload(); navigate('/'); }
+        })
     }
 
     const items = [

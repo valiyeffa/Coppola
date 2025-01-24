@@ -5,13 +5,33 @@ import { DownOutlined } from '@ant-design/icons';
 import axios from "axios";
 import { environment } from "../../environments/environment";
 import Preloader from "../../components/Preloader";
+import Cookies from "universal-cookie";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Overview = () => {
     const [users, setUsers] = useState([]);
+    const cookies = new Cookies(null, { path: '/' });
+    const navigate = useNavigate();
+
+    const logout = () => {
+        cookies.remove('role');
+        cookies.remove('x-auth-token');
+        cookies.remove('user');
+        cookies.remove('user-id');
+
+        Swal.fire({
+            title: "Goodbye!",
+            text: "See you later.",
+            icon: "success",
+            preConfirm: () => { window.location.reload(); navigate('/'); }
+        })
+    }
 
     const items = [
         {
             label: 'Sign Out',
+            onClick: logout,
         }
     ];
 
@@ -55,9 +75,9 @@ const Overview = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {users.map((item,index) => (
+                                {users.map((item, index) => (
                                     <tr key={item._id}>
-                                        <th scope="row">{index+1}</th>
+                                        <th scope="row">{index + 1}</th>
                                         <td>{item.name} {item.surname}</td>
                                         <td>{item.email}</td>
                                         <td>{item.role}</td>

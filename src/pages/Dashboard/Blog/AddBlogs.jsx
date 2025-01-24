@@ -2,12 +2,16 @@ import { ConfigProvider, Select } from 'antd';
 import React, { useRef, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { useGetCategoriesQuery } from '../../../tools/services/categoryApi';
-import { useAddBlogMutation } from '../../../tools/services/blogApi';
+import { useAddBlogMutation, useAddImagesMutation } from '../../../tools/services/blogApi';
 import Swal from 'sweetalert2';
+import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 const AddBlogs = () => {
+    const cookies = new Cookies(null, { path: '/' });
     const { data: ctg } = useGetCategoriesQuery();
     const [addBlog] = useAddBlogMutation();
+    const [addImg] = useAddImagesMutation();
     const titleRef = useRef();
     const slugRef = useRef();
     const contentRef = useRef();
@@ -21,31 +25,57 @@ const AddBlogs = () => {
     const submitedForm = async (e) => {
         e.preventDefault();
 
-        const fd = new FormData();
-        fd.append('image', files);
-        fd.append('title', titleRef.current.value);
-        fd.append('category', selectedCategory); 
-        fd.append('content', contentRef.current.value); 
-        fd.append('slug', slugRef.current.value);
-
-        try {          
-            await addBlog(fd).unwrap();
-            Swal.fire({
-                title: "Success",
-                text: "Blog added!",
-                icon: "success",
-                preConfirm: () => { window.location.reload() }
-            })
-           
-        } catch (err) {
-            console.log(err);
+        if (!files || !titleRef.current.value || !selectedCategory || !contentRef.current.value) {
             Swal.fire({
                 title: "Error",
-                text: 'Blog can not added!',
-                icon: "error"
-            })
+                text: "All fields are required!",
+                icon: "warning"
+            });
+            return;
         }
 
+        try {
+            const formData = new FormData();
+            formData.append('images', files);
+
+            const uploadResponse = await axios.post('http://localhost:3002/api/upload/images', formData, {
+                headers: {
+                    Authorization: `Bearer ${cookies.get('x-auth-token')}`,
+                },
+            });
+
+            const imageUrl = uploadResponse; 
+
+            const blogData = {
+                title: titleRef.current.value,
+                slug: slugRef.current.value,
+                content: contentRef.current.value,
+                category: selectedCategory,
+                image: imageUrl,
+            };
+
+            await axios.post('http://localhost:3002/api/blogs', blogData, {
+                headers: {
+                    Authorization: `Bearer ${cookies.get('x-auth-token')}`,
+                },
+            });
+
+            Swal.fire({
+                title: "Success",
+                text: "Blog added successfully!",
+                icon: "success",
+                preConfirm: () => {
+                    window.location.reload();
+                },
+            });
+        } catch (err) {
+            console.error(err);
+            Swal.fire({
+                title: "Error",
+                text: "An error occurred!",
+                icon: "error",
+            });
+        }
     }
 
     return (

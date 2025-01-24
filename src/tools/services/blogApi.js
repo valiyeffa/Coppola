@@ -12,6 +12,16 @@ export const blogApi = createApi({
         getBlogs: builder.query({
             query: () => '/blogs'
         }),
+        addImages: builder.mutation({
+            query: (newImg) => ({
+                url: '/upload/images',
+                method: 'POST',
+                body: newImg,
+                headers: {
+                    Authorization: `Bearer ${cookies.get('x-auth-token')}`
+                }
+            })
+        }),
         addBlog: builder.mutation({
             query: (newBlog) => ({
                 url: '/blogs',
@@ -25,4 +35,4 @@ export const blogApi = createApi({
     })
 })
 
-export const { useGetBlogsQuery, useAddBlogMutation } = blogApi;
+export const { useGetBlogsQuery, useAddImagesMutation ,useAddBlogMutation } = blogApi;

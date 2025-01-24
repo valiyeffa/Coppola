@@ -8,10 +8,12 @@ export const categoryApi = createApi({
     baseQuery: fetchBaseQuery({ baseUrl: `${environment.baseUrl}` }),
 
     endpoints: (builder) => ({
+        getUsers: builder.query({
+            query: () => '/users'
+        }),
         getCategories: builder.query({
             query: () => '/category'
         }),
-
         addCategory: builder.mutation({
             query: (newCategory) => ({
                 url: '/category',
@@ -47,4 +49,4 @@ export const categoryApi = createApi({
     })
 })
 
-export const { useGetCategoriesQuery, useAddCategoryMutation, useUpdateCategoryMutation, useDeleteCategoryMutation } = categoryApi;
+export const { useGetUsersQuery, useGetCategoriesQuery, useAddCategoryMutation, useUpdateCategoryMutation, useDeleteCategoryMutation } = categoryApi;

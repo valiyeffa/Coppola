@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { environment } from '../../../environments/environment';
 import Cookies from 'universal-cookie';
+import Swal from 'sweetalert2';
 
 const MoviesList = () => {
   const [data, setData] = useState([]);
@@ -16,7 +17,15 @@ const MoviesList = () => {
   const logout = () => {
     cookies.remove('role');
     cookies.remove('x-auth-token');
-    navigate('/');
+    cookies.remove('user');
+    cookies.remove('user-id');
+
+    Swal.fire({
+      title: "Goodbye!",
+      text: "See you later.",
+      icon: "success",
+      preConfirm: () => { window.location.reload(); navigate('/'); }
+    })
   }
 
   const items = [

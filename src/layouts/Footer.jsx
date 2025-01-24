@@ -61,7 +61,7 @@ const Footer = () => {
                                 <li className="ms-3"><a className="link-body" target='_blank' href="https://vimeo.com/"><FaVimeoV /></a></li>
                                 <li className="ms-3"><a className="link-body" target='_blank' href="https://x.com/"><FaTwitter /></a></li>
                             </ul>
-                            <p>© 2022 Qode Interactive, All Rights Reserved</p>
+                            <p>© {new Date().getFullYear()} Prepared by Firuza Valiyeva, Ramazan Ismayilov</p>
                         </div>
 
                         <div className="footer-bottom-right d-flex justify-content-between">
