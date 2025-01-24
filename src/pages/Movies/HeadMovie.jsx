@@ -1,6 +1,6 @@
 import { ConfigProvider, Slider } from 'antd';
 import React from 'react'
-import { FaSearch, FaStar, FaRegStar } from "react-icons/fa";
+import { FaSearch, FaStar, FaRegStar, FaRegHeart, FaHeart } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import img3 from './images/h4-rev-img4a.jpg'
 import img2 from './images/h4-rev-img3.jpg'
@@ -15,6 +15,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
 import MovieCard from '../../components/MovieCard';
+import { useGetCategoriesQuery } from '../../tools/services/categoryApi';
 
 const marks = {
     10: {
@@ -32,6 +33,8 @@ const marks = {
 };
 
 const HeadMovie = () => {
+    const { data: ctgData } = useGetCategoriesQuery();
+
     return (
         <div className='head-sect-movie light-mode'>
             <div className="container-fluid">
@@ -52,12 +55,9 @@ const HeadMovie = () => {
                                     <h6>CATEGORY</h6>
                                     <ul className="list-group">
                                         <li className="list-group-item">All</li>
-                                        <li className="list-group-item">Comedy</li>
-                                        <li className="list-group-item">Documentary</li>
-                                        <li className="list-group-item">Drama</li>
-                                        <li className="list-group-item">Fantasy</li>
-                                        <li className="list-group-item">Romance</li>
-                                        <li className="list-group-item">Sci-Fi</li>
+                                        {ctgData && ctgData.map(item => (
+                                            <li key={item._id} className="list-group-item">{item.name}</li>
+                                        ))}
                                     </ul>
                                 </div>
 
@@ -155,21 +155,21 @@ const HeadMovie = () => {
 
                             <div className="movie-right-body-products">
                                 <div className="row">
-                                    <MovieCard/>
+                                    <MovieCard />
                                     <div className="col-12 col-lg-4 col-md-4 col-sm-12">
                                         <div className="movie-card">
-                                            <img src={prod1} className="card-img-top" alt="..." />
-                                            <div className="card-body">
-                                                <span className='movie-ctg'>Drama</span>
-                                                <h5 className="card-title">Black Bird</h5>
-                                                <p className="card-text"><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /></p>
-                                                <span className="card-price">$12</span>
+                                            <div className="card-img">
+                                                <img src={prod2} className="card-img-top" alt="..." />
+                                                <div className="btns-fav">
+                                                    <button className="btn fav-btn">
+                                                        <FaRegHeart className='empty' />
+                                                        <FaHeart className='fill' />
+                                                    </button>
+                                                </div>
+                                                <div className="btns-shop">
+                                                    <button className="btn btn-shop btn-outline-light">Add to Cart</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-12 col-lg-4 col-md-4 col-sm-12">
-                                        <div className="movie-card">
-                                            <img src={prod2} className="card-img-top" alt="..." />
                                             <div className="card-body">
                                                 <span className='movie-ctg'>Romance</span>
                                                 <h5 className="card-title">Lake</h5>
@@ -180,7 +180,18 @@ const HeadMovie = () => {
                                     </div>
                                     <div className="col-12 col-lg-4 col-md-4 col-sm-12">
                                         <div className="movie-card">
-                                            <img src={prod3} className="card-img-top" alt="..." />
+                                            <div className="card-img">
+                                                <img src={prod3} className="card-img-top" alt="..." />
+                                                <div className="btns-fav">
+                                                    <button className="btn fav-btn">
+                                                        <FaRegHeart className='empty' />
+                                                        <FaHeart className='fill' />
+                                                    </button>
+                                                </div>
+                                                <div className="btns-shop">
+                                                    <button className="btn btn-shop btn-outline-light">Add to Cart</button>
+                                                </div>
+                                            </div>
                                             <div className="card-body">
                                                 <span className='movie-ctg'>Sci-Fi</span>
                                                 <h5 className="card-title">Anesa</h5>
@@ -189,20 +200,21 @@ const HeadMovie = () => {
                                             </div>
                                         </div>
                                     </div>
+                                    <MovieCard />
                                     <div className="col-12 col-lg-4 col-md-4 col-sm-12">
                                         <div className="movie-card">
-                                            <img src={prod1} className="card-img-top" alt="..." />
-                                            <div className="card-body">
-                                                <span className='movie-ctg'>Drama</span>
-                                                <h5 className="card-title">Black Bird</h5>
-                                                <p className="card-text"><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /></p>
-                                                <span className="card-price">$12</span>
+                                            <div className="card-img">
+                                                <img src={prod2} className="card-img-top" alt="..." />
+                                                <div className="btns-fav">
+                                                    <button className="btn fav-btn">
+                                                        <FaRegHeart className='empty' />
+                                                        <FaHeart className='fill' />
+                                                    </button>
+                                                </div>
+                                                <div className="btns-shop">
+                                                    <button className="btn btn-shop btn-outline-light">Add to Cart</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-12 col-lg-4 col-md-4 col-sm-12">
-                                        <div className="movie-card">
-                                            <img src={prod2} className="card-img-top" alt="..." />
                                             <div className="card-body">
                                                 <span className='movie-ctg'>Romance</span>
                                                 <h5 className="card-title">Lake</h5>
@@ -213,7 +225,18 @@ const HeadMovie = () => {
                                     </div>
                                     <div className="col-12 col-lg-4 col-md-4 col-sm-12">
                                         <div className="movie-card">
-                                            <img src={prod3} className="card-img-top" alt="..." />
+                                            <div className="card-img">
+                                                <img src={prod3} className="card-img-top" alt="..." />
+                                                <div className="btns-fav">
+                                                    <button className="btn fav-btn">
+                                                        <FaRegHeart className='empty' />
+                                                        <FaHeart className='fill' />
+                                                    </button>
+                                                </div>
+                                                <div className="btns-shop">
+                                                    <button className="btn btn-shop btn-outline-light">Add to Cart</button>
+                                                </div>
+                                            </div>
                                             <div className="card-body">
                                                 <span className='movie-ctg'>Sci-Fi</span>
                                                 <h5 className="card-title">Anesa</h5>

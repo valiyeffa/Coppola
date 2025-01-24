@@ -73,7 +73,7 @@ const HeaderComp = () => {
                             <NavLink to="/about-us" onClick={topPage} className="nav-link">ABOUT US <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">BLOG <MdKeyboardArrowRight className='collapse-right-arr' /></a>
+                            <NavLink to="/blog" className="nav-link" href="#">BLOG <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink to='/contact-us' onClick={topPage} className="nav-link">CONTACT <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>

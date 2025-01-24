@@ -16,6 +16,7 @@ import Overview from './pages/Dashboard/Overview'
 import AddMovies from './pages/Dashboard/MoviesProducts/AddMovies'
 import Layout from './layouts/Layout'
 import EditCategory from './pages/Dashboard/CategoriesList/EditCategory'
+import Blog from './pages/BlogPage/Blog'
 
 const App = () => {
 
@@ -23,6 +24,7 @@ const App = () => {
     { path: "/", element: <Home /> },
     { path: "/about-us", element: <AboutUs /> },
     { path: "/contact-us", element: <ContactUs /> },
+    { path: "/blog", element: <Blog /> },
     { path: '/our-team', element: <Team /> },
     { path: '/login-register', element: <AccLogReg /> },
     { path: '/our-team', element: <Team /> },

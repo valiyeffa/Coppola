@@ -181,31 +181,6 @@
                         display: flex;
                         justify-content: space-between;
                         row-gap: 50px;
-
-                        .movie-card {
-                            width: 100%;
-
-                            .card-body {
-                                padding-top: 20px;
-
-                                .movie-ctg {
-                                    text-transform: uppercase;
-                                    font-weight: 600;
-                                    border-radius: 0;
-                                    padding: 0 5px;
-
-                                }
-
-                                .card-title {
-                                    text-transform: uppercase;
-                                }
-
-                                .card-text {
-                                    margin: 0;
-                                }
-
-                            }
-                        }
                     }
                 }
             }
@@ -213,8 +188,8 @@
     }
 }
 
-.btn-shop-dark{
-    &:hover{
+.btn-shop-dark {
+    &:hover {
         background-color: black;
         color: white;
         border-color: black;

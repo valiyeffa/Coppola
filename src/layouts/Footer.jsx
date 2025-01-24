@@ -48,7 +48,7 @@ const Footer = () => {
                         <div className="col mb-3">
                             <ul className="nav flex-column">
                                 <li className="nav-item mb-2"><NavLink to="/movies-shop" onClick={topPage} className="nav-link p-0 ">SHOP</NavLink></li>
-                                <li className="nav-item mb-2"><a href="#" className="nav-link p-0 ">BLOG</a></li>
+                                <li className="nav-item mb-2"><NavLink to="/blog" onClick={topPage} className="nav-link p-0 ">BLOG</NavLink></li>
                             </ul>
                         </div>
                     </div>
