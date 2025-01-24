@@ -1,21 +1,10 @@
 import { ConfigProvider, Select } from 'antd';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { environment } from '../../../environments/environment';
+import { useGetCategoriesQuery } from '../../../tools/services/categoryApi';
 
 const AddMovies = () => {
-  const [cat, setCat] = useState([]);
-  
-  useEffect(() => {
-    axios.get(`${environment.categoryUrl}`)
-      .then((res) => {
-        setCat(res.data)
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [])
+  const { data: ctg, isLoading } = useGetCategoriesQuery();
 
   return (
     <div className='dashboard'>
@@ -67,7 +56,7 @@ const AddMovies = () => {
                     width: '100%',
                   }}
                   options={
-                    cat.map((c) => {
+                    ctg && ctg.map((c) => {
                       return {
                         label: c.name,
                         value: c.name,

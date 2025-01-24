@@ -2,18 +2,28 @@ import React from 'react'
 import { Dropdown, Space } from 'antd';
 import { FaRegUser } from 'react-icons/fa';
 import { DownOutlined } from '@ant-design/icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Preloader from '../../../components/Preloader';
 import { useDeleteCategoryMutation, useGetCategoriesQuery } from '../../../tools/services/categoryApi';
 import Swal from 'sweetalert2';
+import Cookies from 'universal-cookie';
 
 const Categories = () => {
     const { data: ctgData, isLoading } = useGetCategoriesQuery();
     const [delCategory] = useDeleteCategoryMutation();
+    const cookies = new Cookies(null, { path: '/' });
+    const navigate = useNavigate();
+
+    const logout = () => {
+        cookies.remove('role');
+        cookies.remove('x-auth-token');
+        navigate('/');
+    }
 
     const items = [
         {
             label: 'Sign Out',
+            onClick: logout,
         }
     ];
 
@@ -50,10 +60,10 @@ const Categories = () => {
                 </div>
 
                 <div className="ctg-list-body my-5 col-5">
+                    <div className="add-btn">
+                        <Link to={'/dashboard/categories-list/add-category'} className='btn btn-outline-dark btn-shop btn-add'>Add New</Link>
+                    </div>
                     {isLoading ? <Preloader /> : <>
-                        <div className="add-btn">
-                            <Link to={'/dashboard/categories-list/add-category'} className='btn btn-outline-dark btn-shop btn-add'>Add New</Link>
-                        </div>
                         <div className="list my-4">
                             <table className="table">
                                 <thead>
@@ -72,8 +82,8 @@ const Categories = () => {
                                             <td>{item.slug}</td>
                                             <td>
                                                 <div className="list-btns">
-                                                    <button type='button' className='btn btn-outline-warning list-btn'>Edit</button>
-                                                    <button onClick={()=>{deleteCtg(item._id)}} type='button' className='ms-2 btn btn-outline-danger list-btn'>Delete</button>
+                                                    <Link to={`/dashboard/categories-list/edit-category/${item.slug}`} type='button' className='btn btn-outline-warning list-btn'>Edit</Link>
+                                                    <button onClick={() => { deleteCtg(item._id) }} type='button' className='ms-2 btn btn-outline-danger list-btn'>Delete</button>
                                                 </div>
                                             </td>
                                         </tr>

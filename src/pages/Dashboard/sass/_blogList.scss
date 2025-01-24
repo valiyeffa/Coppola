@@ -1,0 +1,39 @@
+.dashboard {
+    .blog-list {
+        .blog-list-body {
+            width: 100%;
+            @include centerflex();
+            flex-direction: column;
+        }
+
+        .blog-add-body {
+            width: 100%;
+            @include centerflex();
+            flex-direction: column;
+
+            @extend .movie-add-body;
+
+            form {
+
+                input,
+                textarea {
+                    box-shadow: none;
+                    outline: none;
+                    border-radius: 0;
+                    border: 1px solid grey;
+                    width: 100%;
+                }
+
+                input[type="number"]::-webkit-inner-spin-button,
+                input[type="number"]::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                textarea {
+                    height: 160px;
+                }
+            }
+        }
+    }
+}

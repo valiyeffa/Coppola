@@ -9,6 +9,7 @@ import AccLogReg from './pages/Auth/AccLogReg'
 import MoviesShop from './pages/Movies/MoviesShop'
 import MoviesList from './pages/Dashboard/MoviesProducts/MoviesList'
 import BlogList from './pages/Dashboard/Blog/BlogList'
+import AddBlogs from './pages/Dashboard/Blog/AddBlogs'
 import Categories from './pages/Dashboard/CategoriesList/Categories'
 import AddCategory from './pages/Dashboard/CategoriesList/AddCategory'
 import Overview from './pages/Dashboard/Overview'
@@ -36,11 +37,12 @@ const App = () => {
     //!=================CATEGORY-START================
     { path: '/dashboard/categories-list', element: <Categories /> },
     { path: '/dashboard/categories-list/add-category', element: <AddCategory /> },
-    { path: '/dashboard/categories-list/edit-category', element: <EditCategory /> },
+    { path: '/dashboard/categories-list/edit-category/:slug', element: <EditCategory /> },
     //!=================CATEGORY-END==================
 
     //!=================BLOG-START==================
     { path: '/dashboard/blog-list', element: <BlogList /> },
+    { path: '/dashboard/blog-list/add-blogs', element: <AddBlogs /> },
     //!=================BLOG-END====================
   ];
 

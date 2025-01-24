@@ -1,5 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { environment } from "../../environments/environment";
+import Cookies from "universal-cookie";
+const cookies = new Cookies(null, { path: '/' });
 
 export const categoryApi = createApi({
     reducerPath: 'categoryApi',
@@ -16,15 +18,20 @@ export const categoryApi = createApi({
                 method: 'POST',
                 body: newCategory,
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                    Authorization: `Bearer ${cookies.get('x-auth-token')}`,
+                    'Content-Type': 'application/json'
                 }
             })
         }),
         updateCategory: builder.mutation({
-            query: (category) => ({
-                url: `/category/${category.id}`,
-                method: 'PUT',
-                body: category
+            query: ({ id, ...category }) => ({
+                url: `/category/${id}`,
+                method: 'POST',
+                body: category,
+                headers: {
+                    Authorization: `Bearer ${cookies.get('x-auth-token')}`,
+                    'Content-Type': 'application/json'
+                }
             })
         }),
         deleteCategory: builder.mutation({
@@ -33,7 +40,7 @@ export const categoryApi = createApi({
                 method: 'DELETE',
                 body: id,
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                    Authorization: `Bearer ${cookies.get('x-auth-token')}`
                 }
             })
         })

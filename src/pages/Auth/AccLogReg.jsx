@@ -6,6 +6,7 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import Cookies from 'universal-cookie';
 
 const AccLogReg = () => {
+    const cookies = new Cookies(null, { path: '/' });
     const navigate = useNavigate();
     const [active, setActive] = useState(false);
     const [eye, setEye] = useState(true);
@@ -28,8 +29,9 @@ const AccLogReg = () => {
 
             console.log(response.data);
             if (response.status === 201 || response.status === 200) {
-                localStorage.setItem("token", response.data?.token);
-                localStorage.setItem("role", response.data.user.role);
+                cookies.set("x-auth-token", response.data.token, { path: '/' });
+                cookies.set("role", response.data.user.role, { path: '/' });
+
                 Swal.fire({
                     title: `${response.data.message}`,
                     icon: "success",
@@ -52,8 +54,9 @@ const AccLogReg = () => {
                 password: regPassRef.current.value
             })
             if (regsData.status === 201 || regsData.status === 200) {
-                // Cookies.set("x-auth-token", res.data);
-                // localStorage.setItem("user", 'true');
+                cookies.set("x-auth-token", res.data.token, { path: '/' });
+                cookies.set("role", response.data.user.role, { path: '/' });
+
                 Swal.fire({
                     title: `${regsData.data.message}`,
                     icon: "success",

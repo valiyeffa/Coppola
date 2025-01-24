@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import HeaderComp from '../components/HeaderComp';
-import SideHeader from '../components/SideBar'; 
+import SideHeader from '../components/SideBar';
 
 const Header = () => {
     const [scroll, setScroll] = useState(false);
     const location = useLocation();
+    const { slug } = useParams();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -18,9 +19,10 @@ const Header = () => {
         window.addEventListener("scroll", handleScroll);
     }, [])
 
-    if (location.pathname !== "/dashboard/overview" && location.pathname !== '/dashboard/movie-list' 
-        && location.pathname !== '/dashboard/blog-list' && location.pathname !== '/dashboard/categories-list' 
-        && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== '/dashboard/movie-list/add-movie') {
+    if (location.pathname !== "/dashboard/overview" && location.pathname !== '/dashboard/movie-list'
+        && location.pathname !== '/dashboard/blog-list' && location.pathname !== '/dashboard/blog-list/add-blogs' && location.pathname !== '/dashboard/categories-list'
+        && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== `/dashboard/categories-list/edit-category/${slug}` 
+        && location.pathname !== '/dashboard/movie-list/add-movie') {
         if (location.pathname !== "/login-register") {
             if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop") {
                 return (

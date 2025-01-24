@@ -2,18 +2,20 @@ import React from 'react'
 import footerImg from '../assets/images/footer-img.png'
 import { FaInstagram, FaYoutube, FaVimeoV, FaTwitter } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useParams } from 'react-router-dom';
 
 const Footer = () => {
     const location = useLocation();
+    const { slug } = useParams();
 
     const topPage = () => {
         window.scrollTo(0, 0);
     }
 
     if (location.pathname !== '/login-register' && location.pathname !== "/dashboard/overview" && location.pathname !== '/dashboard/movie-list'
-         && location.pathname !== '/dashboard/movie-list/add-movie' && location.pathname !== '/dashboard/blog-list' 
-         && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== '/dashboard/categories-list') {
+        && location.pathname !== '/dashboard/movie-list/add-movie' && location.pathname !== '/dashboard/blog-list' && location.pathname !== '/dashboard/blog-list/add-blogs'
+        && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== `/dashboard/categories-list/edit-category/${slug}`
+        && location.pathname !== '/dashboard/categories-list') {
         return (
             <div className="footer">
                 <div className="container">
