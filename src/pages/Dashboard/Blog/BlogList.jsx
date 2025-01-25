@@ -16,6 +16,7 @@ const BlogList = () => {
   const { data: userName } = useGetUsersQuery();
   const userId = cookies.get('user-id');
   const signedinAcc = userName && userName.find(p => p._id == userId);
+  console.log(blogsData);
 
   const logout = () => {
     cookies.remove('role');
@@ -73,28 +74,27 @@ const BlogList = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {blogsData && blogsData.map((item, index) => (
-                    <tr key={item.id}>
-                      <th scope="row">{index + 1}</th>
-                      <td>{item.title}</td>
-                      <td>{item.image}</td>
-                      <td>{item.category}</td>
-                      <td>{item.content}</td>
-                      <td>
-                        <div className="list-btns">
-                          <Link to={`/dashboard/categories-list/edit-category/${item.slug}`} type='button' className='btn btn-outline-warning list-btn'>Edit</Link>
-                          <button type='button' className='ms-2 btn btn-outline-danger list-btn'>Delete</button>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
+
+                  < tr>
+                    <th scope="row">1</th>
+                    <td>{blogsData && blogsData.title}</td>
+                    <td><img src={blogsData && blogsData.image} alt="" /></td>
+                    <td>{blogsData && blogsData.category}</td>
+                    <td>{blogsData && blogsData.content}</td>
+                    <td>
+                      <div className="list-btns">
+                        <Link to={`/dashboard/categories-list/edit-category/${blogsData && blogsData.slug}`} type='button' className='btn btn-outline-warning list-btn'>Edit</Link>
+                        <button type='button' className='ms-2 btn btn-outline-danger list-btn'>Delete</button>
+                      </div>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
           }
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 
