@@ -16,16 +16,20 @@ const AddBlogs = () => {
     const slugRef = useRef();
     const contentRef = useRef();
     const [selectedCategory, setSelectedCategory] = useState();
-    const [files, setFiles] = useState();
+    const [image, setImage] = useState(null);
 
     const handleCategoryChange = (value) => {
         setSelectedCategory(value);
     };
 
+    const handleImageChange = (e) => {
+        setImage(e.target.files[0]);
+    };
+
     const submitedForm = async (e) => {
         e.preventDefault();
 
-        if (!files || !titleRef.current.value || !selectedCategory || !contentRef.current.value) {
+        if (!titleRef.current.value || !selectedCategory || !contentRef.current.value) {
             Swal.fire({
                 title: "Error",
                 text: "All fields are required!",
@@ -35,30 +39,17 @@ const AddBlogs = () => {
         }
 
         try {
-            const formData = new FormData();
-            formData.append('images', files);
-
-            const uploadResponse = await axios.post('http://localhost:3002/api/upload/images', formData, {
-                headers: {
-                    Authorization: `Bearer ${cookies.get('x-auth-token')}`,
-                },
-            });
-
-            const imageUrl = uploadResponse; 
+            const imageResponse = await addImg(image).unwrap();
 
             const blogData = {
                 title: titleRef.current.value,
                 slug: slugRef.current.value,
                 content: contentRef.current.value,
                 category: selectedCategory,
-                image: imageUrl,
+                image: imageResponse,
             };
 
-            await axios.post('http://localhost:3002/api/blogs', blogData, {
-                headers: {
-                    Authorization: `Bearer ${cookies.get('x-auth-token')}`,
-                },
-            });
+            await addBlog(blogData).unwrap();
 
             Swal.fire({
                 title: "Success",
@@ -97,7 +88,7 @@ const AddBlogs = () => {
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Image</label>
-                            <input onChange={(e) => { setFiles(e.target.files[0]) }} type="file" className="form-control" />
+                            <input onChange={handleImageChange} type="file" className="form-control" />
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Content</label>

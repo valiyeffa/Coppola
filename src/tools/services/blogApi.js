@@ -13,14 +13,19 @@ export const blogApi = createApi({
             query: () => '/blogs'
         }),
         addImages: builder.mutation({
-            query: (newImg) => ({
-                url: '/upload/images',
-                method: 'POST',
-                body: newImg,
-                headers: {
-                    Authorization: `Bearer ${cookies.get('x-auth-token')}`
+            query: (imageFile) => {
+                const formData = new FormData();
+                formData.append('image', imageFile);
+                return {
+                    url: '/upload/images',
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        Authorization: `Bearer ${cookies.get('x-auth-token')}`,
+                        'Content-Type': 'multipart/form-data'
+                    }
                 }
-            })
+            }
         }),
         addBlog: builder.mutation({
             query: (newBlog) => ({
@@ -35,4 +40,4 @@ export const blogApi = createApi({
     })
 })
 
-export const { useGetBlogsQuery, useAddImagesMutation ,useAddBlogMutation } = blogApi;
+export const { useGetBlogsQuery, useAddImagesMutation, useAddBlogMutation } = blogApi;

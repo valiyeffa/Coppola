@@ -24,7 +24,7 @@ const Header = () => {
         && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== `/dashboard/categories-list/edit-category/${slug}` 
         && location.pathname !== '/dashboard/movie-list/add-movie') {
         if (location.pathname !== "/login-register") {
-            if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop" && location.pathname !== "/blog") {
+            if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop") {
                 return (
                     <header className={scroll ? "scroll" : 'header'}>
                         <HeaderComp />

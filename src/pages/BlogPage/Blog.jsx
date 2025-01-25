@@ -1,8 +1,13 @@
 import React from 'react'
+import BlogFirstSect from './BlogFirstSect'
+import ScndBlogSect from './ScndBlogSect'
 
 const Blog = () => {
   return (
-    <div>Blog</div>
+    <>
+      <BlogFirstSect />
+      <ScndBlogSect />
+    </>
   )
 }
 
