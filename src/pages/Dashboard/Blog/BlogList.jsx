@@ -26,7 +26,7 @@ const BlogList = () => {
       title: "Goodbye!",
       text: "See you later.",
       icon: "success",
-      preConfirm: () => { window.location.reload(); navigate('/'); }
+      preConfirm: () => { navigate('/'); }
     })
   }
 
