@@ -30,7 +30,7 @@ const Footer = () => {
                         <div className="col mb-3">
                             <ul className="nav flex-column">
                                 <li className="nav-item mb-2"><NavLink to='/about-us' onClick={topPage} className="nav-link p-0">ABOUT US</NavLink></li>
-                                <li className="nav-item mb-2"><a href="#" className="nav-link p-0">HELP AND FAQ</a></li>
+                                <li className="nav-item mb-2"><NavLink to='/faq' onClick={topPage} className="nav-link p-0">HELP AND FAQ</NavLink></li>
                                 <li className="nav-item mb-2"><p className="nav-link p-0">LANGUAGE:
                                     <select className='lang-btn btn p-0 mx-2'>
                                         <option value="en" className='btn'>En</option>

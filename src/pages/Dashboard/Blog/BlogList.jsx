@@ -8,6 +8,7 @@ import Cookies from 'universal-cookie';
 import { useGetBlogsQuery } from '../../../tools/services/blogApi';
 import Swal from 'sweetalert2';
 import { useGetUsersQuery } from '../../../tools/services/categoryApi';
+import { environment } from '../../../environments/environment';
 
 const BlogList = () => {
   const { data: blogsData, isLoading } = useGetBlogsQuery();
@@ -74,11 +75,10 @@ const BlogList = () => {
                   </tr>
                 </thead>
                 <tbody>
-
-                  < tr>
+                  <tr>
                     <th scope="row">1</th>
                     <td>{blogsData && blogsData.title}</td>
-                    <td><img src={blogsData && blogsData.image} alt="" /></td>
+                    <td><img height={70} src={`http://localhost:3002/api${blogsData.image.url}`} alt="" /></td>
                     <td>{blogsData && blogsData.category}</td>
                     <td>{blogsData && blogsData.content}</td>
                     <td>

@@ -17,6 +17,7 @@ import AddMovies from './pages/Dashboard/MoviesProducts/AddMovies'
 import Layout from './layouts/Layout'
 import EditCategory from './pages/Dashboard/CategoriesList/EditCategory'
 import Blog from './pages/BlogPage/Blog'
+import FaqAndHelp from './pages/FAQ/FaqAndHelp'
 
 const App = () => {
 
@@ -25,9 +26,9 @@ const App = () => {
     { path: "/about-us", element: <AboutUs /> },
     { path: "/contact-us", element: <ContactUs /> },
     { path: "/blog", element: <Blog /> },
+    { path: '/faq', element: <FaqAndHelp /> },
     { path: '/our-team', element: <Team /> },
     { path: '/login-register', element: <AccLogReg /> },
-    { path: '/our-team', element: <Team /> },
     { path: '/movies-shop', element: <MoviesShop /> },
     { path: '/dashboard/overview', element: <Overview /> },
 

@@ -1,0 +1,100 @@
+.faq-page {
+    font-family: $textfontname;
+    margin: 150px 0;
+    @include centerflex();
+    flex-direction: column;
+
+    .faq-page-title {
+        text-align: center;
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: black;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: grey;
+
+            .chat-link {
+                color: grey;
+            }
+        }
+    }
+
+    .faq-page-body {
+        width: 60%;
+        margin: 50px 0;
+
+        .question-box {
+            .ant-collapse {
+                font-family: $textfontname;
+
+                .ant-collapse-item {
+                    margin: 15px 0;
+
+                    .ant-collapse-header {
+                        font-weight: 600;
+                        font-size: 22px;
+                        border-bottom: 1px solid;
+                        padding-left: 0;
+                        padding-bottom: 0;
+                        border-radius: 0;
+                    }
+
+                    .ant-collapse-content {
+                        font-size: 17px;
+
+                        .ant-collapse-content-box {
+                            padding-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .faq-page {
+        margin: 70px 0;
+
+        .faq-page-body {
+            width: 95%;
+            margin: 20px 0;
+        }
+    }
+}
+
+@media (max-width: 426px) {
+    .faq-page {
+        .faq-page-title {
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+
+        .faq-page-body {
+            .question-box {
+                .ant-collapse {
+                    .ant-collapse-item {
+                        .ant-collapse-header {
+                            font-size: 17px;
+                        }
+
+                        .ant-collapse-content {
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

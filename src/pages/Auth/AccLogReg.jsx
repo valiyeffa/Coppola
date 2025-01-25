@@ -23,32 +23,46 @@ const AccLogReg = () => {
 
 
     const loginSubmit = async (e) => {
-        try {
-            e.preventDefault();
-            const response = await axios.post(`${environment.accUrl}/login`, {
-                email: emailRef.current.value,
-                password: passwordRef.current.value
-            })
+        e.preventDefault();
 
-            console.log(response.data);
-            if (response.status === 201 || response.status === 200) {
-                cookies.set("x-auth-token", response.data.token, { path: '/' });
-                cookies.set("role", response.data.user.role, { path: '/' });
-                cookies.set("user-id", response.data.user._id, { path: '/' });
-                cookies.set('user', true);
-
-                Swal.fire({
-                    title: `Welcome! ${response.data.message}`,
-                    icon: "success",
-                    preConfirm: () => { navigate('/') }
-                })
-            }
-        } catch (error) {
+        if (!emailRef.current.value || !passwordRef.current.value) {
             Swal.fire({
-                title: `${error.response.data.error}`,
-                icon: "error",
+                title: 'Please fill inputs!',
+                icon: "warning"
             })
-            console.log(error.response.data.error);
+        } else {
+            try {
+                const response = await axios.post(`${environment.accUrl}/login`, {
+                    email: emailRef.current.value,
+                    password: passwordRef.current.value
+                })
+
+                console.log(response.data);
+                if (response.status === 201 || response.status === 200) {
+                    cookies.set("x-auth-token", response.data.token, { path: '/' });
+                    cookies.set("role", response.data.user.role, { path: '/' });
+                    cookies.set("user-id", response.data.user._id, { path: '/' });
+                    cookies.set('user', true);
+
+                    Swal.fire({
+                        title: `Welcome! ${response.data.message}`,
+                        icon: "success",
+                        preConfirm: () => { navigate('/') }
+                    })
+                }
+            } catch (err) {
+                if (err.status === 400) {
+                    Swal.fire({
+                        title: 'Email or Password is incorrect!',
+                        icon: "error",
+                    })
+                } else if (err.status === 404) {
+                    Swal.fire({
+                        title: 'User not found!',
+                        icon: "error",
+                    })
+                }
+            }
         }
     }
 
@@ -79,13 +93,20 @@ const AccLogReg = () => {
             } catch (err) {
                 console.log(err.response.data);
 
-                if (err.status === 400 || err.status === 401) {
+                if (err.response.status === 400 || err.response.status === 401) {
                     let alertText = "";
-                    if (err.response.data.match('6')) {
-                        alertText = err.response.data.errors.message;
+                    if (err.response.data.errors && err.response.data.errors.length > 0) {
+                        alertText = err.response.data.errors.map(error => {
+                            if (error.message.toLowerCase().includes("invalid")) {
+                                return "The first letter of the password should be uppercase and must contain at least one number!";
+                            } else {
+                                return error.message;
+                            }
+                        }).join('\n');
                     }
                     Swal.fire({
-                        title: alertText,
+                        title: "Error",
+                        text: alertText,
                         icon: "error"
                     })
                 }

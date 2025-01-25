@@ -50,7 +50,7 @@ const AddBlogs = () => {
             };
 
             await addBlog(blogData).unwrap();
-
+            
             Swal.fire({
                 title: "Success",
                 text: "Blog added successfully!",
