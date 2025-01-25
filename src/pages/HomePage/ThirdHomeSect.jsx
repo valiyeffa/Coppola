@@ -2,8 +2,13 @@ import React from 'react'
 import { MdArrowOutward } from "react-icons/md";
 import bloglist1 from '../../assets/images/blog-list-main-1.jpg'
 import bloglist2 from '../../assets/images/blog-list-main-2.jpg'
+import { NavLink } from 'react-router-dom';
 
 const ThirdHomeSect = () => {
+    const topPage = () => {
+        window.scrollTo(0, 0);
+    }
+
     return (
         <div className='third-home-sect'>
             <div className='container-fluid'>
@@ -21,7 +26,7 @@ const ThirdHomeSect = () => {
                                 </div>
                                 <div className="textbox-title">
                                     <a href="#" className='textbox-text'>Interview with movie producer Brian harington</a>
-                                    <a href='#' className='view-more-btn'>View More <MdArrowOutward className='submit-arrow' /></a>
+                                    <NavLink to='/blog' onClick={topPage} className='view-more-btn'>View More <MdArrowOutward className='submit-arrow' /></NavLink>
                                 </div>
                             </div>
                         </div>
@@ -37,7 +42,7 @@ const ThirdHomeSect = () => {
                                 </div>
                                 <div className="textbox-title">
                                     <a href="#" className='textbox-text'>Interview in london with movie producer sebastian ring</a>
-                                    <a href='#' className='view-more-btn'>View More <MdArrowOutward className='submit-arrow' /></a>
+                                    <NavLink to='/blog' onClick={topPage} className='view-more-btn'>View More <MdArrowOutward className='submit-arrow' /></NavLink>
                                 </div>
                             </div>
                         </div>

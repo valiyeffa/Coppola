@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import Cookies from 'universal-cookie';
+import { environment } from '../../environments/environment';
 
 const AccLogReg = () => {
     const cookies = new Cookies(null, { path: '/' });
@@ -24,7 +25,7 @@ const AccLogReg = () => {
     const loginSubmit = async (e) => {
         try {
             e.preventDefault();
-            const response = await axios.post(`https://coppola-movie.vercel.app/api/auth/login`, {
+            const response = await axios.post(`${environment.accUrl}/login`, {
                 email: emailRef.current.value,
                 password: passwordRef.current.value
             })
@@ -60,7 +61,7 @@ const AccLogReg = () => {
             })
         } else {
             try {
-                const regsData = await axios.post("https://coppola-movie.vercel.app/api/auth/register", {
+                const regsData = await axios.post(`${environment.accUrl}/register`, {
                     name: regNameRef.current.value,
                     surname: regSnameRef.current.value,
                     email: regEmailRef.current.value,

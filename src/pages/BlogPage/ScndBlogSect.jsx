@@ -47,7 +47,6 @@ const ScndBlogSect = () => {
                         </div>
                         <BlogCard/>
                         <BlogCard/>
-                        <BlogCard/>
                     </div>
                 </div>
             </div>
