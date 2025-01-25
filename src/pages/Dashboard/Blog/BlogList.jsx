@@ -7,11 +7,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
 import { useGetBlogsQuery } from '../../../tools/services/blogApi';
 import Swal from 'sweetalert2';
+import { useGetUsersQuery } from '../../../tools/services/categoryApi';
 
 const BlogList = () => {
   const { data: blogsData, isLoading } = useGetBlogsQuery();
   const cookies = new Cookies(null, { path: '/' });
   const navigate = useNavigate();
+  const { data: userName } = useGetUsersQuery();
+  const userId = cookies.get('user-id');
+  const signedinAcc = userName && userName.find(p => p._id == userId);
 
   const logout = () => {
     cookies.remove('role');
@@ -39,7 +43,7 @@ const BlogList = () => {
         <Dropdown menu={{ items }}>
           <p>
             <Space>
-              <FaRegUser /> Firuza Valiyeva
+              <FaRegUser />{signedinAcc && signedinAcc.name}{signedinAcc && signedinAcc.surname}
               <DownOutlined />
             </Space>
           </p>

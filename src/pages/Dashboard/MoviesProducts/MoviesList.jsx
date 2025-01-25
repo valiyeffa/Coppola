@@ -8,11 +8,15 @@ import axios from 'axios';
 import { environment } from '../../../environments/environment';
 import Cookies from 'universal-cookie';
 import Swal from 'sweetalert2';
+import { useGetUsersQuery } from '../../../tools/services/categoryApi';
 
 const MoviesList = () => {
   const [data, setData] = useState([]);
   const cookies = new Cookies(null, { path: '/' });
   const navigate = useNavigate();
+  const { data: userName } = useGetUsersQuery();
+  const userId = cookies.get('user-id');
+  const signedinAcc = userName && userName.find(p => p._id == userId);
 
   const logout = () => {
     cookies.remove('role');
@@ -48,7 +52,7 @@ const MoviesList = () => {
         <Dropdown menu={{ items }}>
           <p>
             <Space>
-              <FaRegUser /> Firuza Valiyeva
+              <FaRegUser />{signedinAcc && signedinAcc.name}{signedinAcc && signedinAcc.surname}
               <DownOutlined />
             </Space>
           </p>

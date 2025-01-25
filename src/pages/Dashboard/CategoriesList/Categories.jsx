@@ -4,7 +4,7 @@ import { FaRegUser } from 'react-icons/fa';
 import { DownOutlined } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 import Preloader from '../../../components/Preloader';
-import { useDeleteCategoryMutation, useGetCategoriesQuery } from '../../../tools/services/categoryApi';
+import { useDeleteCategoryMutation, useGetCategoriesQuery, useGetUsersQuery } from '../../../tools/services/categoryApi';
 import Swal from 'sweetalert2';
 import Cookies from 'universal-cookie';
 
@@ -13,6 +13,9 @@ const Categories = () => {
     const [delCategory] = useDeleteCategoryMutation();
     const cookies = new Cookies(null, { path: '/' });
     const navigate = useNavigate();
+    const { data: userName } = useGetUsersQuery();
+    const userId = cookies.get('user-id');
+    const signedinAcc = userName && userName.find(p => p._id == userId);
 
     const logout = () => {
         cookies.remove('role');
@@ -55,7 +58,7 @@ const Categories = () => {
                 <Dropdown menu={{ items }}>
                     <p>
                         <Space>
-                            <FaRegUser /> Firuza Valiyeva
+                            <FaRegUser />{signedinAcc && signedinAcc.name}{signedinAcc && signedinAcc.surname}
                             <DownOutlined />
                         </Space>
                     </p>

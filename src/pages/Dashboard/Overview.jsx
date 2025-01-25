@@ -8,11 +8,15 @@ import Preloader from "../../components/Preloader";
 import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { useGetUsersQuery } from "../../tools/services/categoryApi";
 
 const Overview = () => {
-    const [users, setUsers] = useState([]);
     const cookies = new Cookies(null, { path: '/' });
+    const [users, setUsers] = useState([]);
     const navigate = useNavigate();
+    const { data: userName } = useGetUsersQuery();
+    const userId = cookies.get('user-id');
+    const signedinAcc = userName && userName.find(p => p._id == userId);
 
     const logout = () => {
         cookies.remove('role');
@@ -47,7 +51,7 @@ const Overview = () => {
                 <Dropdown menu={{ items }}>
                     <p>
                         <Space>
-                            <FaRegUser /> Firuza Valiyeva
+                            <FaRegUser />{signedinAcc && signedinAcc.name}{signedinAcc && signedinAcc.surname}
                             <DownOutlined />
                         </Space>
                     </p>
@@ -55,7 +59,7 @@ const Overview = () => {
             </div>
             <div className="dashboard-head d-flex justify-content-between">
                 <div className="left-side-text">
-                    <h1 className="display-5 text-body-emphasis">Welcome back, Firuza!</h1>
+                    <h1 className="display-5 text-body-emphasis">Welcome back, {signedinAcc && signedinAcc.name}!</h1>
                     <div className="col-lg-12">
                         <p>Here's you current users overview</p>
                     </div>
