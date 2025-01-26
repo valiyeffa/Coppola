@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import Cookies from 'universal-cookie';
 import { environment } from '../../environments/environment';
+import logoImg from '../../../src/assets/images/logo-main-dark.png';
 
 const AccLogReg = () => {
     const cookies = new Cookies(null, { path: '/' });
@@ -129,6 +130,7 @@ const AccLogReg = () => {
             <div className={active ? "active form" : "form"}>
                 <div className="form-container sign-up">
                     <form onSubmit={registerSubmit}>
+                        <img className='sm-logo-img' height={25} src={logoImg} />
                         <h1 className='my-4'>Create Account</h1>
                         <input ref={regNameRef} type="text" placeholder="Name" />
                         <input ref={regSnameRef} type="text" placeholder="Surname" />
@@ -138,11 +140,13 @@ const AccLogReg = () => {
                             <button type='button' onClick={passToggleShow} className='btn btn-toggle-show'>{eye === true ? <FaRegEye /> : <FaRegEyeSlash />}</button>
                         </div>
                         <button type='submit' className='btn-send btn btn-outline-dark btn-shop px-3 py-2'>Sign Up</button>
+                        <p className='sm-text' onClick={() => setActive(false)}>Have you account? Login there!</p>
                     </form>
                 </div>
 
                 <div className="form-container sign-in">
                     <form onSubmit={loginSubmit}>
+                        <img className='sm-logo-img' height={25} src={logoImg} />
                         <h1 className='my-4'>Sign In</h1>
                         <input type="email" ref={emailRef} placeholder="Email" />
                         <div className="pass-box">
@@ -151,6 +155,7 @@ const AccLogReg = () => {
                         </div>
                         <a href="#">Forget Your Password?</a>
                         <button type='submit' className='btn btn-outline-dark btn-shop px-3 py-2'>Sign In</button>
+                        <p className='sm-text' onClick={() => setActive(true)}>Don't you still have account? Register there!</p>
                     </form>
                 </div>
 
