@@ -1,8 +1,12 @@
 import React from 'react'
 import BlogCard from '../../components/BlogCard'
 import { FaSearch } from 'react-icons/fa'
+import { useGetBlogsQuery } from '../../tools/services/blogApi'
+import Preloader from '../../components/Preloader'
 
 const ScndBlogSect = () => {
+    const { data: blogData, isLoading } = useGetBlogsQuery();
+
     return (
         <div className='scnd-blog-sect'>
             <div className="container-fluid">
@@ -21,32 +25,11 @@ const ScndBlogSect = () => {
 
                 <div className="blog-page-body">
                     <div className="row">
-                        <div className="col-md-6">
-                            <div className="blog-card">
-                                <div className="blog-card-img">
-                                    <img src="https://coppola.qodeinteractive.com/wp-content/uploads/2021/11/blog-list-22.jpg" className="card-img-top" />
-                                </div>
-                                <div className="card-body">
-                                    <p className="textbox-ctg"><span>Adventure</span> NOVEMBER 30</p>
-                                    <h5 className="card-title">Film by beverly santos</h5>
-                                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="blog-card">
-                                <div className="blog-card-img">
-                                    <img src="https://coppola.qodeinteractive.com/wp-content/uploads/2021/11/blog-list-22.jpg" className="card-img-top" />
-                                </div>
-                                <div className="card-body">
-                                    <p className="textbox-ctg"><span>Adventure</span> NOVEMBER 30</p>
-                                    <h5 className="card-title">Film by beverly santos</h5>
-                                    <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <BlogCard/>
-                        <BlogCard/>
+                        {isLoading ? <Preloader /> : <>
+                            {blogData.map((item) => (
+                                <BlogCard key={item._id} image={item.image.url} title={item.title} category={item.category} content={item.content.slice(0,15)} />
+                            )).reverse()}
+                        </>}
                     </div>
                 </div>
             </div>

@@ -12,6 +12,7 @@ export const blogApi = createApi({
         getBlogs: builder.query({
             query: () => '/blogs'
         }),
+
         addImages: builder.mutation({
             query: (imageFile) => {
                 const formData = new FormData();
@@ -21,8 +22,7 @@ export const blogApi = createApi({
                     method: 'POST',
                     body: formData,
                     headers: {
-                        Authorization: `Bearer ${cookies.get('x-auth-token')}`,
-                        'Content-Type': 'multipart/form-data'
+                        Authorization: `Bearer ${cookies.get('x-auth-token')}`
                     }
                 }
             }
@@ -36,8 +36,27 @@ export const blogApi = createApi({
                     Authorization: `Bearer ${cookies.get('x-auth-token')}`
                 }
             })
+        }),
+        deleteBlog: builder.mutation({
+            query: (id) => ({
+                url: `/blogs/${id}`,
+                method: 'DELETE',
+                headers: {
+                    Authorization: `Bearer ${cookies.get('x-auth-token')}`
+                }
+            })
+        }),
+        updateBlog: builder.mutation({
+            query: ({ id, ...blog }) => ({
+                url: `/blogs/${id}`,
+                method: 'POST',
+                body: blog,
+                headers: {
+                    Authorization: `Bearer ${cookies.get('x-auth-token')}`
+                }
+            })
         })
     })
 })
 
-export const { useGetBlogsQuery, useAddImagesMutation, useAddBlogMutation } = blogApi;
+export const { useGetBlogsQuery, useAddImagesMutation, useAddBlogMutation, useDeleteBlogMutation, useUpdateBlogMutation } = blogApi;

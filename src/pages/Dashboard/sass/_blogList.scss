@@ -1,5 +1,8 @@
 .dashboard {
     .blog-list {
+        @include centerflex();
+        flex-direction: column;
+
         .blog-list-body {
             width: 100%;
             @include centerflex();

@@ -18,6 +18,8 @@ import Layout from './layouts/Layout'
 import EditCategory from './pages/Dashboard/CategoriesList/EditCategory'
 import Blog from './pages/BlogPage/Blog'
 import FaqAndHelp from './pages/FAQ/FaqAndHelp'
+import Basket from './pages/Basket/Basket'
+import EditBlog from './pages/Dashboard/Blog/EditBlog'
 
 const App = () => {
 
@@ -28,6 +30,7 @@ const App = () => {
     { path: "/blog", element: <Blog /> },
     { path: '/faq', element: <FaqAndHelp /> },
     { path: '/our-team', element: <Team /> },
+    { path: '/basket', element: <Basket /> },
     { path: '/login-register', element: <AccLogReg /> },
     { path: '/movies-shop', element: <MoviesShop /> },
     { path: '/dashboard/overview', element: <Overview /> },
@@ -46,6 +49,7 @@ const App = () => {
     //!=================BLOG-START==================
     { path: '/dashboard/blog-list', element: <BlogList /> },
     { path: '/dashboard/blog-list/add-blogs', element: <AddBlogs /> },
+    { path: '/dashboard/blog-list/edit-blog/:blogSlug', element: <EditBlog /> },
     //!=================BLOG-END====================
   ];
 

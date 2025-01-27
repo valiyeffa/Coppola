@@ -6,7 +6,7 @@ import SideHeader from '../components/SideBar';
 const Header = () => {
     const [scroll, setScroll] = useState(false);
     const location = useLocation();
-    const { slug } = useParams();
+    const { slug, blogSlug } = useParams();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,10 +21,10 @@ const Header = () => {
 
     if (location.pathname !== "/dashboard/overview" && location.pathname !== '/dashboard/movie-list'
         && location.pathname !== '/dashboard/blog-list' && location.pathname !== '/dashboard/blog-list/add-blogs' && location.pathname !== '/dashboard/categories-list'
-        && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== `/dashboard/categories-list/edit-category/${slug}`
+        && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== `/dashboard/categories-list/edit-category/${slug}` && location.pathname !== `/dashboard/blog-list/edit-blog/${blogSlug}`
         && location.pathname !== '/dashboard/movie-list/add-movie') {
         if (location.pathname !== "/login-register") {
-            if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop" && location.pathname !== "/faq") {
+            if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop" && location.pathname !== "/faq" && location.pathname !== "/basket") {
                 return (
                     <header className={scroll ? "scroll" : 'header'}>
                         <HeaderComp />

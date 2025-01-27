@@ -4,7 +4,12 @@ import { Link } from 'react-router-dom'
 import { useGetCategoriesQuery } from '../../../tools/services/categoryApi';
 
 const AddMovies = () => {
-  const { data: ctg, isLoading } = useGetCategoriesQuery();
+  const { data: ctg } = useGetCategoriesQuery();
+  const [selectedCategory, setSelectedCategory] = useState();
+
+  const handleCategoryChange = (value) => {
+    setSelectedCategory(value);
+  };
 
   return (
     <div className='dashboard'>
@@ -50,7 +55,6 @@ const AddMovies = () => {
                 }}
               >
                 <Select
-                  AddMovies={AddMovies}
                   defaultValue="Choose Category"
                   style={{
                     width: '100%',
@@ -64,6 +68,7 @@ const AddMovies = () => {
                     })
 
                   }
+                  onChange={handleCategoryChange}
                 />
               </ConfigProvider>
             </div>

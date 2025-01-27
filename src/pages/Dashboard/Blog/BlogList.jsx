@@ -5,19 +5,19 @@ import { FaRegUser } from 'react-icons/fa';
 import Preloader from '../../../components/Preloader';
 import { Link, useNavigate } from 'react-router-dom';
 import Cookies from 'universal-cookie';
-import { useGetBlogsQuery } from '../../../tools/services/blogApi';
+import { useDeleteBlogMutation, useGetBlogsQuery } from '../../../tools/services/blogApi';
 import Swal from 'sweetalert2';
 import { useGetUsersQuery } from '../../../tools/services/categoryApi';
-import { environment } from '../../../environments/environment';
 
 const BlogList = () => {
   const { data: blogsData, isLoading } = useGetBlogsQuery();
+  const [deleteBlog] = useDeleteBlogMutation();
   const cookies = new Cookies(null, { path: '/' });
   const navigate = useNavigate();
   const { data: userName } = useGetUsersQuery();
   const userId = cookies.get('user-id');
   const signedinAcc = userName && userName.find(p => p._id == userId);
-  console.log(blogsData);
+  // console.log(blogsData);
 
   const logout = () => {
     cookies.remove('role');
@@ -38,6 +38,25 @@ const BlogList = () => {
       onClick: logout,
     }
   ];
+
+  const delBlog = async (id) => {
+    try {
+      await deleteBlog(id);
+      Swal.fire({
+        title: "Success",
+        text: "Blog deleted!",
+        icon: "success",
+        preConfirm: () => { window.location.reload() }
+      })
+    } catch (err) {
+      console.log('Failed to delete the blog', err);
+      Swal.fire({
+        title: "Error",
+        text: "Failed to delete the blog",
+        icon: "error",
+      })
+    }
+  }
 
   return (
     <div className='dashboard'>
@@ -75,26 +94,28 @@ const BlogList = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>{blogsData && blogsData.title}</td>
-                    <td><img height={70} src={`http://localhost:3002/api${blogsData.image.url}`} alt="" /></td>
-                    <td>{blogsData && blogsData.category}</td>
-                    <td>{blogsData && blogsData.content}</td>
-                    <td>
-                      <div className="list-btns">
-                        <Link to={`/dashboard/categories-list/edit-category/${blogsData && blogsData.slug}`} type='button' className='btn btn-outline-warning list-btn'>Edit</Link>
-                        <button type='button' className='ms-2 btn btn-outline-danger list-btn'>Delete</button>
-                      </div>
-                    </td>
-                  </tr>
+                  {blogsData && blogsData.map((blog, index) => (
+                    <tr key={blog._id}>
+                      <th scope="row">{index + 1}</th>
+                      <td>{blog.title.slice(0, 10)}...</td>
+                      <td><img width={100} src={`http://localhost:3002/api${blog.image.url}`} alt="" /></td>
+                      <td>{blog.category}</td>
+                      <td>{blog.content.slice(0, 5)}...</td>
+                      <td>
+                        <div className="list-btns">
+                          <Link to={`/dashboard/blog-list/edit-blog/${blog.slug}`} type='button' className='btn btn-outline-warning list-btn'>Edit</Link>
+                          <button onClick={() => delBlog(blog._id)} type='button' className='ms-2 btn btn-outline-danger list-btn'>Delete</button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
           }
         </div>
       </div>
-    </div >
+    </div>
   )
 }
 

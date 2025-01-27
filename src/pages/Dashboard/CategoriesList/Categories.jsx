@@ -16,6 +16,7 @@ const Categories = () => {
     const { data: userName } = useGetUsersQuery();
     const userId = cookies.get('user-id');
     const signedinAcc = userName && userName.find(p => p._id == userId);
+    // console.log(ctgData);
 
     const logout = () => {
         cookies.remove('role');

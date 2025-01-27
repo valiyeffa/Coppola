@@ -6,7 +6,7 @@ import { NavLink, useLocation, useParams } from 'react-router-dom';
 
 const Footer = () => {
     const location = useLocation();
-    const { slug } = useParams();
+    const { slug, blogSlug } = useParams();
 
     const topPage = () => {
         window.scrollTo(0, 0);
@@ -14,7 +14,7 @@ const Footer = () => {
 
     if (location.pathname !== '/login-register' && location.pathname !== "/dashboard/overview" && location.pathname !== '/dashboard/movie-list'
         && location.pathname !== '/dashboard/movie-list/add-movie' && location.pathname !== '/dashboard/blog-list' && location.pathname !== '/dashboard/blog-list/add-blogs'
-        && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== `/dashboard/categories-list/edit-category/${slug}`
+        && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== `/dashboard/categories-list/edit-category/${slug}` && location.pathname !== `/dashboard/blog-list/edit-blog/${blogSlug}`
         && location.pathname !== '/dashboard/categories-list') {
         return (
             <div className="footer">

@@ -83,7 +83,7 @@ const HeaderComp = () => {
                         </li>
                     </ul>
                     <div className="nav-right-side">
-                        <button className='btn get-basket-btn'>Get Basket <span>|</span> 0</button>
+                        <NavLink to='/basket' className='btn get-basket-btn'>Get Basket <span>|</span> 0</NavLink>
                         <button className='btn get-fav-btn'>
                             <ConfigProvider theme={{
                                 components: {

@@ -1,0 +1,40 @@
+.basket-page {
+    width: 100%;
+    margin: 120px 0;
+    font-family: $textfontname;
+
+    .container-fluid {
+        width: 96%;
+
+        .row {
+            .basket-prod-sect {
+                width: 100%;
+                box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.408);
+                border-radius: 3px;
+                @include centerflex();
+
+                .basket-body {
+                    width: 97%;
+
+                    .basket-body_title {
+                        width: 100%;
+                        border-bottom: 2px solid rgba(128, 128, 128, 0.133);
+                        padding: 7px 0;
+                    }
+
+                    .card {
+                        border: none;
+                        border-bottom: 2px solid rgba(128, 128, 128, 0.133);
+                        border-radius: 0;
+
+                        .row{
+                            
+                        }
+                    }
+                }
+
+                .basket-total {}
+            }
+        }
+    }
+}

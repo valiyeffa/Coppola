@@ -9,18 +9,12 @@ import Cookies from 'universal-cookie';
 
 const AddBlogs = () => {
     const cookies = new Cookies(null, { path: '/' });
-    const { data: ctg } = useGetCategoriesQuery();
     const [addBlog] = useAddBlogMutation();
     const [addImg] = useAddImagesMutation();
     const titleRef = useRef();
-    const slugRef = useRef();
     const contentRef = useRef();
-    const [selectedCategory, setSelectedCategory] = useState();
+    const ctgRef = useRef();
     const [image, setImage] = useState(null);
-
-    const handleCategoryChange = (value) => {
-        setSelectedCategory(value);
-    };
 
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
@@ -29,7 +23,7 @@ const AddBlogs = () => {
     const submitedForm = async (e) => {
         e.preventDefault();
 
-        if (!titleRef.current.value || !selectedCategory || !contentRef.current.value) {
+        if (!titleRef.current.value || !ctgRef.current.value || !contentRef.current.value || !image) {
             Swal.fire({
                 title: "Error",
                 text: "All fields are required!",
@@ -43,14 +37,13 @@ const AddBlogs = () => {
 
             const blogData = {
                 title: titleRef.current.value,
-                slug: slugRef.current.value,
                 content: contentRef.current.value,
-                category: selectedCategory,
+                category: ctgRef.current.value,
                 image: imageResponse,
             };
 
             await addBlog(blogData).unwrap();
-            
+
             Swal.fire({
                 title: "Success",
                 text: "Blog added successfully!",
@@ -83,8 +76,8 @@ const AddBlogs = () => {
                             <input ref={titleRef} type="text" className="form-control" />
                         </div>
                         <div className="mb-3">
-                            <label className="form-label">Slug</label>
-                            <input ref={slugRef} type="text" className="form-control" />
+                            <label className="form-label">Category</label>
+                            <input ref={ctgRef} type="text" className="form-control" />
                         </div>
                         <div className="mb-3">
                             <label className="form-label">Image</label>
@@ -93,41 +86,6 @@ const AddBlogs = () => {
                         <div className="mb-3">
                             <label className="form-label">Content</label>
                             <textarea ref={contentRef} name="form-control" ></textarea>
-                        </div>
-                        <div className="mb-3">
-                            <label className="form-label">Category</label>
-                            <ConfigProvider
-                                theme={{
-                                    components: {
-                                        Select: {
-                                            activeBorderColor: 'black',
-                                            activeOutlineColor: 'none',
-                                            hoverBorderColor: 'black',
-                                        },
-                                    },
-                                    token: {
-                                        borderRadius: 0,
-                                        colorBorder: 'black',
-                                        colorPrimary: '#BFBFBF',
-                                    },
-                                }}
-                            >
-                                <Select
-                                    defaultValue="Choose Category"
-                                    style={{
-                                        width: '100%',
-                                    }}
-                                    options={
-                                        ctg && ctg.map((c) => {
-                                            return {
-                                                label: c.name,
-                                                value: c.name,
-                                            };
-                                        })
-                                    }
-                                    onChange={handleCategoryChange}
-                                />
-                            </ConfigProvider>
                         </div>
                         <Link to={'/dashboard/blog-list'} className='btn btn-outline-dark btn-shop py-1'>Back To Page</Link>
                         <button type="submit" className="btn btn-dark btn-add ms-2 py-1">Add</button>
