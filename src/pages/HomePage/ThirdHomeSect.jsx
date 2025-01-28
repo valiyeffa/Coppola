@@ -9,6 +9,10 @@ const ThirdHomeSect = () => {
         window.scrollTo(0, 0);
     }
 
+    const navigateToBlog = () => {
+        window.location.href = '/blog';
+    }
+
     return (
         <div className='third-home-sect'>
             <div className='container-fluid'>
@@ -17,7 +21,7 @@ const ThirdHomeSect = () => {
                 </div>
 
                 <div className="row">
-                    <div className="col-12 col-lg-6 col-md-12 col-sm-12">
+                    <div onClick={navigateToBlog} className="col-12 col-lg-6 col-md-12 col-sm-12">
                         <div className="news-blog">
                             <img src={bloglist1} alt="" />
                             <div className="blog-textbox">
@@ -31,7 +35,7 @@ const ThirdHomeSect = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-6 col-md-12 col-sm-12">
+                    <div onClick={navigateToBlog} className="col-12 col-lg-6 col-md-12 col-sm-12">
                         <div className="news-blog">
                             <div className="news-blog-img">
                                 <img src={bloglist2} alt="" />

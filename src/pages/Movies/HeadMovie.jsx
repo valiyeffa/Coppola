@@ -101,6 +101,7 @@ const HeadMovie = () => {
                                 <Swiper
                                     direction={'vertical'}
                                     effect={'fade'}
+                                    loop={true}
                                     pagination={{
                                         clickable: true,
                                     }}

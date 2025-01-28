@@ -9,14 +9,16 @@ import { environment } from '../../../environments/environment';
 import Cookies from 'universal-cookie';
 import Swal from 'sweetalert2';
 import { useGetUsersQuery } from '../../../tools/services/categoryApi';
+import { useGetMoviesQuery } from '../../../tools/services/moviesApi';
 
 const MoviesList = () => {
-  const [data, setData] = useState([]);
   const cookies = new Cookies(null, { path: '/' });
   const navigate = useNavigate();
+  const { data: moviesData, isLoading } = useGetMoviesQuery();
   const { data: userName } = useGetUsersQuery();
   const userId = cookies.get('user-id');
   const signedinAcc = userName && userName.find(p => p._id == userId);
+  console.log(moviesData);
 
   const logout = () => {
     cookies.remove('role');
@@ -38,13 +40,6 @@ const MoviesList = () => {
       onClick: logout,
     }
   ];
-
-  useEffect(() => {
-    axios.get(`${environment.baseUrl}/products`)
-      .then(res => setData(res.data))
-      .catch(err => console.log(err))
-  }, [])
-  console.log(data);
 
   return (
     <div className='dashboard'>
@@ -68,7 +63,7 @@ const MoviesList = () => {
           <div className="add-btn ">
             <Link to={'/dashboard/movie-list/add-movie'} className='btn btn-outline-dark btn-shop btn-add'>Add New</Link>
           </div>
-          {data.length == 0 ? <Preloader /> :
+          {isLoading ? <Preloader /> :
             <>
               <div className="list my-4">
                 <table className="table">
@@ -79,18 +74,19 @@ const MoviesList = () => {
                       <th scope="col">Title</th>
                       <th scope="col">Category</th>
                       <th scope="col">Price</th>
+                      <th scope="col">New</th>
                       <th scope="col">Edit / Delete</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {data.map((item, i) => (
-                      // console.log(`${environment.baseUrl}${item.image.url}`)
+                    {moviesData.map((item, i) => (
                       <tr key={item._id}>
                         <th scope="row">{i + 1}</th>
-                        <td><img height={100} src='' /></td>
+                        <td><img height={100} src={`${environment.baseUrl}${item.image.url}`} /></td>
                         <td>{item.title}</td>
-                        <td>{item.category.name}</td>
+                        <td>{item.category}</td>
                         <td>{item.price}$</td>
+                        <td>{item.isProductNew}</td>
                         <td>
                           <Link to={`/dashboard/`} className='btn list-btn btn-outline-warning'>Edit</Link>
                           <button className='btn btn-outline-danger list-btn ms-2'>Delete</button>

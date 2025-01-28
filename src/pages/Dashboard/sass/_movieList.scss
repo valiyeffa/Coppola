@@ -5,7 +5,7 @@
         flex-direction: column;
 
         .movie-list-body {
-            width: 80%;
+            width: 100%;
             @include centerflex();
             flex-direction: column;
 
@@ -37,6 +37,11 @@
 
                 textarea {
                     height: 160px;
+                }
+
+                .form-check-input{
+                    width: 35px;
+                    border-radius: 5px;
                 }
             }
         }

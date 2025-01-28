@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 const cookies = new Cookies(null, { path: '/' });
 
 export const blogApi = createApi({
-    reducerPath: 'createApi',
+    reducerPath: 'blogApi',
     baseQuery: fetchBaseQuery({ baseUrl: `${environment.baseUrl}` }),
 
     endpoints: (builder) => ({
