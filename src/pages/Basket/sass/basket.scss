@@ -40,7 +40,7 @@
                             align-items: center;
 
                             .card-img {
-                                width: 100%;
+                                width: 85%;
                                 object-fit: contain;
 
                                 img {
@@ -49,10 +49,7 @@
                             }
 
                             .card-body {
-                                .card-title {
-                                    font-size: 24px;
-                                    font-weight: 600;
-                                }
+                                width: 98%;
 
                                 .card-text {
                                     font-weight: 500;
@@ -70,6 +67,64 @@
                                 .new-text {
                                     @extend .sale-text;
                                     color: #253C1A;
+                                }
+
+                                .card-body-frst {
+                                    width: 100%;
+                                    @include flex();
+
+                                    .card-title {
+                                        font-size: 24px;
+                                        font-weight: 600;
+                                    }
+
+                                    .card-price {
+                                        font-size: 22px;
+                                        font-weight: 500;
+                                    }
+                                }
+
+                                .card-body-bottom {
+                                    @include flex();
+
+                                    .card-quantity {
+                                        width: 120px;
+                                        border: 1px solid black;
+                                        @include flex();
+
+                                        .btn {
+                                            border: none;
+                                            padding: 7px 15px;
+                                            border-radius: 0;
+                                        }
+
+                                        .count {
+                                        }
+                                    }
+
+                                    .card-remove-fav {
+                                        display: flex;
+
+                                        .btn {
+                                            padding: 0;
+                                            display: flex;
+                                            align-items: center;
+                                            border-radius: 0;
+                                            gap: 7px;
+                                            border: none;
+                                            color: rgb(109, 109, 109);
+                                        }
+
+                                        .fav-btn {
+                                            padding-right: 10px;
+
+                                        }
+
+                                        .del-btn {
+                                            border-left: 1px solid rgba(128, 128, 128, 0.362);
+                                            padding-left: 11px;
+                                        }
+                                    }
                                 }
                             }
                         }
