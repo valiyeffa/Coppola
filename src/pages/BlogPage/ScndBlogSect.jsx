@@ -27,7 +27,7 @@ const ScndBlogSect = () => {
                     <div className="row">
                         {isLoading ? <Preloader /> : <>
                             {blogData.map((item) => (
-                                <BlogCard key={item._id} image={item.image.url} title={item.title} category={item.category} content={item.content.slice(0,15)} />
+                                <BlogCard key={item._id} image={item.image.url} title={item.title.slice(0,27)} category={item.category} content={item.content.slice(0,15)} />
                             )).reverse()}
                         </>}
                     </div>

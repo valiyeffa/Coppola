@@ -27,6 +27,7 @@
 
     .blog-page-body {
         margin: 70px 0 170px;
+        @include centerflex();
 
         .row {
             row-gap: 30px;

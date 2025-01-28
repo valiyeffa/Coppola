@@ -5,21 +5,23 @@ const Basket = () => {
     return (
         <div className='basket-page'>
             <div className="container-fluid">
+                <p className='basket-title'>HOME / CART</p>
                 <div className="row">
                     <div className="col-md-8">
                         <div className="basket-prod-sect">
-                            <div className="basket-body">
+                            <div className="basket-body ">
                                 <h2 className='basket-body_title'>Cart</h2>
-                                <div className="card">
+                                <div className="card py-3">
                                     <div className="row g-0">
                                         <div className="col-md-2">
-                                            <img src={img} className="img-fluid rounded-start" alt="..." />
+                                            <div className="card-img">
+                                                <img src={img} className="img-fluid" alt="..." />
+                                            </div>
                                         </div>
                                         <div className="col-md-10">
                                             <div className="card-body">
                                                 <h5 className="card-title">ANESA</h5>
-                                                <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                                <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
+                                                <p className="card-text"><del className='sale'>$25</del> $12 <span className='sale-text'>On Sale</span><span className='new-text'>New</span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -30,7 +32,7 @@ const Basket = () => {
                     <div className="col-md-4">
                         <div className="basket-prod-sect">
                             <div className="basket-total">
-                                <h2>basket</h2>
+                                <h2>Total</h2>
                             </div>
                         </div>
                     </div>

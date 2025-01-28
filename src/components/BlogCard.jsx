@@ -9,7 +9,7 @@ const BlogCard = ({ image, title, category, content }) => {
         </div>
         <div className="card-body">
           <p className="textbox-ctg"><span>{category}</span> NOVEMBER 30</p>
-          <h5 className="card-title">{title}</h5>
+          <h5 className="card-title">{title}...</h5>
           <p className="card-text">{content}</p>
         </div>
       </div>

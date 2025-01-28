@@ -1,20 +1,27 @@
 .basket-page {
     width: 100%;
-    margin: 120px 0;
     font-family: $textfontname;
 
     .container-fluid {
         width: 96%;
 
+        .basket-title {
+            margin: 50px 0;
+            font-size: 25px;
+            font-weight: 500;
+            letter-spacing: -1px;
+        }
+
         .row {
             .basket-prod-sect {
+                margin-bottom: 100px;
                 width: 100%;
-                box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.408);
+                // box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.408);
                 border-radius: 3px;
                 @include centerflex();
 
                 .basket-body {
-                    width: 97%;
+                    width: 100%;
 
                     .basket-body_title {
                         width: 100%;
@@ -23,12 +30,48 @@
                     }
 
                     .card {
+                        width: 100%;
                         border: none;
                         border-bottom: 2px solid rgba(128, 128, 128, 0.133);
                         border-radius: 0;
 
-                        .row{
-                            
+                        .row {
+                            width: 100%;
+                            align-items: center;
+
+                            .card-img {
+                                width: 100%;
+                                object-fit: contain;
+
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            .card-body {
+                                .card-title {
+                                    font-size: 24px;
+                                    font-weight: 600;
+                                }
+
+                                .card-text {
+                                    font-weight: 500;
+                                    font-size: 19px;
+                                }
+
+                                .sale-text {
+                                    font-size: 17px;
+                                    padding: 0 7px;
+                                    border-left: 1px solid rgba(128, 128, 128, 0.407);
+                                    color: $textcolortwo;
+                                    margin: 0 5px;
+                                }
+
+                                .new-text {
+                                    @extend .sale-text;
+                                    color: #253C1A;
+                                }
+                            }
                         }
                     }
                 }
@@ -37,4 +80,9 @@
             }
         }
     }
+}
+
+.sale {
+    color: grey;
+    font-size: 13px;
 }
