@@ -75,6 +75,7 @@ const MoviesList = () => {
                       <th scope="col">Category</th>
                       <th scope="col">Tag</th>
                       <th scope="col">Price</th>
+                      <th scope="col">Discount</th>
                       <th scope="col">Discounded Price</th>
                       <th scope="col">New</th>
                       <th scope="col">Edit / Delete</th>
@@ -89,8 +90,9 @@ const MoviesList = () => {
                         <td>{item.category.name}</td>
                         <td>{item.tag}</td>
                         <td>{item.price}$</td>
+                        <td>{item.discount}%</td>
                         <td>{item.discountedPrice}$</td>
-                        <td>{item.isProductNew == true? <><p>True</p></>:<><p>False</p></>}</td>
+                        <td>{item.isProductNew == true? <p>True</p>:<p>False</p>}</td>
                         <td>
                           <Link to={`/dashboard/`} className='btn list-btn btn-outline-warning'>Edit</Link>
                           <button className='btn btn-outline-danger list-btn ms-2'>Delete</button>
