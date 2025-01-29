@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useGetBlogsQuery, useUpdateBlogMutation } from '../../../tools/services/blogApi';
 import Preloader from '../../../components/Preloader';
 import Swal from 'sweetalert2';
+import { environment } from '../../../environments/environment';
 
 const EditBlog = () => {
     const { blogSlug } = useParams();
@@ -13,9 +14,8 @@ const EditBlog = () => {
     const contentRef = useRef();
     const ctgRef = useRef();
 
-    // Əgər `selectedBlog.image` bir obyekt formasındadırsa (_id və url varsa)
-    const [imageUrl, setImageUrl] = useState(selectedBlog?.image?.url || '');
-    const [imageId, setImageId] = useState(selectedBlog?.image?._id || '');
+    const [imageUrl, setImageUrl] = useState(selectedBlog.image.url || '');
+    const [imageId, setImageId] = useState(selectedBlog.image._id || '');
     const [image, setImage] = useState(null);
 
     const navigate = useNavigate();
@@ -24,7 +24,7 @@ const EditBlog = () => {
         const file = e.target.files[0];
         if (file) {
             setImage(file);
-            setImageUrl(URL.createObjectURL(file)); // Yeni preview üçün
+            setImageUrl(URL.createObjectURL(file)); 
         } else {
             setImage(null);
         }
@@ -33,32 +33,23 @@ const EditBlog = () => {
     const submitedForm = async (e) => {
         e.preventDefault();
 
-        if (!titleRef.current.value || !contentRef.current.value || !ctgRef.current.value) {
-            Swal.fire({
-                title: "Error",
-                text: "All fields are required!",
-                icon: "warning"
-            });
-            return;
-        }
 
         try {
-            let finalImage = imageId; // Default olaraq əvvəlki ID-ni saxla
+            let finalImage = imageId;
 
             if (image) {
                 const formData = new FormData();
                 formData.append('image', image);
 
-                // Yeni şəkil yüklənirsə, upload API-yə göndəririk
                 const uploadedImage = await addImages(formData).unwrap();
-                finalImage = uploadedImage._id; // Yeni şəkil ID-sini alırıq
+                finalImage = uploadedImage._id;
             }
 
             const updatedBlog = {
                 title: titleRef.current.value,
                 content: contentRef.current.value,
                 category: ctgRef.current.value,
-                image: finalImage, // Əgər yeni şəkil varsa, yeni ID, yoxdursa, köhnə ID qalır
+                image: finalImage, 
             };
 
             await updateBlog({ id: selectedBlog._id, ...updatedBlog }).unwrap();
@@ -103,7 +94,7 @@ const EditBlog = () => {
                                 <label className="form-label">Current Image</label>
                                 {imageUrl && (
                                     <div>
-                                        <img src={imageUrl} alt="Blog Preview" className="img-thumbnail mb-2" style={{ maxWidth: '300px' }} />
+                                        <img src={`${environment.baseUrl}${imageUrl}`} alt="Blog Preview" className="img-thumbnail mb-2" style={{ maxWidth: '300px' }} />
                                     </div>
                                 )}
                                 <input onChange={handleImageChange} type="file" className="form-control" />

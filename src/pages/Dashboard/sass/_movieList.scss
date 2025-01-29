@@ -33,6 +33,7 @@
             flex-direction: column;
 
             form {
+
                 input,
                 textarea {
                     box-shadow: none;
@@ -52,11 +53,23 @@
                     height: 160px;
                 }
 
-                .form-check-input{
+                .form-check-input {
                     width: 35px;
                     border-radius: 5px;
                 }
             }
+        }
+    }
+
+    .movies-list-edit {
+        @extend .movies-list-add;
+        @include centerflex();
+        flex-direction: column;
+
+        .movie-edit-body {
+            width: 100%;
+            @extend .movie-add-body;
+
         }
     }
 }

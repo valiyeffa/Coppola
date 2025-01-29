@@ -12,7 +12,6 @@ export const blogApi = createApi({
         getBlogs: builder.query({
             query: () => '/blogs'
         }),
-
         addImages: builder.mutation({
             query: (imageFile) => {
                 const formData = new FormData();

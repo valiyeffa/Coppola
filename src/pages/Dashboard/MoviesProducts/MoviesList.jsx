@@ -9,16 +9,16 @@ import { environment } from '../../../environments/environment';
 import Cookies from 'universal-cookie';
 import Swal from 'sweetalert2';
 import { useGetUsersQuery } from '../../../tools/services/categoryApi';
-import { useGetMoviesQuery } from '../../../tools/services/moviesApi';
+import { useDeleteMovieMutation, useGetMoviesQuery } from '../../../tools/services/moviesApi';
 
 const MoviesList = () => {
   const cookies = new Cookies(null, { path: '/' });
   const navigate = useNavigate();
   const { data: moviesData, isLoading } = useGetMoviesQuery();
   const { data: userName } = useGetUsersQuery();
+  const [deleteMovie] = useDeleteMovieMutation();
   const userId = cookies.get('user-id');
   const signedinAcc = userName && userName.find(p => p._id == userId);
-  console.log(moviesData);
 
   const logout = () => {
     cookies.remove('role');
@@ -40,6 +40,25 @@ const MoviesList = () => {
       onClick: logout,
     }
   ];
+
+  const delMovie = async (id) => {
+    try {
+      await deleteMovie(id);
+      Swal.fire({
+        title: "Success",
+        text: "Movie deleted!",
+        icon: "success",
+        preConfirm: () => { window.location.reload() }
+      })
+    } catch (err) {
+      console.log(err);
+      Swal.fire({
+        title: "Error",
+        text: "Failed to delete the movie",
+        icon: "error",
+      })
+    }
+  }
 
   return (
     <div className='dashboard'>
@@ -92,10 +111,10 @@ const MoviesList = () => {
                         <td>{item.price}$</td>
                         <td>{item.discount}%</td>
                         <td>{item.discountedPrice}$</td>
-                        <td>{item.isProductNew == true? <p>True</p>:<p>False</p>}</td>
+                        <td>{item.isProductNew == true ? <p>True</p> : <p>False</p>}</td>
                         <td>
-                          <Link to={`/dashboard/`} className='btn list-btn btn-outline-warning'>Edit</Link>
-                          <button className='btn btn-outline-danger list-btn ms-2'>Delete</button>
+                          <Link to={`/dashboard/movie-list/edit-movie/${item.slug}`} className='btn list-btn btn-outline-warning'>Edit</Link>
+                          <button onClick={() => delMovie(item._id)} className='btn btn-outline-danger list-btn ms-2'>Delete</button>
                         </td>
                       </tr>
                     ))}

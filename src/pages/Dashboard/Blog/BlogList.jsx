@@ -17,7 +17,6 @@ const BlogList = () => {
   const { data: userName } = useGetUsersQuery();
   const userId = cookies.get('user-id');
   const signedinAcc = userName && userName.find(p => p._id == userId);
-  // console.log(blogsData);
 
   const logout = () => {
     cookies.remove('role');
@@ -49,7 +48,7 @@ const BlogList = () => {
         preConfirm: () => { window.location.reload() }
       })
     } catch (err) {
-      console.log('Failed to delete the blog', err);
+      console.log(err);
       Swal.fire({
         title: "Error",
         text: "Failed to delete the blog",

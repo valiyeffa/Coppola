@@ -20,6 +20,7 @@ import Blog from './pages/BlogPage/Blog'
 import FaqAndHelp from './pages/FAQ/FaqAndHelp'
 import Basket from './pages/Basket/Basket'
 import EditBlog from './pages/Dashboard/Blog/EditBlog'
+import EditMovies from './pages/Dashboard/MoviesProducts/EditMovies'
 
 const App = () => {
 
@@ -38,6 +39,7 @@ const App = () => {
     //!=================MOVIE-START=================
     { path: '/dashboard/movie-list', element: <MoviesList /> },
     { path: '/dashboard/movie-list/add-movie', element: <AddMovies /> },
+    { path: '/dashboard/movie-list/edit-movie/:movieSlug', element: <EditMovies /> },
     //!=================MOVIE-END===================
 
     //!=================CATEGORY-START================

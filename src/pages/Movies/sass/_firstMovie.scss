@@ -24,7 +24,9 @@
     height: fit-content;
     background-color: var(--bgColorMain);
     font-family: $textfontname;
-    padding-bottom: 150px;
+    margin-bottom: 150px;
+    @include centerflex();
+    flex-direction: column;
 
     .container-fluid {
         width: 95%;
@@ -178,8 +180,7 @@
 
                     .row {
                         width: 100%;
-                        display: flex;
-                        justify-content: space-between;
+                        justify-content: start;
                         row-gap: 50px;
                     }
                 }

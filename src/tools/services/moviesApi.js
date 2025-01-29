@@ -22,7 +22,26 @@ export const moviesApi = createApi({
                 }
             })
         }),
+        deleteMovie: builder.mutation({
+            query: (id) => ({
+                url: `/products/${id}`,
+                method: 'DELETE',
+                headers: {
+                    Authorization: `Bearer ${cookies.get('x-auth-token')}`
+                }
+            })
+        }),
+        updateMovies: builder.mutation({
+            query: ({ id, ...movies }) => ({
+                url: `/products/${id}`,
+                method: 'POST',
+                body: movies,
+                headers: {
+                    Authorization: `Bearer ${cookies.get('x-auth-token')}`
+                }
+            })
+        })
     })
 })
 
-export const { useGetMoviesQuery, useAddMovieMutation } = moviesApi;
+export const { useGetMoviesQuery, useAddMovieMutation, useDeleteMovieMutation, useUpdateMoviesMutation } = moviesApi;
