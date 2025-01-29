@@ -11,6 +11,7 @@ const AddMovies = () => {
   const [addImg] = useAddImagesMutation();
   const [addMovie] = useAddMovieMutation();
   const [selectedCategory, setSelectedCategory] = useState();
+  const orderRef = useRef();
   const titleRef = useRef();
   const descrbRef = useRef();
   const priceRef = useRef();
@@ -43,6 +44,7 @@ console.log(newOld);
         const response = await addImg(image).unwrap();
 
         const movieData = {
+          order: Number(orderRef.current.value),
           title: titleRef.current.value,
           description: descrbRef.current.value,
           price: Number(priceRef.current.value),
@@ -82,6 +84,10 @@ console.log(newOld);
 
         <div className="movie-add-body my-5 ">
           <form className='col-5' onSubmit={submitedForm}>
+            <div className="mb-3">
+              <label className="form-label">Order</label>
+              <input type="text" ref={orderRef} className="form-control" />
+            </div>
             <div className="mb-3">
               <label className="form-label">Movie Title</label>
               <input type="text" ref={titleRef} className="form-control" />
