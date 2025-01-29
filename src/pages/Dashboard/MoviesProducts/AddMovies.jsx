@@ -17,6 +17,8 @@ const AddMovies = () => {
   const tagRef = useRef();
   const isNewRef = useRef();
   const [image, setImage] = useState(null);
+  const [newOld, setNewOld] = useState(false);
+console.log(newOld);
 
   const handleCategoryChange = (value) => {
     setSelectedCategory(value);
@@ -47,7 +49,8 @@ const AddMovies = () => {
           category: selectedCategory,
           tag: tagRef.current.value,
           image: response,
-          isNew: isNewRef.current.checked,
+          isNew: newOld,
+          // isNew: isNewRef.current.checked,
         }
 
         await addMovie(movieData).unwrap();
@@ -122,7 +125,7 @@ const AddMovies = () => {
                     ctg && ctg.map((c) => {
                       return {
                         label: c.name,
-                        value: c.name,
+                        value: c._id,
                       };
                     })
 
@@ -137,7 +140,9 @@ const AddMovies = () => {
             </div>
             <div className="mb-3 form-check form-switch">
               <label className="form-check-label">New</label>
-              <input ref={isNewRef} defaultChecked={true} className="form-check-input" type="checkbox" role="switch" />
+              <button type='button' onClick={()=>setNewOld(true)}>New</button>
+              <button type='button' onClick={()=>setNewOld(false)}>old</button>
+              {/* <input ref={isNewRef} defaultChecked={true} className="form-check-input" type="checkbox" role="switch" /> */}
             </div>
             <Link to={'/dashboard/movie-list'} className='btn btn-outline-dark btn-shop py-1'>Back To Page</Link>
             <button type="submit" className="btn btn-dark ms-3 btn-add py-1">Add</button>

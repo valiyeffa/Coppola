@@ -84,7 +84,7 @@ const MoviesList = () => {
                         <th scope="row">{i + 1}</th>
                         <td><img height={100} src={`${environment.baseUrl}${item.image.url}`} /></td>
                         <td>{item.title}</td>
-                        <td>{item.category}</td>
+                        <td>{item.category.name}</td>
                         <td>{item.price}$</td>
                         <td>{item.isProductNew}</td>
                         <td>
