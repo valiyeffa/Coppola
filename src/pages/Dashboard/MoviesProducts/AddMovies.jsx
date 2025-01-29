@@ -15,6 +15,7 @@ const AddMovies = () => {
   const titleRef = useRef();
   const descrbRef = useRef();
   const priceRef = useRef();
+  const disRef = useRef();
   const tagRef = useRef();
   const isNewRef = useRef();
   const [image, setImage] = useState(null);
@@ -50,6 +51,7 @@ const AddMovies = () => {
           tag: tagRef.current.value,
           image: response,
           isProductNew: isNewRef.current.checked,
+          discount: Number(disRef.current.value)
         }
 
         await addMovie(movieData).unwrap();
@@ -140,6 +142,10 @@ const AddMovies = () => {
             <div className="mb-3">
               <label className="form-label">Tag</label>
               <input ref={tagRef} type="text" className="form-control" />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Discount percent</label>
+              <input ref={disRef} type="number" className="form-control" />
             </div>
             <div className="mb-3 form-check form-switch">
               <label className="form-check-label">New</label>
