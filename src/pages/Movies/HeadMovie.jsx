@@ -158,7 +158,7 @@ const HeadMovie = () => {
                                 <div className="movie-right-body-products">
                                     <div className="row">
                                         {movieData.map((item) => (
-                                            <MovieCard key={item._id} image={`${environment.baseUrl}${item.image.url}`} title={item.title} category={item.category.name} price={item.price} />
+                                            <MovieCard key={item._id} image={`${environment.baseUrl}${item.image.url}`} title={item.title} category={item.category.name} price={item.price == item.discountedPrice? item.price : item.discountedPrice} discounted={item.price} isProductNew={item.isProductNew} />
                                         ))}
                                     </div>
                                 </div>

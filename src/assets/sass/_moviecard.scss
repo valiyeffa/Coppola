@@ -11,24 +11,12 @@
             display: flex;
             justify-content: center;
             position: absolute;
+            flex-direction: column;
+            align-items: center;
             bottom: 40px;
             left: 0;
             z-index: 1000;
             transform: translateY(35px);
-            opacity: 0;
-            transition: all 0.4s ease;
-
-        }
-
-        .btns-fav {
-            position: absolute;
-            width: 100%;
-            display: flex;
-            justify-content: end;
-            right: 15px;
-            top: 12px;
-            z-index: 1000;
-            transform: translateX(25px);
             opacity: 0;
             transition: all 0.4s ease;
 
@@ -37,7 +25,13 @@
                 font-size: 25px;
                 border: none;
                 border-radius: 2px;
-                background: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.484));
+                margin-bottom: 10px;
+                border-bottom: 1px solid ;
+
+                span {
+                    font-size: 16px;
+                    padding-left:7px;
+                }
 
                 .fill {
                     display: none;
@@ -52,6 +46,59 @@
                         display: none;
                     }
 
+                }
+            }
+        }
+
+        .new-sale-mark {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: end;
+            right: 15px;
+            top: 12px;
+            z-index: 1000;
+            text-transform: uppercase;
+
+            .new-mark {
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                .new-mark-text {
+                    color: white;
+                    font-weight: 500;
+                    background-color: black;
+                    padding: 1px 7px;
+                    font-size: 12px;
+                    position: absolute;
+                    top: 10px;
+                    right: 5px;
+                }
+
+                &::after {
+                    background: url('../../../src/assets/images/star-new.png') center center / cover no-repeat;
+                    content: " ";
+                    display: block;
+                    width: 68px;
+                    height: 63px;
+                    position: absolute;
+                    top: 0px;
+                    right: 0px;
+                    transform: translateX(10px) translateY(-10px);
+                    z-index: -1;
+                }
+            }
+
+            .sale-mark {
+                @extend .new-mark;
+
+                .sale-mark-text {
+                    @extend .new-mark-text;
+                }
+
+                &::after {
+                    background-image: url('../../../src/assets/images/star-sale.png');
                 }
             }
         }
@@ -80,10 +127,6 @@
                 opacity: 1;
             }
 
-            .btns-fav {
-                transform: translateX(0);
-                opacity: 1;
-            }
         }
     }
 
@@ -95,6 +138,16 @@
             font-weight: 600;
             border-radius: 0;
             padding: 0 5px;
+        }
+
+        .card-ex-price {
+            color: grey;
+            font-size: 15px;
+            padding-right: 5px;
+        }
+
+        .card-price {
+            font-size: 17px;
         }
 
         .card-title {

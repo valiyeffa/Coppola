@@ -46,7 +46,6 @@
                 @include centerflex();
                 flex-direction: column;
 
-                // box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.279);
                 .dark-logo {
                     padding: 25px 0;
                     width: 70%;
@@ -99,7 +98,7 @@
 
                 .movie-right-top-carousel {
                     width: 93%;
-                    height: 60vh;
+                    height: 65vh;
                     padding-bottom: 50px;
 
                     .swiper {
