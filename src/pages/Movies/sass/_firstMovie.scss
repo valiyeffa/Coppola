@@ -42,11 +42,17 @@
 
             .movie-left-side {
                 width: 100%;
-                border-radius: 25px;
-                box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.547);
+                border-radius: 5px;
+                @include centerflex();
+                flex-direction: column;
+
+                // box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.279);
+                .dark-logo {
+                    padding: 25px 0;
+                    width: 70%;
+                }
 
                 .left-side-body {
-                    padding: 25px;
 
                     .search-bar {
                         .input-group {
@@ -87,7 +93,8 @@
             .movie-right-side {
                 width: 100%;
                 height: fit-content;
-                @include centerflex();
+                display: flex;
+                align-items: end;
                 flex-direction: column;
 
                 .movie-right-top-carousel {
@@ -98,7 +105,7 @@
                     .swiper {
                         width: 100%;
                         height: 100%;
-                        border-radius: 25px;
+                        border-radius: 5px;
 
                         .swiper-pagination {
                             .swiper-pagination-bullet-active {
@@ -197,10 +204,79 @@
     }
 }
 
+@media (max-width:768px) {
+    .head-sect-movie {
+        .container-fluid {
+            width: 100%;
+            .row {
+                .movie-left-side {
+                    width: 100%;
+                    border-radius: 5px;
+                    @include centerflex();
+                    flex-direction: column;
+
+                    .dark-logo {
+                        display: none;
+                    }
+
+                    .left-side-body {
+                        width: 100%;
+
+                    }
+                }
+
+                .movie-right-side {
+                    align-items: center;
+
+                    .movie-right-top-carousel {
+                        width: 98%;
+
+                        .swiper {
+                            .swiper-slide {
+                                .slide-title-text {
+                                    left: 15px;
+
+                                    span {
+                                        font-size: 16px;
+                                    }
+
+                                    h3 {
+                                        font-size: 45px;
+                                    }
+
+                                    p {
+                                        font-size: 13px;
+                                    }
+                                }
+
+                                .slide-movie-btns {
+                                    right: 10px;
+                                    bottom: 22px;
+                                }
+                            }
+                        }
+                    }
+
+                    .movie-right-body-products {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
 @media (max-width: 426px) {
     .head-sect-movie {
         .container-fluid {
             .row {
+                .movie-left-side {
+                    .left-side-body {
+                        width: 90%;
+                    }
+                }
+
                 .movie-right-side {
                     .movie-right-top-carousel {
                         display: none;

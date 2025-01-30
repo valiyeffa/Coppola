@@ -1,6 +1,6 @@
 import { ConfigProvider, Slider } from 'antd';
 import React from 'react'
-import { FaSearch, FaStar, FaRegStar, FaRegHeart, FaHeart } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import img3 from './images/h4-rev-img4a.jpg'
 import img2 from './images/h4-rev-img3.jpg'
@@ -38,12 +38,12 @@ const HeadMovie = () => {
     return (
         <div className='head-sect-movie light-mode'>
             <div className="container-fluid">
-            <h2 className='py-5' style={{ textAlign: 'center' }}>Movies / Shop</h2>
+                <h2 className='py-5' style={{ textAlign: 'center' }}>Movies / Shop</h2>
                 {isLoading ? <Preloader /> :
                     <div className="row">
                         <div className="col-12 col-lg-2 col-md-11 col-sm-12">
-                            <img style={{ width: '100%', padding: '50px 0' }} src={logoDark} alt="" />
                             <div className="movie-left-side">
+                                <img className='dark-logo' src={logoDark} alt="" />
                                 <div className="left-side-body">
                                     <div className="search-bar py-3 border-bottom">
                                         <div className="input-group ">
@@ -158,7 +158,7 @@ const HeadMovie = () => {
                                 <div className="movie-right-body-products">
                                     <div className="row">
                                         {movieData.map((item) => (
-                                            <MovieCard key={item._id} image={`${environment.baseUrl}${item.image.url}`} title={item.title} category={item.category.name} price={item.price}/>
+                                            <MovieCard key={item._id} image={`${environment.baseUrl}${item.image.url}`} title={item.title} category={item.category.name} price={item.price} />
                                         ))}
                                     </div>
                                 </div>

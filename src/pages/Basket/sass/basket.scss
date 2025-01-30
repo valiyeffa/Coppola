@@ -118,11 +118,19 @@
                                         .fav-btn {
                                             padding-right: 10px;
 
+                                            &:hover{
+                                                color: $textcolortwo;
+                                            }
+
                                         }
 
                                         .del-btn {
                                             border-left: 1px solid rgba(128, 128, 128, 0.362);
                                             padding-left: 11px;
+
+                                            &:hover{
+                                                color: red;
+                                            }
                                         }
                                     }
                                 }

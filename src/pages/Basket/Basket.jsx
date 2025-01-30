@@ -7,9 +7,22 @@ const Basket = () => {
 
     if (count < 0) {
         setCount(0);
-        toast.warn('🦄 Wow so easy!', {
+        toast.warn('Məhsul sayı mənfi ola bilməz !', {
             position: "top-center",
-            autoClose: 2500,
+            autoClose: 3500,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            transition: Bounce,
+        });
+    }else if(count>5){
+        setCount(5);
+        toast.warn('Məhsul sayı max 5 ola bilər!', {
+            position: "top-center",
+            autoClose: 3500,
             hideProgressBar: false,
             closeOnClick: false,
             pauseOnHover: true,
