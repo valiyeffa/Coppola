@@ -8,6 +8,7 @@ import Cookies from 'universal-cookie';
 import { DownOutlined } from '@ant-design/icons';
 import { useGetUsersQuery } from '../tools/services/categoryApi';
 import Swal from 'sweetalert2';
+import { useCart } from 'react-use-cart';
 
 const HeaderComp = () => {
     const cookies = new Cookies(null, { path: '/' });
@@ -15,6 +16,7 @@ const HeaderComp = () => {
     const { data: userName } = useGetUsersQuery();
     const userId = cookies.get('user-id');
     const signedinAcc = userName && userName.find(p => p._id == userId);
+    const { totalItems } = useCart();
 
     useEffect(() => {
         if (cookies.get("role") === "admin") {
@@ -83,7 +85,7 @@ const HeaderComp = () => {
                         </li>
                     </ul>
                     <div className="nav-right-side">
-                        <NavLink to='/basket' className='btn get-basket-btn'>Get Basket <span>|</span> 0</NavLink>
+                        <NavLink to='/basket' className='btn get-basket-btn'>Get Basket <span>|</span> {totalItems}</NavLink>
                         <button className='btn get-fav-btn'>
                             <ConfigProvider theme={{
                                 components: {

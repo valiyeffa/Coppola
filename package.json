@@ -23,6 +23,7 @@
     "react-redux": "^9.2.0",
     "react-router-dom": "^6.28.0",
     "react-toastify": "^11.0.3",
+    "react-use-cart": "^1.14.0",
     "rollup": "^4.27.2",
     "sass": "^1.81.0",
     "slugify": "^1.6.6",

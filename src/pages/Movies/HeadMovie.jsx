@@ -14,7 +14,6 @@ import MovieCard from '../../components/MovieCard';
 import { useGetCategoriesQuery } from '../../tools/services/categoryApi';
 import { useGetMoviesQuery } from '../../tools/services/moviesApi';
 import Preloader from '../../components/Preloader';
-import { environment } from '../../environments/environment';
 
 const marks = {
     10: {
@@ -158,7 +157,7 @@ const HeadMovie = () => {
                                 <div className="movie-right-body-products">
                                     <div className="row">
                                         {movieData.map((item) => (
-                                            <MovieCard key={item._id} image={`${environment.baseUrl}${item.image.url}`} title={item.title} category={item.category.name} price={item.price == item.discountedPrice? item.price : item.discountedPrice} discounted={item.price} isProductNew={item.isProductNew} />
+                                            <MovieCard key={item._id} alldata={item} />
                                         ))}
                                     </div>
                                 </div>

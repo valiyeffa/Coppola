@@ -5,9 +5,12 @@ import '../src/assets/sass/style.scss'
 import App from './App.jsx'
 import { Provider } from 'react-redux'
 import { store } from './tools/store.js'
+import { CartProvider } from 'react-use-cart'
 
 createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <CartProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </CartProvider>
 )

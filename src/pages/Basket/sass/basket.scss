@@ -1,12 +1,27 @@
 .basket-page {
     width: 100%;
     font-family: $textfontname;
+    background-color: #FBFBFB;
 
     .container-fluid {
         width: 96%;
 
+        .empty {
+            width: 100%;
+            @include centerflex();
+            flex-direction: column;
+
+            img {
+                height: 350px;
+            }
+
+            p {
+                padding-bottom: 25px;
+            }
+        }
+
         .basket-title {
-            margin: 50px 0;
+            padding: 25px 0;
             font-size: 25px;
             font-weight: 500;
             letter-spacing: -1px;
@@ -16,7 +31,6 @@
             .basket-prod-sect {
                 margin-bottom: 100px;
                 width: 100%;
-                // box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.408);
                 border-radius: 3px;
                 @include centerflex();
 
@@ -98,8 +112,7 @@
                                             border-radius: 0;
                                         }
 
-                                        .count {
-                                        }
+                                        .count {}
                                     }
 
                                     .card-remove-fav {
@@ -118,7 +131,7 @@
                                         .fav-btn {
                                             padding-right: 10px;
 
-                                            &:hover{
+                                            &:hover {
                                                 color: $textcolortwo;
                                             }
 
@@ -128,7 +141,7 @@
                                             border-left: 1px solid rgba(128, 128, 128, 0.362);
                                             padding-left: 11px;
 
-                                            &:hover{
+                                            &:hover {
                                                 color: red;
                                             }
                                         }
@@ -139,13 +152,237 @@
                     }
                 }
 
-                .basket-total {}
+                .basket-total {
+                    width: 90%;
+
+                    .basket-body_title {
+                        width: 100%;
+                        border-bottom: 2px solid rgba(128, 128, 128, 0.133);
+                        padding: 7px 0;
+                    }
+
+                    .basket-total-body {
+                        width: 100%;
+
+                        .basket-total-body_top {
+                            width: 100%;
+                            @include flex();
+                            flex-direction: column;
+
+                            .subtotal {
+                                width: 100%;
+                                display: flex;
+                                justify-content: space-between;
+
+                                .mini-title {
+                                    color: grey;
+                                    font-size: 15px;
+                                }
+
+                                .delivery-count {
+                                    @extend .mini-title;
+                                }
+                            }
+
+                            .sub-top {
+                                .sub-mini-title {
+                                    font-size: 19px;
+                                    font-weight: 500;
+                                    color: rgb(77, 77, 77);
+                                }
+
+                                .subtotal-val {
+                                    font-weight: 500;
+                                }
+
+                            }
+                        }
+
+                        .basket-total-body_bottom {
+                            @include flex();
+                            border-top: 2px dotted rgba(128, 128, 128, 0.133);
+                            padding-top: 10px;
+
+                            .total-text {
+                                font-size: 19px;
+                                font-weight: 500;
+                            }
+
+                            .total-price {
+                                font-size: 20px;
+                                font-weight: 600;
+                            }
+                        }
+
+                        .basket-total-body_btn {
+                            width: 100%;
+
+                            .btn {
+                                width: 100%;
+                                background-color: black;
+                                color: white;
+                                border-radius: 0;
+                                border: 2px solid black;
+                                padding: 10px 25px;
+                                font-size: 15px;
+
+                                &:hover {
+                                    background-color: transparent;
+                                    color: black;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
+    }
+}
+
+.btn-basket {
+    background-color: black;
+    color: white;
+    border-radius: 0;
+    border: 2px solid black !important;
+    padding: 10px 25px;
+    font-size: 15px;
+    margin-bottom: 100px;
+
+    &:hover {
+        background-color: transparent;
+        color: black;
     }
 }
 
 .sale {
     color: grey;
     font-size: 13px;
+}
+
+@media (max-width:768px) {
+    .basket-page {
+        .container-fluid {
+            width: 100%;
+            @include centerflex();
+            flex-direction: column;
+
+            .empty {
+                width: 80%;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+
+                p {
+                    padding-bottom: 10px;
+                    text-align: center;
+                }
+            }
+
+            .row {
+                .basket-prod-sect {
+                    .basket-body {
+                        .card {
+                            .row {
+                                .card-img {
+                                    width: 100%;
+                                }
+
+                                .card-body {
+
+                                    .card-text {
+                                        font-size: 15px;
+                                    }
+
+                                    .sale-text {
+                                        font-size: 15px;
+                                    }
+
+                                    .card-body-frst {
+                                        width: 100%;
+
+                                        .card-title {
+                                            font-size: 18px;
+                                        }
+
+                                        .card-price {
+                                            font-size: 18px;
+                                        }
+                                    }
+
+                                    .card-body-bottom {
+
+                                        .card-quantity {
+                                            width: 75px;
+
+                                            .btn {
+                                                padding: 0 8px;
+                                            }
+                                        }
+
+                                        .card-remove-fav {
+                                            .btn {
+                                                font-size: 15px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .basket-total {
+                        width: 95%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width:426px) {
+    .basket-page {
+        .container-fluid {
+
+            .row {
+                .basket-prod-sect {
+                    .basket-body {
+                        .card {
+                            .row {
+                                .col-md-2 {
+                                    width: 100%;
+                                    @include centerflex();
+
+                                    .card-img {
+                                        width: 40%;
+                                    }
+                                }
+
+                                .card-body {
+                                    width: 100%;
+
+                                    .card-body-frst {
+                                        .card-title {
+                                            font-size: 21px;
+                                        }
+                                    }
+
+                                    .card-body-bottom {
+                                        .card-quantity {
+                                            width: 89px;
+
+                                            .btn {
+                                                padding: 2px 10px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
