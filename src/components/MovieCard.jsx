@@ -3,12 +3,24 @@ import { FaStar, FaRegStar, FaRegHeart, FaHeart } from "react-icons/fa";
 import { useCart } from 'react-use-cart';
 import { environment } from '../environments/environment';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
+import { useWishlist } from 'react-use-wishlist';
 
 const MovieCard = ({ alldata }) => {
+  const { addWishlistItem } = useWishlist();
   const { addItem } = useCart();
 
   const handleAddToCart = (product) => {
     addItem({
+      ...product,
+      id: product._id,
+      price: product.discountedPrice || product.price,
+      originalPrice: product.price,
+      isProductNew: product.isProductNew
+    });
+  };
+
+  const handleAddToWishlist = (product) => {
+    addWishlistItem({
       ...product,
       id: product._id,
       price: product.discountedPrice || product.price,
@@ -49,7 +61,20 @@ const MovieCard = ({ alldata }) => {
             }
           </div>
           <div className="btns-shop">
-            <button className="btn fav-btn">
+            <button onClick={() => {
+              toast.success('Movie added to wishlist!', {
+                position: "top-center",
+                autoClose: 3500,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+                transition: Bounce,
+              });
+              handleAddToWishlist(alldata);
+            }} className="btn fav-btn">
               <FaRegHeart className='empty' />
               <FaHeart className='fill' />
               <span>Add to WishList</span>

@@ -22,23 +22,19 @@ const Header = () => {
     if (location.pathname !== "/dashboard/overview" && location.pathname !== '/dashboard/movie-list'
         && location.pathname !== '/dashboard/blog-list' && location.pathname !== '/dashboard/blog-list/add-blogs' && location.pathname !== '/dashboard/categories-list'
         && location.pathname !== '/dashboard/categories-list/add-category' && location.pathname !== `/dashboard/categories-list/edit-category/${slug}` && location.pathname !== `/dashboard/blog-list/edit-blog/${blogSlug}`
-        && location.pathname !== '/dashboard/movie-list/add-movie'  && location.pathname !== `/dashboard/movie-list/edit-movie/${movieSlug}`) {
-        if (location.pathname !== "/login-register") {
-            if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop" && location.pathname !== "/faq" && location.pathname !== "/basket") {
-                return (
-                    <header className={scroll ? "scroll" : 'header'}>
-                        <HeaderComp />
-                    </header>
-                )
-            } else {
-                return (
-                    <header className='other-header'>
-                        <HeaderComp />
-                    </header>
-                )
-            }
+        && location.pathname !== '/dashboard/movie-list/add-movie' && location.pathname !== `/dashboard/movie-list/edit-movie/${movieSlug}`) {
+        if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== "/movies-shop" && location.pathname !== "/faq" && location.pathname !== "/basket" && location.pathname !== "/wishlist") {
+            return (
+                <header className={scroll ? "scroll" : 'header'}>
+                    <HeaderComp />
+                </header>
+            )
         } else {
-            return null;
+            return (
+                <header className='other-header'>
+                    <HeaderComp />
+                </header>
+            )
         }
     } else {
         return (

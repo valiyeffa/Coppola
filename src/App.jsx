@@ -21,6 +21,7 @@ import FaqAndHelp from './pages/FAQ/FaqAndHelp'
 import Basket from './pages/Basket/Basket'
 import EditBlog from './pages/Dashboard/Blog/EditBlog'
 import EditMovies from './pages/Dashboard/MoviesProducts/EditMovies'
+import Wishlist from './pages/Wishlist/Wishlist'
 
 const App = () => {
 
@@ -32,7 +33,7 @@ const App = () => {
     { path: '/faq', element: <FaqAndHelp /> },
     { path: '/our-team', element: <Team /> },
     { path: '/basket', element: <Basket /> },
-    { path: '/login-register', element: <AccLogReg /> },
+    { path: '/wishlist', element: <Wishlist /> },
     { path: '/movies-shop', element: <MoviesShop /> },
     { path: '/dashboard/overview', element: <Overview /> },
 
@@ -65,6 +66,7 @@ const App = () => {
             element={<Layout>{element}</Layout>}
           />
         ))}
+        <Route path='/login-register' element={<AccLogReg />}></Route>
         <Route path='*' element={<NotFoundPage />}></Route>
       </Routes>
     </BrowserRouter>

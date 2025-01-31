@@ -8,7 +8,6 @@ import Swal from 'sweetalert2';
 const BasketCard = ({ item }) => {
     const { updateItemQuantity, removeItem } = useCart();
 
-
     return (
         <div className="card py-3">
             <ToastContainer
@@ -51,7 +50,7 @@ const BasketCard = ({ item }) => {
                                     if (item.quantity < 5) {
                                         updateItemQuantity(item.id, item.quantity + 1);
                                     } else {
-                                        toast.warn('Məhsul sayı max 5 ola bilər!', {
+                                        toast.error('Məhsul sayı max 5 ola bilər!', {
                                             position: "top-center",
                                             autoClose: 3500,
                                             hideProgressBar: false,

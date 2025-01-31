@@ -9,6 +9,7 @@ import { DownOutlined } from '@ant-design/icons';
 import { useGetUsersQuery } from '../tools/services/categoryApi';
 import Swal from 'sweetalert2';
 import { useCart } from 'react-use-cart';
+import { useWishlist } from 'react-use-wishlist';
 
 const HeaderComp = () => {
     const cookies = new Cookies(null, { path: '/' });
@@ -17,6 +18,7 @@ const HeaderComp = () => {
     const userId = cookies.get('user-id');
     const signedinAcc = userName && userName.find(p => p._id == userId);
     const { totalItems } = useCart();
+    const { totalWishlistItems } = useWishlist();
 
     useEffect(() => {
         if (cookies.get("role") === "admin") {
@@ -86,7 +88,7 @@ const HeaderComp = () => {
                     </ul>
                     <div className="nav-right-side">
                         <NavLink to='/basket' className='btn get-basket-btn'>Get Basket <span>|</span> {totalItems}</NavLink>
-                        <button className='btn get-fav-btn'>
+                        <NavLink to='/wishlist' className='btn get-fav-btn'>
                             <ConfigProvider theme={{
                                 components: {
                                     Badge: {
@@ -94,11 +96,11 @@ const HeaderComp = () => {
                                     },
                                 },
                             }}>
-                                <Badge count={0} color='#EAA57F'>
+                                <Badge count={totalWishlistItems} color='#EAA57F'>
                                     <FaRegHeart className='fav-btn' />
                                 </Badge>
                             </ConfigProvider>
-                        </button>
+                        </NavLink>
                         {cookies.get('user') == true ?
                             <Dropdown className='btn account-btn m-0' menu={{ items }}>
                                 <p>
