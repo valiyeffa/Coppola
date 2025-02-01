@@ -22,9 +22,9 @@ import Basket from './pages/Basket/Basket'
 import EditBlog from './pages/Dashboard/Blog/EditBlog'
 import EditMovies from './pages/Dashboard/MoviesProducts/EditMovies'
 import Wishlist from './pages/Wishlist/Wishlist'
+import ProtectedRoute from './components/ProtectedRoute'
 
 const App = () => {
-
   const routes = [
     { path: "/", element: <Home /> },
     { path: "/about-us", element: <AboutUs /> },
@@ -35,25 +35,6 @@ const App = () => {
     { path: '/basket', element: <Basket /> },
     { path: '/wishlist', element: <Wishlist /> },
     { path: '/movies-shop', element: <MoviesShop /> },
-    { path: '/dashboard/overview', element: <Overview /> },
-
-    //!=================MOVIE-START=================
-    { path: '/dashboard/movie-list', element: <MoviesList /> },
-    { path: '/dashboard/movie-list/add-movie', element: <AddMovies /> },
-    { path: '/dashboard/movie-list/edit-movie/:movieSlug', element: <EditMovies /> },
-    //!=================MOVIE-END===================
-
-    //!=================CATEGORY-START================
-    { path: '/dashboard/categories-list', element: <Categories /> },
-    { path: '/dashboard/categories-list/add-category', element: <AddCategory /> },
-    { path: '/dashboard/categories-list/edit-category/:slug', element: <EditCategory /> },
-    //!=================CATEGORY-END==================
-
-    //!=================BLOG-START==================
-    { path: '/dashboard/blog-list', element: <BlogList /> },
-    { path: '/dashboard/blog-list/add-blogs', element: <AddBlogs /> },
-    { path: '/dashboard/blog-list/edit-blog/:blogSlug', element: <EditBlog /> },
-    //!=================BLOG-END====================
   ];
 
   return (
@@ -66,11 +47,37 @@ const App = () => {
             element={<Layout>{element}</Layout>}
           />
         ))}
-        <Route path='/login-register' element={<AccLogReg />}></Route>
-        <Route path='*' element={<NotFoundPage />}></Route>
+
+        <Route element={<Layout />}>
+          <Route element={<ProtectedRoute />}>
+            
+            <Route path='/dashboard/overview' element={<Overview />} />
+
+            //!=================MOVIE-START=================
+            <Route path='/dashboard/movie-list' element={<MoviesList />} />
+            <Route path='/dashboard/movie-list/add-movie' element={<AddMovies />} />
+            <Route path='/dashboard/movie-list/edit-movie/:movieSlug' element={<EditMovies />} />
+            //!=================MOVIE-END===================
+
+            //!=================CATEGORY-START================
+            <Route path='/dashboard/categories-list' element={<Categories />} />
+            <Route path='/dashboard/categories-list/add-category' element={<AddCategory />} />
+            <Route path='/dashboard/categories-list/edit-category/:slug' element={<EditCategory />} />
+            //!=================CATEGORY-END==================
+
+            //!=================BLOG-START==================
+            <Route path='/dashboard/blog-list' element={<BlogList />} />
+            <Route path='/dashboard/blog-list/add-blogs' element={<AddBlogs />} />
+            <Route path='/dashboard/blog-list/edit-blog/:blogSlug' element={<EditBlog />} />
+            //!=================BLOG-END====================
+          </Route>
+        </Route>
+
+        <Route path='/login-register' element={<AccLogReg />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   )
 }
 
-export default App
+export default App;
