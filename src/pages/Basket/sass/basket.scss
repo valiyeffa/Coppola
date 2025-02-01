@@ -111,8 +111,6 @@
                                             padding: 7px 15px;
                                             border-radius: 0;
                                         }
-
-                                        .count {}
                                     }
 
                                     .card-remove-fav {
@@ -135,6 +133,11 @@
                                                 color: $textcolortwo;
                                             }
 
+                                            .saved-btn {
+                                                color: $textcolortwo;
+                                                @include flex();
+                                                gap: 7px;
+                                            }
                                         }
 
                                         .del-btn {

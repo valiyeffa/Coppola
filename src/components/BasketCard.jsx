@@ -4,9 +4,41 @@ import { environment } from '../environments/environment';
 import { FaHeart, FaTrash } from 'react-icons/fa';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
+import { useWishlist } from 'react-use-wishlist';
 
 const BasketCard = ({ item }) => {
     const { updateItemQuantity, removeItem } = useCart();
+    const { getWishlistItem, addWishlistItem, removeWishlistItem } = useWishlist();
+
+    const handleAddToWishlist = (product) => {
+        const wishItem = getWishlistItem(product.id);
+
+        if (wishItem) {
+            removeWishlistItem(product.id);
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Movie removed from wishlist!",
+                showConfirmButton: false,
+                timer: 850
+            });
+        } else {
+            addWishlistItem({
+                ...product,
+                id: product._id,
+                price: product.discountedPrice || product.price,
+                originalPrice: product.price,
+                isProductNew: product.isProductNew
+            });
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Movie added to wishlist!",
+                showConfirmButton: false,
+                timer: 850
+            });
+        }
+    };
 
     return (
         <div className="card py-3">
@@ -52,7 +84,7 @@ const BasketCard = ({ item }) => {
                                     } else {
                                         toast.error('Məhsul sayı max 5 ola bilər!', {
                                             position: "top-center",
-                                            autoClose: 3500,
+                                            autoClose: 1500,
                                             hideProgressBar: false,
                                             closeOnClick: false,
                                             pauseOnHover: true,
@@ -65,7 +97,18 @@ const BasketCard = ({ item }) => {
                                 }} className='btn btn-dark'>+</button>
                             </div>
                             <div className="card-remove-fav">
-                                <button className='btn fav-btn'><FaHeart /> Save</button>
+                                <button onClick={() => { handleAddToWishlist(item) }} className='btn fav-btn'>
+                                    {getWishlistItem(item.id) ?
+                                        <div className='saved-btn'>
+                                            <FaHeart />
+                                            <span>Saved</span>
+                                        </div> :
+                                        <>
+                                            <FaHeart />
+                                            <span>Save</span>
+                                        </>
+                                    }
+                                </button>
                                 <button onClick={() => {
                                     Swal.fire({
                                         title: "Are you sure?",

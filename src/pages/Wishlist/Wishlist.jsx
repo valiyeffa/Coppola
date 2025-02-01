@@ -2,10 +2,8 @@ import React from 'react'
 import { useWishlist } from 'react-use-wishlist';
 import emptyGif from '../../../src/assets/images/empty-wishlist.gif'
 import { Link } from 'react-router-dom';
-import BasketCard from '../../components/BasketCard';
 import { environment } from '../../environments/environment';
 import Swal from 'sweetalert2';
-import { Bounce, toast, ToastContainer } from 'react-toastify';
 import { FaShoppingCart, FaTrash } from 'react-icons/fa';
 import { useCart } from 'react-use-cart';
 
@@ -14,9 +12,9 @@ const Wishlist = () => {
     const { addItem, getItem } = useCart();
 
     const handleAddToCart = (product) => {
-        const cartItem = getItem(product.id); 
+        const cartItem = getItem(product.id);
         const quantity = cartItem ? cartItem.quantity : 0;
-    
+
         if (cartItem && quantity >= 5) {
             Swal.fire({
                 title: "Limit Exceeded",
@@ -32,16 +30,12 @@ const Wishlist = () => {
                 originalPrice: product.price,
                 isProductNew: product.isProductNew
             });
-            toast.success('Movie added to basket!', {
-                position: "top-center",
-                autoClose: 3500,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                transition: Bounce,
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Movie added to basket!",
+                showConfirmButton: false,
+                timer: 850
             });
         }
     };
@@ -66,19 +60,6 @@ const Wishlist = () => {
                                 <div className="basket-prod-sect">
                                     <div className="basket-body ">
                                         <div className="card py-3">
-                                            <ToastContainer
-                                                position="top-center"
-                                                autoClose={2500}
-                                                hideProgressBar={false}
-                                                newestOnTop={false}
-                                                closeOnClick={false}
-                                                rtl={false}
-                                                pauseOnFocusLoss
-                                                draggable
-                                                pauseOnHover
-                                                theme="light"
-                                                transition="Bounce"
-                                            />
                                             <div className="row g-0">
                                                 <div className="col-md-2">
                                                     <div className="card-img">
@@ -102,7 +83,6 @@ const Wishlist = () => {
                                                         <div className="card-body-bottom">
                                                             <div className="card-remove-fav">
                                                                 <button onClick={() => {
-                                                                    
                                                                     handleAddToCart(item);
                                                                 }} className='btn fav-btn'><FaShoppingCart /> Add to cart</button>
                                                                 <button onClick={() => {
