@@ -14,11 +14,13 @@ import { useDeleteMovieMutation, useGetMoviesQuery } from '../../../tools/servic
 const MoviesList = () => {
   const cookies = new Cookies(null, { path: '/' });
   const navigate = useNavigate();
-  const { data: moviesData, isLoading } = useGetMoviesQuery();
+  const [ct, setCt] = useState('');
+  const { data: moviesData = [], isLoading } = useGetMoviesQuery({ category: ct });
   const { data: userName } = useGetUsersQuery();
   const [deleteMovie] = useDeleteMovieMutation();
   const userId = cookies.get('user-id');
   const signedinAcc = userName && userName.find(p => p._id == userId);
+  console.log(moviesData.data);
 
   const logout = () => {
     cookies.remove('role');
@@ -101,7 +103,7 @@ const MoviesList = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {moviesData.map((item, i) => (
+                    {moviesData && moviesData.data.map((item, i) => (
                       <tr key={item._id}>
                         <th scope="row">{i + 1}</th>
                         <td><img height={100} src={`${environment.baseUrl}${item.image.url}`} /></td>

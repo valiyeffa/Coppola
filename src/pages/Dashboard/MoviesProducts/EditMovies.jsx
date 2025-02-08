@@ -11,10 +11,11 @@ import { useAddImagesMutation } from '../../../tools/services/blogApi';
 const EditMovies = () => {
   const { movieSlug } = useParams();
   const { data: ctg } = useGetCategoriesQuery();
-  const { data: movieData, isLoading } = useGetMoviesQuery();
+  const [ct, setCt] = useState('');
+  const { data: movieData = [], isLoading } = useGetMoviesQuery({ category: ct });
   const [addImages] = useAddImagesMutation();
   const [updateMovie] = useUpdateMoviesMutation();
-  const selectedMovie = movieData && movieData.find(i => i.slug === movieSlug);
+  const selectedMovie = movieData && movieData.data.find(i => i.slug === movieSlug);
   const [selectedCategory, setSelectedCategory] = useState();
   const orderRef = useRef();
   const titleRef = useRef();
@@ -28,7 +29,7 @@ const EditMovies = () => {
   const [imageUrl, setImageUrl] = useState(selectedMovie?.image.url || '');
   const [imageId, setImageId] = useState(selectedMovie?.image._id || '');
   const [image, setImage] = useState(null);
-console.log(imageUrl);
+  console.log(imageUrl);
 
   const handleCategoryChange = (value) => {
     setSelectedCategory(value);

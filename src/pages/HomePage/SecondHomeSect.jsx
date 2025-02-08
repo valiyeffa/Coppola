@@ -12,6 +12,7 @@ import 'swiper/css/pagination';
 import './sass/home.scss'
 
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
+import { Link } from 'react-router-dom';
 
 export default function SecondHomeSect() {
   return (
@@ -61,7 +62,7 @@ export default function SecondHomeSect() {
         >
           <SwiperSlide>
             <img src={home1portlist1} />
-            <button className='slider-btn'><RiPlayLargeLine /></button>
+            <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
               <h4>HOTEL ROSE</h4>
               <p>Huang Jordan / Vietnam</p>
@@ -69,7 +70,7 @@ export default function SecondHomeSect() {
           </SwiperSlide>
           <SwiperSlide>
             <img src={home1portlist2} />
-            <button className='slider-btn'><RiPlayLargeLine /></button>
+            <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
               <h4>BLUE ROOM</h4>
               <p>Naomi Takeda / Japan</p>
@@ -77,7 +78,7 @@ export default function SecondHomeSect() {
           </SwiperSlide>
           <SwiperSlide>
             <img src={home1portlist3} />
-            <button className='slider-btn'><RiPlayLargeLine /></button>
+            <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
               <h4>BERLIN, TEXAS</h4>
               <p>Lourdes Kumar / Germany</p>
@@ -85,7 +86,7 @@ export default function SecondHomeSect() {
           </SwiperSlide>
           <SwiperSlide>
             <img src={home1portlist1} />
-            <button className='slider-btn'><RiPlayLargeLine /></button>
+            <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
               <h4>HOTEL ROSE</h4>
               <p>Huang Jordan / Vietnam</p>
@@ -93,7 +94,7 @@ export default function SecondHomeSect() {
           </SwiperSlide>
           <SwiperSlide>
             <img src={home1portlist2} />
-            <button className='slider-btn'><RiPlayLargeLine /></button>
+            <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
               <h4>BLUE ROOM</h4>
               <p>Naomi Takeda / Japan</p>
@@ -101,7 +102,7 @@ export default function SecondHomeSect() {
           </SwiperSlide>
           <SwiperSlide>
             <img src={home1portlist3} />
-            <button className='slider-btn'><RiPlayLargeLine /></button>
+            <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
               <h4>BERLIN, TEXAS</h4>
               <p>Lourdes Kumar / Germany</p>

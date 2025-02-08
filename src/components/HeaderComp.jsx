@@ -14,6 +14,7 @@ import { useWishlist } from 'react-use-wishlist';
 const HeaderComp = () => {
     const cookies = new Cookies(null, { path: '/' });
     const [dash, setDash] = useState('none');
+    const [padd, setPadd] = useState('');
     const { data: userName } = useGetUsersQuery();
     const userId = cookies.get('user-id');
     const signedinAcc = userName && userName.find(p => p._id == userId);
@@ -22,9 +23,11 @@ const HeaderComp = () => {
 
     useEffect(() => {
         if (cookies.get("role") === "admin") {
-            setDash("block");
+            setDash("");
+            setPadd('p-0');
         } else {
             setDash("none");
+            setPadd('');
         }
     }, [cookies]);
 
@@ -57,7 +60,6 @@ const HeaderComp = () => {
         }
     ];
 
-
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
@@ -66,7 +68,7 @@ const HeaderComp = () => {
                     <HiMiniBars3BottomRight />
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <ul className={`navbar-nav mx-auto mb-2 mb-lg-0 ${padd}`}>
                         <li className="nav-item">
                             <NavLink to="/" className="nav-link" aria-current="page" >HOME <MdKeyboardArrowRight className='collapse-right-arr' /></NavLink>
                         </li>

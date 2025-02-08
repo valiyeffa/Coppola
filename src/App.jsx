@@ -23,6 +23,7 @@ import EditBlog from './pages/Dashboard/Blog/EditBlog'
 import EditMovies from './pages/Dashboard/MoviesProducts/EditMovies'
 import Wishlist from './pages/Wishlist/Wishlist'
 import ProtectedRoute from './components/ProtectedRoute'
+import MovieDetails from './pages/Details/MovieDetails'
 
 const App = () => {
   const routes = [
@@ -35,6 +36,7 @@ const App = () => {
     { path: '/basket', element: <Basket /> },
     { path: '/wishlist', element: <Wishlist /> },
     { path: '/movies-shop', element: <MoviesShop /> },
+    { path: '/movies-shop/:movieDetSlug', element: <MovieDetails /> },
   ];
 
   return (

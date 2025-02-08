@@ -10,7 +10,13 @@ export const moviesApi = createApi({
 
     endpoints: (builder) => ({
         getMovies: builder.query({
-            query: () => '/products'
+            query: ({ page = 1, visibleItemCount = 100, category }) => {
+                let url = `/products?page=${page}&visibleItemCount=${visibleItemCount}`;
+                if (category) {
+                    url += `&category=${category}`;
+                }
+                return url;
+            }
         }),
         addMovie: builder.mutation({
             query: (newMovie) => ({

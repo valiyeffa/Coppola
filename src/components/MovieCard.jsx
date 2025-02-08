@@ -4,6 +4,7 @@ import { useCart } from 'react-use-cart';
 import { environment } from '../environments/environment';
 import { useWishlist } from 'react-use-wishlist';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MovieCard = ({ alldata }) => {
   const { addWishlistItem, getWishlistItem, removeWishlistItem } = useWishlist();
@@ -67,7 +68,7 @@ const MovieCard = ({ alldata }) => {
   };
 
   return (
-    <div className="col-12 col-lg-4 col-md-4 col-sm-12">
+    <div className="movie-card-col col-12 col-lg-4 col-md-4 col-sm-12">
       <div className="movie-card">
         <div className="card-img">
           <img src={`${environment.baseUrl}${alldata.image.url}`} className="card-img-top" alt="..." />
@@ -105,7 +106,7 @@ const MovieCard = ({ alldata }) => {
             }}>Add to Cart</button>
           </div>
         </div>
-        <div className="card-body">
+        <Link to={`/movies-shop/${alldata.slug}`} className="card-body">
           <span className='movie-ctg'>{alldata.category.name}</span>
           <h5 className="card-title">{alldata.title}</h5>
           <p className="card-text"><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /></p>
@@ -116,7 +117,7 @@ const MovieCard = ({ alldata }) => {
               <span className="card-price">${alldata.discountedPrice}</span>
             </>
           }
-        </div>
+        </Link>
       </div>
     </div>
   )
