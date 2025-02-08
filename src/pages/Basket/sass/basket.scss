@@ -101,17 +101,7 @@
                                 .card-body-bottom {
                                     @include flex();
 
-                                    .card-quantity {
-                                        width: 120px;
-                                        border: 1px solid black;
-                                        @include flex();
 
-                                        .btn {
-                                            border: none;
-                                            padding: 7px 15px;
-                                            border-radius: 0;
-                                        }
-                                    }
 
                                     .card-remove-fav {
                                         display: flex;
@@ -239,6 +229,19 @@
                 }
             }
         }
+    }
+}
+
+.card-quantity {
+    width: 120px;
+    border: 1px solid black;
+    @include flex();
+
+    .btn {
+        border: none;
+        padding: 7px 15px;
+        border-radius: 0;
+        background-color: black;
     }
 }
 

@@ -13,10 +13,13 @@ export const moviesApi = createApi({
             query: ({ page = 1, visibleItemCount = 100, category }) => {
                 let url = `/products?page=${page}&visibleItemCount=${visibleItemCount}`;
                 if (category) {
-                    url += `&category=${category}`;
+                    url += `&category=${category}`
                 }
                 return url;
             }
+        }),
+        getMoviesDetail: builder.query({
+            query: (id) => `/products/${id}`
         }),
         addMovie: builder.mutation({
             query: (newMovie) => ({
@@ -50,4 +53,4 @@ export const moviesApi = createApi({
     })
 })
 
-export const { useGetMoviesQuery, useAddMovieMutation, useDeleteMovieMutation, useUpdateMoviesMutation } = moviesApi;
+export const { useGetMoviesQuery, useGetMoviesDetailQuery, useAddMovieMutation, useDeleteMovieMutation, useUpdateMoviesMutation } = moviesApi;

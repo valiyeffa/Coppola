@@ -71,7 +71,7 @@ const MovieCard = ({ alldata }) => {
     <div className="movie-card-col col-12 col-lg-4 col-md-4 col-sm-12">
       <div className="movie-card">
         <div className="card-img">
-          <img src={`${environment.baseUrl}${alldata.image.url}`} className="card-img-top" alt="..." />
+          <img src={`${environment.baseUrl}${alldata.image.url}`} className="card-img-top" alt={alldata.title} />
           <div className="new-sale-mark">
             {alldata.price == alldata.discountedPrice ?
               alldata.isProductNew == true ?
@@ -106,7 +106,7 @@ const MovieCard = ({ alldata }) => {
             }}>Add to Cart</button>
           </div>
         </div>
-        <Link to={`/movies-shop/${alldata.slug}`} className="card-body">
+        <Link to={`/movies-shop/${alldata.slug}`} onClick={() => window.scrollTo(0, 0)} className="card-body">
           <span className='movie-ctg'>{alldata.category.name}</span>
           <h5 className="card-title">{alldata.title}</h5>
           <p className="card-text"><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /></p>
