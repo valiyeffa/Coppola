@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaHeart, FaRegHeart, FaRegStar, FaStar } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom';
-import { useGetMoviesDetailQuery } from '../../tools/services/moviesApi';
+import { moviesApi, useGetMoviesDetailQuery, useGetMoviesQuery } from '../../tools/services/moviesApi';
 import Preloader from '../../components/Preloader';
 import { environment } from '../../environments/environment';
 import { useCart } from 'react-use-cart';
 import Swal from 'sweetalert2';
 import { useWishlist } from 'react-use-wishlist';
+import userImg from '../../../src/assets/images/userImage.png'
+import MovieCard from '../../components/MovieCard';
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -14,6 +16,22 @@ const MovieDetails = () => {
   const { data: movieDetailID, isLoading } = useGetMoviesDetailQuery(movieID);
   const { addItem, getItem } = useCart();
   const { addWishlistItem, getWishlistItem, removeWishlistItem } = useWishlist();
+  const { data: movieData = [] } = useGetMoviesQuery({ category: '' });
+  const [rel, setReal] = useState([]);
+  const moviDataLength = movieData?.data?.length;
+
+  useEffect(() => {
+    const nese = () => {
+      const relatedMovies = [];
+      for (let i = 0; i < 4; i++) {
+        const relatedMovie = Math.round(Math.random() * moviDataLength);
+        const moviesRelated = movieData.data && movieData.data[relatedMovie];
+        relatedMovies.push(moviesRelated);
+      }
+      setReal(relatedMovies);
+    }
+    nese();
+  }, [moviDataLength, movieData.data]);
 
   const handleAddToCart = (product) => {
     const cartItem = getItem(product._id);
@@ -145,9 +163,77 @@ const MovieDetails = () => {
               </div>
             </div>
           </div>
-          
+
           {/* //!======================DETAILS-REVIEW====================== */}
- 
+
+          <div className="row">
+            <div className="reviews">
+              <div className="reviews-title">
+                <p>Reviews (2)</p>
+              </div>
+              <div className="reviews-body">
+                <div className="reviews-body_title">
+                  <p>2 review for {movieDetailID?.title}</p>
+                </div>
+                <div className="review-user">
+                  <div className="row">
+                    <div className="col-lg-1 col-md-2">
+                      <img width={70} src={userImg} alt="" />
+                    </div>
+                    <div className="col-lg-6 col-md-10">
+                      <div className="review-text">
+                        <p className="card-text"><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /></p>
+                        <p className='user-title'><b>ANA -</b> NOVEMBER 26</p>
+                        <p className='text'>
+                          Duis at nibh ligula. Sed dapibus, enim sit amet finibus placerat,
+                          erat nunc suscipit nulla, id congue odio eros viverra risus. Morbi nec
+                          mattis augue, nec semper nunc. Nunc ultrices orci ligula. Donec et scelerisque
+                          lacus.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col-lg-1 col-md-2">
+                      <img width={70} src={userImg} alt="" />
+                    </div>
+                    <div className="col-lg-6 col-md-10">
+                      <div className="review-text">
+                        <p className="card-text"><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /></p>
+                        <p className='user-title'><b>WILL SMITH -</b> DECEMBER 15</p>
+                        <p className='text'>
+                          Sed dapibus, enim sit amet finibus placerat,
+                          erat nunc suscipit nulla, id congue odio eros viverra risus. Morbi nec
+                          mattis augue, nec semper nunc. Nunc ultrices orci ligula. Donec et scelerisque
+                          lacus. Pellentesque gravida tincidunt nisl. Nullam tincidunt, orci lacinia ultricies
+                          sodales, tellus.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* //!======================RELATED-MOVIES====================== */}
+
+          <div className="row">
+            <div className="related-movies">
+              <div className="related-movies_title">
+                <p>RELATED MOVIES</p>
+              </div>
+              <div className="related-movies-body">
+                <div className="row">
+                  {rel && rel.map((i, index) => (
+                    <div key={index} className='movie-card-col col-12 col-lg-3 col-md-3 col-sm-12'>
+                      <MovieCard  alldata={i} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       }
     </div>

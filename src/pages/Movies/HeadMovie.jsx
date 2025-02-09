@@ -100,7 +100,9 @@ const HeadMovie = () => {
                                 <div className="movie-right-body-products">
                                     <div className="row">
                                         {movieData.data && movieData.data.map((item) => (
-                                            <MovieCard key={item._id} alldata={item} />
+                                            <div className="movie-card-col col-12 col-lg-4 col-md-4 col-sm-12">
+                                                <MovieCard key={item._id} alldata={item} />
+                                            </div>
                                         ))}
                                     </div>
                                 </div>

@@ -68,13 +68,12 @@ const MovieCard = ({ alldata }) => {
   };
 
   return (
-    <div className="movie-card-col col-12 col-lg-4 col-md-4 col-sm-12">
       <div className="movie-card">
         <div className="card-img">
-          <img src={`${environment.baseUrl}${alldata.image.url}`} className="card-img-top" alt={alldata.title} />
+          <img src={`${environment.baseUrl}${alldata?.image?.url}`} className="card-img-top" alt={alldata?.title} />
           <div className="new-sale-mark">
-            {alldata.price == alldata.discountedPrice ?
-              alldata.isProductNew == true ?
+            {alldata?.price == alldata?.discountedPrice ?
+              alldata?.isProductNew == true ?
                 <span className='new-mark'>
                   <span className="new-mark-text">New</span>
                 </span> :
@@ -88,7 +87,7 @@ const MovieCard = ({ alldata }) => {
             <button onClick={() => {
               handleAddToWishlist(alldata);
             }} className="btn fav-btn">
-              {getWishlistItem(alldata._id) ?
+              {getWishlistItem(alldata?._id) ?
                 <>
                   <FaHeart className='fill' />
                   <span>Added</span>
@@ -106,20 +105,19 @@ const MovieCard = ({ alldata }) => {
             }}>Add to Cart</button>
           </div>
         </div>
-        <Link to={`/movies-shop/${alldata.slug}`} state={{ movieID: alldata._id }} onClick={() => window.scrollTo(0, 0)} className="card-body">
-          <span className='movie-ctg'>{alldata.category.name}</span>
-          <h5 className="card-title">{alldata.title}</h5>
+        <Link to={`/movies-shop/${alldata?.slug}`} state={{ movieID: alldata?._id }} onClick={() => window.scrollTo(0, 0)} className="card-body">
+          <span className='movie-ctg'>{alldata?.category?.name}</span>
+          <h5 className="card-title">{alldata?.title}</h5>
           <p className="card-text"><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /></p>
-          {alldata.price == alldata.discountedPrice ?
-            <span className="card-price">${alldata.price == alldata.discountedPrice ? alldata.price : alldata.discountedPrice}</span> :
+          {alldata?.price == alldata?.discountedPrice ?
+            <span className="card-price">${alldata?.price == alldata?.discountedPrice ? alldata?.price : alldata?.discountedPrice}</span> :
             <>
-              <del className="card-ex-price">${alldata.price}</del>
-              <span className="card-price">${alldata.discountedPrice}</span>
+              <del className="card-ex-price">${alldata?.price}</del>
+              <span className="card-price">${alldata?.discountedPrice}</span>
             </>
           }
         </Link>
       </div>
-    </div>
   )
 }
 

@@ -108,7 +108,7 @@ const HeaderComp = () => {
                                 <p>
                                     <Space>
                                         <FaRegUser />
-                                        <span>Hi, {signedinAcc && signedinAcc.name}!</span>   
+                                        <span className='name' style={{ fontSize: '15px' }}>Hi, {signedinAcc && signedinAcc.name}!</span>
                                         <DownOutlined />
                                     </Space>
                                 </p>

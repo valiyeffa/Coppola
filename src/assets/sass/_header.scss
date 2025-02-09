@@ -340,6 +340,26 @@ nav {
     }
 }
 
+@media (max-width:376px) {
+    nav {
+        .container-fluid {
+            .collapse {
+                .nav-right-side {
+                    .account-btn {
+                        .ant-space {
+                            .ant-space-item {
+                                .name {
+                                    display: none !important;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @keyframes header_Animate {
     0% {
         transform: translateY(-100px);

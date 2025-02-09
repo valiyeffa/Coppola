@@ -57,7 +57,7 @@ const BasketCard = ({ item }) => {
             />
             <div className="row g-0">
                 <div className="col-md-2">
-                    <div className="card-img">
+                    <div className="card-img" style={{borderRadius:'0'}}>
                         <img src={`${environment.baseUrl}${item.image.url}`} className="img-fluid" alt={item.title} />
                     </div>
                 </div>
