@@ -139,50 +139,46 @@
 
 // ! =================REVIEW-SASS=====================
 
-.row {
-    width: 100%;
+.reviews {
+    .reviews-title {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.349);
 
-    .reviews {
-        .reviews-title {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.349);
+        p {
+            font-size: 20px;
+            color: rgb(91, 91, 91);
+            padding: 0 20px;
+            border-left: 1px solid rgba(0, 0, 0, 0.349);
+        }
+    }
+
+    .reviews-body {
+        .reviews-body_title {
+            padding: 15px 0;
 
             p {
-                font-size: 20px;
-                color: rgb(91, 91, 91);
-                padding: 0 20px;
-                border-left: 1px solid rgba(0, 0, 0, 0.349);
+                text-transform: uppercase;
+                font-weight: 500;
+                font-size: 30px;
             }
         }
 
-        .reviews-body {
-            .reviews-body_title {
-                padding: 15px 0;
+        .review-user {
+            .row {
+                padding: 0 0 25px;
 
-                p {
-                    text-transform: uppercase;
-                    font-weight: 500;
-                    font-size: 30px;
-                }
-            }
+                .review-text {
+                    .user-title {
+                        color: gray;
+                        font-size: 14px;
 
-            .review-user {
-                .row {
-                    padding: 0 0 25px;
-
-                    .review-text {
-                        .user-title {
-                            color: gray;
-                            font-size: 14px;
-
-                            b {
-                                font-size: 18px;
-                                color: black;
-                            }
+                        b {
+                            font-size: 18px;
+                            color: black;
                         }
+                    }
 
-                        .text {
-                            font-size: 17.5px;
-                        }
+                    .text {
+                        font-size: 17.5px;
                     }
                 }
             }
@@ -190,21 +186,20 @@
     }
 }
 
-.row {
-    .related-movies {
-        padding-bottom: 70px;
-        .related-movies_title {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.349);
+.related-movies {
+    padding-bottom: 70px;
 
-            p {
-                font-size: 20px;
-                font-weight: 500;
-            }
-        }
+    .related-movies_title {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.349);
 
-        .related-movies-body {
-            @include centerflex();
+        p {
+            font-size: 20px;
+            font-weight: 500;
         }
+    }
+
+    .related-movies-body {
+        @include centerflex();
     }
 }
 
@@ -300,20 +295,18 @@
         }
     }
 
-    .row {
-        .reviews {
-            .reviews-title {
-                p {
-                    font-size: 18px;
-                }
+    .reviews {
+        .reviews-title {
+            p {
+                font-size: 18px;
             }
+        }
 
-            .reviews-body {
-                .reviews-body_title {
+        .reviews-body {
+            .reviews-body_title {
 
-                    p {
-                        font-size: 20px;
-                    }
+                p {
+                    font-size: 20px;
                 }
             }
         }
