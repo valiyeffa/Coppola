@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { FaHeart, FaRegHeart, FaRegStar, FaStar } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom';
-import { moviesApi, useGetMoviesDetailQuery, useGetMoviesQuery } from '../../tools/services/moviesApi';
+import { useGetMoviesDetailQuery, useGetMoviesQuery } from '../../tools/services/moviesApi';
 import Preloader from '../../components/Preloader';
 import { environment } from '../../environments/environment';
 import { useCart } from 'react-use-cart';
@@ -21,7 +21,6 @@ const MovieDetails = () => {
   const moviDataLength = movieData?.data?.length;
 
   useEffect(() => {
-    const nese = () => {
       const relatedMovies = [];
       for (let i = 0; i < 4; i++) {
         const relatedMovie = Math.round(Math.random() * moviDataLength);
@@ -29,8 +28,6 @@ const MovieDetails = () => {
         relatedMovies.push(moviesRelated);
       }
       setReal(relatedMovies);
-    }
-    nese();
   }, [moviDataLength, movieData.data]);
 
   const handleAddToCart = (product) => {
@@ -227,7 +224,7 @@ const MovieDetails = () => {
                 <div className="row">
                   {rel && rel.map((i, index) => (
                     <div key={index} className='movie-card-col col-12 col-lg-3 col-md-3 col-sm-12'>
-                      <MovieCard  alldata={i} />
+                      <MovieCard alldata={i} />
                     </div>
                   ))}
                 </div>

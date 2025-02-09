@@ -1,8 +1,8 @@
 import { ConfigProvider, Slider } from 'antd';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { FaSearch } from "react-icons/fa";
-import logoDark from '../../../src/assets/images/logo-main-dark.png'
-
+import logoDark from '../../../src/assets/images/logo-main-dark.png';
+import { MdOutlineArrowOutward } from "react-icons/md";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import MovieCard from '../../components/MovieCard';
@@ -10,29 +10,23 @@ import { useGetCategoriesQuery } from '../../tools/services/categoryApi';
 import { useGetMoviesQuery } from '../../tools/services/moviesApi';
 import Preloader from '../../components/Preloader';
 
-const marks = {
-    10: {
-        style: {
-            color: 'black',
-        },
-        label: <p>$10</p>,
-    },
-    60: {
-        style: {
-            color: 'black',
-        },
-        label: <p>$60</p>,
-    },
-};
-
 const HeadMovie = () => {
     const [ct, setCt] = useState();
+    const [searchTerm, setSearchTerm] = useState("");
+    const [priceRange, setPriceRange] = useState([10, 60]);
+    const [appliedPrice, setAppliedPrice] = useState([10, 60]);
+
     const { data: ctgData } = useGetCategoriesQuery();
-    const { data: movieData = [], isLoading } = useGetMoviesQuery({ category: ct });
+    const { data: movieData = [], isLoading } = useGetMoviesQuery({ category: ct, search: searchTerm });
 
     const ctgfilter = (ctgID) => {
         setCt(ctgID);
-    }
+    };
+
+    const filteredMovies = movieData.data && movieData.data.filter(item =>
+        item.price >= appliedPrice[0] &&
+        item.price <= appliedPrice[1] &&
+        item.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
     return (
         <div className='head-sect-movie light-mode'>
@@ -45,8 +39,14 @@ const HeadMovie = () => {
                                 <img className='dark-logo' src={logoDark} alt="" />
                                 <div className="left-side-body">
                                     <div className="search-bar py-3 border-bottom">
-                                        <div className="input-group ">
-                                            <input type="text" className="form-control" placeholder="Search" />
+                                        <div className="input-group">
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Search"
+                                                value={searchTerm}
+                                                onChange={(e) => setSearchTerm(e.target.value)}
+                                            />
                                             <button className="btn" type="submit"><FaSearch /></button>
                                         </div>
                                     </div>
@@ -82,15 +82,21 @@ const HeadMovie = () => {
                                                 },
                                             }}>
                                             <Slider
-                                                range={{
-                                                    draggableTrack: true,
-                                                }}
-                                                defaultValue={[0, 60]}
-                                                min={10} max={60}
-                                                marks={marks}
+                                                range
+                                                min={10}
+                                                max={60}
+                                                value={priceRange}
+                                                onChange={setPriceRange}
                                             />
+                                            <p>${priceRange[0]} - ${priceRange[1]}</p>
+                                            {priceRange[0] !== 10 || priceRange[1] !== 60 ? (
+                                                <button type='button' onClick={() => {
+                                                    setPriceRange([10, 60]);
+                                                    setAppliedPrice([10, 60]);
+                                                }} className='btn mx-2' style={{ border: 'none' }}>Reset <MdOutlineArrowOutward /></button>
+                                            ) : null}
+                                            <button type='button' onClick={() => setAppliedPrice(priceRange)} className='btn px-4 py-1' style={{ border: 'none' }}>Apply <MdOutlineArrowOutward /></button>
                                         </ConfigProvider>
-                                        <button className='btn btn-outline-dark btn-shop btn-shop-dark px-4 py-1'>Apply</button>
                                     </div>
                                 </div>
                             </div>
@@ -99,11 +105,15 @@ const HeadMovie = () => {
                             <div className="movie-right-side">
                                 <div className="movie-right-body-products">
                                     <div className="row">
-                                        {movieData.data && movieData.data.map((item) => (
-                                            <div className="movie-card-col col-12 col-lg-4 col-md-4 col-sm-12">
-                                                <MovieCard key={item._id} alldata={item} />
-                                            </div>
-                                        ))}
+                                        {filteredMovies.length > 0 ? (
+                                            filteredMovies.map((item) => (
+                                                <div key={item._id} className="movie-card-col col-12 col-lg-4 col-md-4 col-sm-12">
+                                                    <MovieCard alldata={item} />
+                                                </div>
+                                            ))
+                                        ) : (
+                                            <p className="text-center py-5 h3">No movies found.</p>
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +122,7 @@ const HeadMovie = () => {
                 }
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default HeadMovie
+export default HeadMovie;
