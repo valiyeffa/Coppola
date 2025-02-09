@@ -1,7 +1,7 @@
 import React from 'react'
 import { FaHeart, FaRegHeart, FaRegStar, FaStar } from 'react-icons/fa'
-import { Link, useParams } from 'react-router-dom';
-import { useGetMoviesDetailQuery, useGetMoviesQuery } from '../../tools/services/moviesApi';
+import { Link, useLocation } from 'react-router-dom';
+import { useGetMoviesDetailQuery } from '../../tools/services/moviesApi';
 import Preloader from '../../components/Preloader';
 import { environment } from '../../environments/environment';
 import { useCart } from 'react-use-cart';
@@ -9,10 +9,9 @@ import Swal from 'sweetalert2';
 import { useWishlist } from 'react-use-wishlist';
 
 const MovieDetails = () => {
-  const { movieDetSlug } = useParams();
-  const { data: movieData = [] } = useGetMoviesQuery({ category: '' });
-  const selectedMovie = movieData.data && movieData.data.find(i => i.slug === movieDetSlug);
-  const { data: movieDetailID, isLoading } = useGetMoviesDetailQuery(selectedMovie && selectedMovie._id);
+  const location = useLocation();
+  const movieID = location.state?.movieID;
+  const { data: movieDetailID, isLoading } = useGetMoviesDetailQuery(movieID);
   const { addItem, getItem } = useCart();
   const { addWishlistItem, getWishlistItem, removeWishlistItem } = useWishlist();
 
@@ -73,11 +72,10 @@ const MovieDetails = () => {
     }
   };
 
-
   return (
     <div className='movie-detail'>
-      <div className="container-fluid">
-        {isLoading ? <div style={{ height: '100vh' }} className='d-flex justify-content-center align-items-center my-5'><Preloader /></div> : <>
+      {isLoading ? <div style={{ height: '100vh' }} className='d-flex justify-content-center align-items-center my-5'><Preloader /></div> :
+        <div className="container-fluid">
           <div className="page-title">
             <p>Movies / Shop / {movieDetailID?.category?.name} / {movieDetailID?.title}</p>
           </div>
@@ -147,9 +145,11 @@ const MovieDetails = () => {
               </div>
             </div>
           </div>
-        </>
-        }
-      </div>
+          
+          {/* //!======================DETAILS-REVIEW====================== */}
+ 
+        </div>
+      }
     </div>
   )
 }

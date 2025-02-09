@@ -50,10 +50,10 @@ const HeaderComp = () => {
     }
 
     const items = [
-        {
-            label: `${signedinAcc && signedinAcc.name} ${signedinAcc && signedinAcc.surname}`,
-            disabled: false,
-        },
+        // {
+        // label: `${signedinAcc && signedinAcc.name} ${signedinAcc && signedinAcc.surname}`,
+        //     disabled: false,
+        // },
         {
             label: 'Sign Out',
             onClick: logout,
@@ -108,6 +108,7 @@ const HeaderComp = () => {
                                 <p>
                                     <Space>
                                         <FaRegUser />
+                                        <span>Hi, {signedinAcc && signedinAcc.name}!</span>   
                                         <DownOutlined />
                                     </Space>
                                 </p>

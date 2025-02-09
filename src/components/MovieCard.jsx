@@ -106,7 +106,7 @@ const MovieCard = ({ alldata }) => {
             }}>Add to Cart</button>
           </div>
         </div>
-        <Link to={`/movies-shop/${alldata.slug}`} onClick={() => window.scrollTo(0, 0)} className="card-body">
+        <Link to={`/movies-shop/${alldata.slug}`} state={{ movieID: alldata._id }} onClick={() => window.scrollTo(0, 0)} className="card-body">
           <span className='movie-ctg'>{alldata.category.name}</span>
           <h5 className="card-title">{alldata.title}</h5>
           <p className="card-text"><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /></p>

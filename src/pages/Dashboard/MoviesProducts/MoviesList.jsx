@@ -68,7 +68,7 @@ const MoviesList = () => {
         <Dropdown menu={{ items }}>
           <p>
             <Space>
-              <FaRegUser />{signedinAcc && signedinAcc.name}{signedinAcc && signedinAcc.surname}
+              <FaRegUser /><span>{signedinAcc && signedinAcc.name} {signedinAcc && signedinAcc.surname}</span>
               <DownOutlined />
             </Space>
           </p>
