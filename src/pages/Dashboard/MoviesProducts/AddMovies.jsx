@@ -133,7 +133,6 @@ const AddMovies = () => {
                         value: c._id,
                       };
                     })
-
                   }
                   onChange={handleCategoryChange}
                 />

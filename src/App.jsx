@@ -25,6 +25,7 @@ import Wishlist from './pages/Wishlist/Wishlist'
 import ProtectedRoute from './components/ProtectedRoute'
 import MovieDetails from './pages/Details/MovieDetails'
 import BlogDetails from './pages/Details/BlogDetails'
+import Checkout from './pages/CheckoutPage/Checkout'
 
 const App = () => {
   const routes = [
@@ -39,6 +40,7 @@ const App = () => {
     { path: '/wishlist', element: <Wishlist /> },
     { path: '/movies-shop', element: <MoviesShop /> },
     { path: '/movies-shop/:movieDetSlug', element: <MovieDetails /> },
+    { path: '/checkout', element: <Checkout /> },
   ];
 
   return (
@@ -54,7 +56,7 @@ const App = () => {
 
         <Route element={<Layout />}>
           <Route element={<ProtectedRoute />}>
-            
+
             <Route path='/dashboard/overview' element={<Overview />} />
 
             //!=================MOVIE-START=================

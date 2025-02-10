@@ -59,7 +59,7 @@ const Basket = () => {
                                         </div>
 
                                         <div className="basket-total-body_btn">
-                                            <button type='button' className='btn'>Proceed To Checkout</button>
+                                            <Link to={'/checkout'} type='button' className='btn'>Proceed To Checkout</Link>
                                         </div>
                                     </div>
                                 </div>

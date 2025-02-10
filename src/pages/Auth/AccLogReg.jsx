@@ -153,7 +153,7 @@ const AccLogReg = () => {
                             <input type={inputType} ref={passwordRef} placeholder="Password" className='pass-input' />
                             <button type='button' onClick={passToggleShow} className='btn btn-toggle-show'>{eye === true ? <FaRegEye /> : <FaRegEyeSlash />}</button>
                         </div>
-                        <a href="#">Forget Your Password?</a>
+                        {/* <a href="#">Forget Your Password?</a> */}
                         <button type='submit' className='btn btn-outline-dark btn-shop px-3 py-2'>Sign In</button>
                         <p className='sm-text' onClick={() => setActive(true)}>Don't you still have account? Register there!</p>
                     </form>
