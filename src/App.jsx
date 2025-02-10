@@ -24,6 +24,7 @@ import EditMovies from './pages/Dashboard/MoviesProducts/EditMovies'
 import Wishlist from './pages/Wishlist/Wishlist'
 import ProtectedRoute from './components/ProtectedRoute'
 import MovieDetails from './pages/Details/MovieDetails'
+import BlogDetails from './pages/Details/BlogDetails'
 
 const App = () => {
   const routes = [
@@ -31,6 +32,7 @@ const App = () => {
     { path: "/about-us", element: <AboutUs /> },
     { path: "/contact-us", element: <ContactUs /> },
     { path: "/blog", element: <Blog /> },
+    { path: "/blog/:blogDetSlug", element: <BlogDetails /> },
     { path: '/faq', element: <FaqAndHelp /> },
     { path: '/our-team', element: <Team /> },
     { path: '/basket', element: <Basket /> },

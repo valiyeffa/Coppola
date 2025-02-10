@@ -12,6 +12,9 @@ export const blogApi = createApi({
         getBlogs: builder.query({
             query: () => '/blogs'
         }),
+        getBlogsDetail: builder.query({
+            query: (id) => `/blogs/${id}`
+        }),
         addImages: builder.mutation({
             query: (imageFile) => {
                 const formData = new FormData();
@@ -58,4 +61,4 @@ export const blogApi = createApi({
     })
 })
 
-export const { useGetBlogsQuery, useAddImagesMutation, useAddBlogMutation, useDeleteBlogMutation, useUpdateBlogMutation } = blogApi;
+export const { useGetBlogsQuery, useGetBlogsDetailQuery, useAddImagesMutation, useAddBlogMutation, useDeleteBlogMutation, useUpdateBlogMutation } = blogApi;

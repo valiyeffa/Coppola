@@ -1,34 +1,38 @@
-.blog-card {
-    font-family: $textfontname;
-    cursor: pointer;
-
-    .blog-card-img {
-        overflow: hidden;
-
-        img {
-            transition: all 0.6s ease-in-out;
-            width: 100%;
-        }
-
-        &:hover {
+.blog-link{
+    text-decoration: none;
+    .blog-card {
+        font-family: $textfontname;
+        cursor: pointer;
+    
+        .blog-card-img {
+            overflow: hidden;
+    
             img {
-                transform: scale(1.03);
+                transition: all 0.6s ease-in-out;
+                width: 100%;
+            }
+    
+            &:hover {
+                img {
+                    transform: scale(1.03);
+                }
             }
         }
-    }
-
-    .card-body {
-        .card-title {
-            font-size: 2.7rem;
-            color: #000;
-            text-transform: uppercase;
-            transition: all 0.4s ease;
-            margin-bottom: 7px;
-        }
-
-        .card-text {
-            font-weight: 500;
-            font-size: 18px;
+    
+        .card-body {
+            .card-title {
+                font-size: 2.7rem;
+                color: #000;
+                text-transform: uppercase;
+                transition: all 0.4s ease;
+                margin-bottom: 7px;
+            }
+    
+            .card-text {
+                font-weight: 500;
+                font-size: 18px;
+                color: rgb(88, 88, 88);
+            }
         }
     }
 }

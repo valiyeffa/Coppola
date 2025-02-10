@@ -68,56 +68,56 @@ const MovieCard = ({ alldata }) => {
   };
 
   return (
-      <div className="movie-card">
-        <div className="card-img">
-          <img src={`${environment.baseUrl}${alldata?.image?.url}`} className="card-img-top" alt={alldata?.title} />
-          <div className="new-sale-mark">
-            {alldata?.price == alldata?.discountedPrice ?
-              alldata?.isProductNew == true ?
-                <span className='new-mark'>
-                  <span className="new-mark-text">New</span>
-                </span> :
-                <span></span> :
-              <span className='sale-mark'>
-                <span className="sale-mark-text">Sale</span>
-              </span>
-            }
-          </div>
-          <div className="btns-shop">
-            <button onClick={() => {
-              handleAddToWishlist(alldata);
-            }} className="btn fav-btn">
-              {getWishlistItem(alldata?._id) ?
-                <>
-                  <FaHeart className='fill' />
-                  <span>Added</span>
-                </>
-                :
-                <div className='empty-hover'>
-                  <FaHeart className='fill' />
-                  <FaRegHeart className='empty' />
-                  <span>Add to WishList</span>
-                </div>
-              }
-            </button>
-            <button className="btn btn-shop btn-outline-light" onClick={() => {
-              handleAddToCart(alldata);
-            }}>Add to Cart</button>
-          </div>
-        </div>
-        <Link to={`/movies-shop/${alldata?.slug}`} state={{ movieID: alldata?._id }} onClick={() => window.scrollTo(0, 0)} className="card-body">
-          <span className='movie-ctg'>{alldata?.category?.name}</span>
-          <h5 className="card-title">{alldata?.title}</h5>
-          <p className="card-text"><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /></p>
+    <div className="movie-card">
+      <div className="card-img">
+        <img src={`${environment.baseUrl}${alldata?.image?.url}`} className="card-img-top" alt={alldata?.title} />
+        <div className="new-sale-mark">
           {alldata?.price == alldata?.discountedPrice ?
-            <span className="card-price">${alldata?.price == alldata?.discountedPrice ? alldata?.price : alldata?.discountedPrice}</span> :
-            <>
-              <del className="card-ex-price">${alldata?.price}</del>
-              <span className="card-price">${alldata?.discountedPrice}</span>
-            </>
+            alldata?.isProductNew == true ?
+              <span className='new-mark'>
+                <span className="new-mark-text">New</span>
+              </span> :
+              <span></span> :
+            <span className='sale-mark'>
+              <span className="sale-mark-text">Sale</span>
+            </span>
           }
-        </Link>
+        </div>
+        <div className="btns-shop">
+          <button onClick={() => {
+            handleAddToWishlist(alldata);
+          }} className="btn fav-btn">
+            {getWishlistItem(alldata?._id) ?
+              <>
+                <FaHeart className='fill' />
+                <span>Added</span>
+              </>
+              :
+              <div className='empty-hover'>
+                <FaHeart className='fill' />
+                <FaRegHeart className='empty' />
+                <span>Add to WishList</span>
+              </div>
+            }
+          </button>
+          <button className="btn btn-shop btn-outline-light" onClick={() => {
+            handleAddToCart(alldata);
+          }}>Add to Cart</button>
+        </div>
       </div>
+      <Link to={`/movies-shop/${alldata?.slug}`} state={{ movieID: alldata?._id }} onClick={() => window.scrollTo(0, 0)} className="card-body">
+        <span className='movie-ctg'>{alldata?.category?.name}</span>
+        <h5 className="card-title">{alldata?.title}</h5>
+        <p className="card-text"><FaStar /><FaStar /><FaStar /><FaStar /><FaRegStar /></p>
+        {alldata?.price == alldata?.discountedPrice ?
+          <span className="card-price">${alldata?.price == alldata?.discountedPrice ? alldata?.price : alldata?.discountedPrice}</span> :
+          <>
+            <del className="card-ex-price">${alldata?.price}</del>
+            <span className="card-price">${alldata?.discountedPrice}</span>
+          </>
+        }
+      </Link>
+    </div>
   )
 }
 

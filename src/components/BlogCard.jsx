@@ -1,19 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const BlogCard = ({ image, title, category, content }) => {
+const BlogCard = ({ alldata }) => {
   return (
-    <div className="col-md-6">
+    <Link to={`/blog/${alldata?.slug}`} state={{ blogID: alldata?._id }} onClick={() => window.scrollTo(0, 0)} className="col-md-6 blog-link">
       <div className="blog-card">
         <div className="blog-card-img">
-          <img src={`http://localhost:3002/api${image}`} className="card-img-top" />
+          <img src={`http://localhost:3002/api${alldata?.image.url}`} className="card-img-top" />
         </div>
         <div className="card-body">
-          <p className="textbox-ctg"><span>{category}</span> NOVEMBER 30</p>
-          <h5 className="card-title">{title}...</h5>
-          <p className="card-text">{content}</p>
+          <p className="textbox-ctg"><span>{alldata?.category}</span> NOVEMBER 30</p>
+          <h5 className="card-title">{alldata?.title.slice(0, 27)}...</h5>
+          <p className="card-text">{alldata?.content.slice(0, 15)}</p>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

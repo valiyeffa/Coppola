@@ -21,14 +21,14 @@ const MovieDetails = () => {
   const moviDataLength = movieData?.data?.length;
 
   useEffect(() => {
-      const relatedMovies = [];
-      for (let i = 0; i < 4; i++) {
-        const relatedMovie = Math.round(Math.random() * moviDataLength);
-        const moviesRelated = movieData.data && movieData.data[relatedMovie];
-        relatedMovies.push(moviesRelated);
-      }
-      setReal(relatedMovies);
-  }, [moviDataLength, movieData.data]);
+    if (movieData?.data?.length > 4) {
+      const shuffledMovies = [...movieData.data]
+        .filter(movie => movie._id !== movieID)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 4);
+      setReal(shuffledMovies);
+    }
+  }, [moviDataLength, movieData.data, movieID]);
 
   const handleAddToCart = (product) => {
     const cartItem = getItem(product._id);
