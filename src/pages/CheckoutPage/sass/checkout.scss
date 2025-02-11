@@ -12,6 +12,7 @@
 
             .checkout-body {
                 width: 80%;
+
                 .checkout-info {
                     b {}
 
@@ -42,9 +43,37 @@
                                 color: black;
                             }
                         }
+
+                        .payment-method {
+                            .card-cash-btn {
+                                border: 2px solid black;
+                                border-radius: 0;
+
+                                &:hover {
+                                    background-color: black;
+                                    color: white;
+                                }
+                            }
+                        }
+
+                        .btn-submit {
+                            border: 2px solid black;
+                            border-radius: 0;
+                            padding: 10px 25px;
+                            &:hover{
+                                background-color: black;
+                                color: white;
+                            }
+                        }
                     }
                 }
             }
         }
     }
+}
+
+.active-btn {
+    @include button();
+    background-color: black;
+    color: white;
 }
