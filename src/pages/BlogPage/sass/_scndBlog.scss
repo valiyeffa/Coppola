@@ -1,36 +1,39 @@
 .scnd-blog-sect {
     font-family: $textfontname;
+    width: 100%;
 
-    .blog-page-title {
-        margin: 50px 15px;
-        display: flex;
-        justify-content: space-between;
+    .container-fluid {
+        .blog-page-title {
+            margin: 50px 15px;
+            display: flex;
+            justify-content: space-between;
 
-        .search-bar {
-            .input-group {
-                border-radius: 0;
-                border: 2px solid;
-
-                input {
+            .search-bar {
+                .input-group {
                     border-radius: 0;
-                    border: none;
-                    box-shadow: none;
-                }
+                    border: 2px solid;
 
-                button {
-                    border: none;
-                    @include centerflex();
+                    input {
+                        border-radius: 0;
+                        border: none;
+                        box-shadow: none;
+                    }
+
+                    button {
+                        border: none;
+                        @include centerflex();
+                    }
                 }
             }
         }
-    }
 
-    .blog-page-body {
-        margin: 70px 0 170px;
-        @include centerflex();
+        .blog-page-body {
+            width: 100%;
+            margin: 70px 0 170px;
 
-        .row {
-            row-gap: 30px;
+            .row {
+                row-gap: 30px;
+            }
         }
     }
 }

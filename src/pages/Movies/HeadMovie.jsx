@@ -26,7 +26,8 @@ const HeadMovie = () => {
     const filteredMovies = movieData.data && movieData.data.filter(item =>
         item.price >= appliedPrice[0] &&
         item.price <= appliedPrice[1] &&
-        item.title.toLowerCase().includes(searchTerm.toLowerCase()));
+        item.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <div className='head-sect-movie light-mode'>

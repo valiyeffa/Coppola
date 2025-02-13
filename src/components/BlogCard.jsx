@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const BlogCard = ({ alldata }) => {
   return (
-    <Link to={`/blog/${alldata?.slug}`} state={{ blogID: alldata?._id }} onClick={() => window.scrollTo(0, 0)} className="col-md-6 blog-link">
+    <Link to={`/blog/${alldata?.slug}`} state={{ blogID: alldata?._id }} onClick={() => window.scrollTo(0, 0)} className="col-lg-6 col-md-6 blog-link">
       <div className="blog-card">
         <div className="blog-card-img">
           <img src={`http://localhost:3002/api${alldata?.image.url}`} className="card-img-top" />

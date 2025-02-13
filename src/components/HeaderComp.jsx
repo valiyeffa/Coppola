@@ -50,10 +50,6 @@ const HeaderComp = () => {
     }
 
     const items = [
-        // {
-        // label: `${signedinAcc && signedinAcc.name} ${signedinAcc && signedinAcc.surname}`,
-        //     disabled: false,
-        // },
         {
             label: 'Sign Out',
             onClick: logout,

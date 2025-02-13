@@ -1,14 +1,33 @@
 import React from 'react'
 import { useCart } from 'react-use-cart';
 import emptyGif from '../../../src/assets/images/cart-empty-gif.gif'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import BasketCard from '../../components/BasketCard';
+import Cookies from 'universal-cookie';
+import Swal from 'sweetalert2';
 
 const Basket = () => {
     const { isEmpty, items, cartTotal } = useCart();
+    const cookies = new Cookies(null, { path: '/' });
+    const navigate = useNavigate();
 
     const topPage = () => {
         window.scrollTo(0, 0);
+    }
+
+    const checkoutBtn = () => {
+        Swal.fire({
+            title: "Please log in to your account.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Login!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                navigate('/login-register');
+            }
+        });
     }
 
     return (
@@ -59,7 +78,10 @@ const Basket = () => {
                                         </div>
 
                                         <div className="basket-total-body_btn">
-                                            <Link to={'/checkout'} type='button' className='btn'>Proceed To Checkout</Link>
+                                            {cookies.get('user') == true ?
+                                                <Link to={'/checkout'} type='button' onClick={() => window.scrollTo(0, 0)} className='btn'>Proceed To Checkout</Link> :
+                                                <button type='button' onClick={checkoutBtn} className='btn'>Proceed To Checkout</button>
+                                            }
                                         </div>
                                     </div>
                                 </div>

@@ -144,88 +144,88 @@
                         }
                     }
                 }
+            }
+        }
+    }
+}
 
-                .basket-total {
-                    width: 90%;
+.basket-total {
+    width: 90%;
 
-                    .basket-body_title {
-                        width: 100%;
-                        border-bottom: 2px solid rgba(128, 128, 128, 0.133);
-                        padding: 7px 0;
-                    }
+    .basket-body_title {
+        width: 100%;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.133);
+        padding: 7px 0;
+    }
 
-                    .basket-total-body {
-                        width: 100%;
+    .basket-total-body {
+        width: 100%;
 
-                        .basket-total-body_top {
-                            width: 100%;
-                            @include flex();
-                            flex-direction: column;
+        .basket-total-body_top {
+            width: 100%;
+            @include flex();
+            flex-direction: column;
 
-                            .subtotal {
-                                width: 100%;
-                                display: flex;
-                                justify-content: space-between;
+            .subtotal {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
 
-                                .mini-title {
-                                    color: grey;
-                                    font-size: 15px;
-                                }
+                .mini-title {
+                    color: grey;
+                    font-size: 15px;
+                }
 
-                                .delivery-count {
-                                    @extend .mini-title;
-                                }
-                            }
+                .delivery-count {
+                    @extend .mini-title;
+                }
+            }
 
-                            .sub-top {
-                                .sub-mini-title {
-                                    font-size: 19px;
-                                    font-weight: 500;
-                                    color: rgb(77, 77, 77);
-                                }
+            .sub-top {
+                .sub-mini-title {
+                    font-size: 19px;
+                    font-weight: 500;
+                    color: rgb(77, 77, 77);
+                }
 
-                                .subtotal-val {
-                                    font-weight: 500;
-                                }
+                .subtotal-val {
+                    font-weight: 500;
+                }
 
-                            }
-                        }
+            }
+        }
 
-                        .basket-total-body_bottom {
-                            @include flex();
-                            border-top: 2px dotted rgba(128, 128, 128, 0.133);
-                            padding-top: 10px;
+        .basket-total-body_bottom {
+            @include flex();
+            border-top: 2px dotted rgba(128, 128, 128, 0.133);
+            padding-top: 10px;
 
-                            .total-text {
-                                font-size: 19px;
-                                font-weight: 500;
-                            }
+            .total-text {
+                font-size: 19px;
+                font-weight: 500;
+            }
 
-                            .total-price {
-                                font-size: 20px;
-                                font-weight: 600;
-                            }
-                        }
+            .total-price {
+                font-size: 20px;
+                font-weight: 600;
+            }
+        }
 
-                        .basket-total-body_btn {
-                            width: 100%;
+        .basket-total-body_btn {
+            width: 100%;
 
-                            .btn {
-                                width: 100%;
-                                background-color: black;
-                                color: white;
-                                border-radius: 0;
-                                border: 2px solid black;
-                                padding: 10px 25px;
-                                font-size: 15px;
+            .btn {
+                width: 100%;
+                background-color: black;
+                color: white;
+                border-radius: 0;
+                border: 2px solid black;
+                padding: 10px 25px;
+                font-size: 15px;
 
-                                &:hover {
-                                    background-color: transparent;
-                                    color: black;
-                                }
-                            }
-                        }
-                    }
+                &:hover {
+                    background-color: transparent;
+                    color: black;
                 }
             }
         }

@@ -1,10 +1,9 @@
 import { Dropdown, Space } from 'antd'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { FaRegUser } from 'react-icons/fa'
 import { DownOutlined } from '@ant-design/icons';
 import Preloader from '../../../components/Preloader';
 import { Link, useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import { environment } from '../../../environments/environment';
 import Cookies from 'universal-cookie';
 import Swal from 'sweetalert2';
@@ -20,7 +19,6 @@ const MoviesList = () => {
   const [deleteMovie] = useDeleteMovieMutation();
   const userId = cookies.get('user-id');
   const signedinAcc = userName && userName.find(p => p._id == userId);
-  console.log(moviesData.data);
 
   const logout = () => {
     cookies.remove('role');

@@ -26,6 +26,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import MovieDetails from './pages/Details/MovieDetails'
 import BlogDetails from './pages/Details/BlogDetails'
 import Checkout from './pages/CheckoutPage/Checkout'
+import OrderSuccess from './components/OrderSuccess'
 
 const App = () => {
   const routes = [
@@ -41,6 +42,7 @@ const App = () => {
     { path: '/movies-shop', element: <MoviesShop /> },
     { path: '/movies-shop/:movieDetSlug', element: <MovieDetails /> },
     { path: '/checkout', element: <Checkout /> },
+    { path: '/checkout/order', element: <OrderSuccess /> },
   ];
 
   return (

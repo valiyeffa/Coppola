@@ -25,7 +25,7 @@ const Header = () => {
         && location.pathname !== '/dashboard/movie-list/add-movie' && location.pathname !== `/dashboard/movie-list/edit-movie/${movieSlug}`) {
 
         if (location.pathname !== "/about-us" && location.pathname !== "/contact-us" && location.pathname !== `/blog/${blogDetSlug}` && location.pathname !== "/movies-shop" && location.pathname !== `/movies-shop/${movieDetSlug}` 
-            && location.pathname !== "/faq" && location.pathname !== "/basket" && location.pathname !== "/wishlist" && location.pathname !== "/checkout") {
+            && location.pathname !== "/faq" && location.pathname !== "/basket" && location.pathname !== "/wishlist" && location.pathname !== "/checkout" && location.pathname !== "/checkout/order") {
             return (
                 <header className={scroll ? "scroll" : 'header'}>
                     <HeaderComp />
