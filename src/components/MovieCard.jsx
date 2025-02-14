@@ -5,10 +5,12 @@ import { environment } from '../environments/environment';
 import { useWishlist } from 'react-use-wishlist';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const MovieCard = ({ alldata }) => {
   const { addWishlistItem, getWishlistItem, removeWishlistItem } = useWishlist();
   const { addItem, getItem } = useCart();
+  const { t } = useTranslation();
 
   const handleAddToCart = (product) => {
     const cartItem = getItem(product._id);
@@ -75,11 +77,11 @@ const MovieCard = ({ alldata }) => {
           {alldata?.price == alldata?.discountedPrice ?
             alldata?.isProductNew == true ?
               <span className='new-mark'>
-                <span className="new-mark-text">New</span>
+                <span className="new-mark-text">{t("new")}</span>
               </span> :
               <span></span> :
             <span className='sale-mark'>
-              <span className="sale-mark-text">Sale</span>
+              <span className="sale-mark-text">{t("sale")}</span>
             </span>
           }
         </div>
@@ -90,19 +92,19 @@ const MovieCard = ({ alldata }) => {
             {getWishlistItem(alldata?._id) ?
               <>
                 <FaHeart className='fill' />
-                <span>Added</span>
+                <span>{t("movieBlog.details.addedWishBtn")}</span>
               </>
               :
               <div className='empty-hover'>
                 <FaHeart className='fill' />
                 <FaRegHeart className='empty' />
-                <span>Add to WishList</span>
+                <span>{t("movieBlog.details.wishBtn")}</span>
               </div>
             }
           </button>
           <button className="btn btn-shop btn-outline-light" onClick={() => {
             handleAddToCart(alldata);
-          }}>Add to Cart</button>
+          }}>{t("movieBlog.details.addBtn")}</button>
         </div>
       </div>
       <Link to={`/movies-shop/${alldata?.slug}`} state={{ movieID: alldata?._id }} onClick={() => window.scrollTo(0, 0)} className="card-body">

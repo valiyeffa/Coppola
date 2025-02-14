@@ -9,12 +9,14 @@ import MovieCard from '../../components/MovieCard';
 import { useGetCategoriesQuery } from '../../tools/services/categoryApi';
 import { useGetMoviesQuery } from '../../tools/services/moviesApi';
 import Preloader from '../../components/Preloader';
+import { useTranslation } from 'react-i18next';
 
 const HeadMovie = () => {
     const [ct, setCt] = useState();
     const [searchTerm, setSearchTerm] = useState("");
     const [priceRange, setPriceRange] = useState([10, 60]);
     const [appliedPrice, setAppliedPrice] = useState([10, 60]);
+    const { t } = useTranslation();
 
     const { data: ctgData } = useGetCategoriesQuery();
     const { data: movieData = [], isLoading } = useGetMoviesQuery({ category: ct, search: searchTerm });
@@ -32,7 +34,7 @@ const HeadMovie = () => {
     return (
         <div className='head-sect-movie light-mode'>
             <div className="container-fluid">
-                <h2 className='py-5' style={{ textAlign: 'center' }}>Movies / Shop</h2>
+                <h2 className='py-5' style={{ textAlign: 'center' }}>{t("movieBlog.movTit")}</h2>
                 {isLoading ? <Preloader /> :
                     <div className="row">
                         <div className="col-12 col-lg-2 col-md-11 col-sm-12">
@@ -44,7 +46,7 @@ const HeadMovie = () => {
                                             <input
                                                 type="text"
                                                 className="form-control"
-                                                placeholder="Search"
+                                                placeholder={t("movieBlog.search")}
                                                 value={searchTerm}
                                                 onChange={(e) => setSearchTerm(e.target.value)}
                                             />
@@ -53,7 +55,7 @@ const HeadMovie = () => {
                                     </div>
 
                                     <div className="categories py-3 border-bottom">
-                                        <h6>CATEGORY</h6>
+                                        <h6>{t("movieBlog.catg")}</h6>
                                         <ul className="list-group">
                                             <li className="list-group-item" onClick={() => { ctgfilter('') }}>All</li>
                                             {ctgData && ctgData.map(item => (
@@ -63,7 +65,7 @@ const HeadMovie = () => {
                                     </div>
 
                                     <div className="prices py-3">
-                                        <h6>PRICE</h6>
+                                        <h6>{t("movieBlog.prc")}</h6>
                                         <ConfigProvider
                                             theme={{
                                                 token: {
@@ -94,9 +96,9 @@ const HeadMovie = () => {
                                                 <button type='button' onClick={() => {
                                                     setPriceRange([10, 60]);
                                                     setAppliedPrice([10, 60]);
-                                                }} className='btn mx-2' style={{ border: 'none' }}>Reset <MdOutlineArrowOutward /></button>
+                                                }} className='btn mx-2' style={{ border: 'none' }}>{t("movieBlog.reset")} <MdOutlineArrowOutward /></button>
                                             ) : null}
-                                            <button type='button' onClick={() => setAppliedPrice(priceRange)} className='btn px-4 py-1' style={{ border: 'none' }}>Apply <MdOutlineArrowOutward /></button>
+                                            <button type='button' onClick={() => setAppliedPrice(priceRange)} className='btn px-4 py-1' style={{ border: 'none' }}>{t("movieBlog.apply")} <MdOutlineArrowOutward /></button>
                                         </ConfigProvider>
                                     </div>
                                 </div>

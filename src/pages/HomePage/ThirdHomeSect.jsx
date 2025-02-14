@@ -3,8 +3,11 @@ import { MdArrowOutward } from "react-icons/md";
 import bloglist1 from '../../assets/images/blog-list-main-1.jpg'
 import bloglist2 from '../../assets/images/blog-list-main-2.jpg'
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ThirdHomeSect = () => {
+  const { t } = useTranslation();
+
     const topPage = () => {
         window.scrollTo(0, 0);
     }
@@ -17,7 +20,7 @@ const ThirdHomeSect = () => {
         <div className='third-home-sect'>
             <div className='container-fluid'>
                 <div className="third-sect-title">
-                    <h6>NEWS</h6>
+                    <h6>{t("home.thrdFourSect.newtit")}</h6>
                 </div>
 
                 <div className="row">
@@ -29,8 +32,8 @@ const ThirdHomeSect = () => {
                                     <p><span>ARTWORK</span> DECEMBER 10</p>
                                 </div>
                                 <div className="textbox-title">
-                                    <a href="#" className='textbox-text'>Interview with movie producer Brian harington</a>
-                                    <NavLink to='/blog' onClick={topPage} className='view-more-btn'>View More <MdArrowOutward className='submit-arrow' /></NavLink>
+                                    <a href="#" className='textbox-text'>{t("home.thrdFourSect.boxTit1")}</a>
+                                    <NavLink to='/blog' onClick={topPage} className='view-more-btn'>{t("home.thrdFourSect.viewBtn")} <MdArrowOutward className='submit-arrow' /></NavLink>
                                 </div>
                             </div>
                         </div>
@@ -45,8 +48,8 @@ const ThirdHomeSect = () => {
                                     <p><span>ARTWORK</span> DECEMBER 10</p>
                                 </div>
                                 <div className="textbox-title">
-                                    <a href="#" className='textbox-text'>Interview in london with movie producer sebastian ring</a>
-                                    <NavLink to='/blog' onClick={topPage} className='view-more-btn'>View More <MdArrowOutward className='submit-arrow' /></NavLink>
+                                    <a href="#" className='textbox-text'>{t("home.thrdFourSect.boxTit2")}</a>
+                                    <NavLink to='/blog' onClick={topPage} className='view-more-btn'>{t("home.thrdFourSect.viewBtn")} <MdArrowOutward className='submit-arrow' /></NavLink>
                                 </div>
                             </div>
                         </div>

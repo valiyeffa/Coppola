@@ -3,14 +3,16 @@ import team1 from '../../assets/images/h1-team1.jpg'
 import team2 from '../../assets/images/h1-team2.jpg'
 import team3 from '../../assets/images/h1-team3.jpg'
 import team4 from '../../assets/images/h1-team4.jpg'
+import { useTranslation } from 'react-i18next'
 
 const Team = () => {
-    
+    const { t } = useTranslation();
+
     return (
         <div className='fifth-home-sect'>
-            <div className="story-about-sect" style={{padding: '250px 0  45px'}}>
-                <h6 style={{color: 'white', fontSize:'19px', letterSpacing:'2px'}}>THIS IS OUR</h6>
-                <h1 style={{color: 'white', fontSize:'70px', letterSpacing:'2px'}}>CREW</h1>
+            <div className="story-about-sect" style={{ padding: '250px 0  45px' }}>
+                <h6 style={{ color: 'white', fontSize: '19px', letterSpacing: '2px' }}>{t("team.this")}</h6>
+                <h1 style={{ color: 'white', fontSize: '70px', letterSpacing: '2px' }}>{t("team.crew")}</h1>
             </div>
             <div className="story-starring-team">
                 <div className="container-fluid">

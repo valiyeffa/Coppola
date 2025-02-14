@@ -19,8 +19,10 @@ import award4 from '../../../src/assets/images/aboutus/client-img-12.png'
 import award5 from '../../../src/assets/images/aboutus/client-img-13.png'
 import award6 from '../../../src/assets/images/aboutus/client-img-14.png'
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const ScndAboutSect = () => {
+    const { t } = useTranslation();
 
     const topPage = () => {
         window.scrollTo(0, 0);
@@ -38,9 +40,9 @@ const ScndAboutSect = () => {
                         </div>
                         <div className="col-12 col-lg-6 col-md-12 col-sm-12">
                             <div className="movie-tale tale-text ">
-                                <p>A TALE OF</p>
-                                <h3>ROMANTIC MOVIE CRIME COMEDY-DRAMA</h3>
-                                <NavLink to='/movies-shop' onClick={topPage} className='btn-shop btn btn-outline-dark px-4'>Get Tickets</NavLink>
+                                <p>{t("aboutus.scndSect.taleof")}</p>
+                                <h3>{t("aboutus.scndSect.taleofAbt")}</h3>
+                                <NavLink to='/movies-shop' onClick={topPage} className='btn-shop btn btn-outline-dark px-4'>{t("home.thrdFourSect.getBtn")}</NavLink>
                             </div>
                         </div>
                     </div>
@@ -64,7 +66,7 @@ const ScndAboutSect = () => {
                         </div>
                         <div className="col-12 col-lg-4 col-md-12 col-sm-12">
                             <div className="text-box">
-                                <h5>MOVIES</h5>
+                                <h5>{t("header.movies")}</h5>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean maximus, felis eget ultricies auctor, mauris ante varius dolor, ut .</p>
                             </div>
                         </div>
@@ -142,17 +144,17 @@ const ScndAboutSect = () => {
                 <div className="container-fluid">
                     <div className="row">
                         <div className="col-12 col-lg-6 col-md-12 col-sm-6 last-left-side">
-                            <p className='about-mini-title'>CONTACT</p>
+                            <p className='about-mini-title'>{t("header.contact")}</p>
                             <div className="about-textbox">
-                                <h2>DROP US A <span>NOTE</span> WE WILL GET BACK TO YOU SOON</h2>
+                                <h2>{t("aboutus.scndSect.contactTxt1")} <span>{t("aboutus.scndSect.high")}</span> {t("aboutus.scndSect.contactTxt2")}</h2>
                             </div>
-                            <NavLink to='/contact-us' onClick={topPage} className='btn-shop btn btn-outline-dark px-4'>Contact Us</NavLink>
+                            <NavLink to='/contact-us' onClick={topPage} className='btn-shop btn btn-outline-dark px-4'>{t("footer.contactus")}</NavLink>
                         </div>
 
                         <div className="col-12 col-lg-6 col-md-12 col-sm-6 ">
                             <div className="last-right-side">
                                 <div className="container">
-                                    <p className='about-mini-title'>AWARDS</p>
+                                    <p className='about-mini-title'>{t("aboutus.scndSect.awards")}</p>
                                     <div className="row">
                                         <div className="col-12 col-lg-4 col-md-4 col-sm-12">
                                             <div className="award-icons">

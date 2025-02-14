@@ -9,6 +9,7 @@ import Swal from 'sweetalert2';
 import { useWishlist } from 'react-use-wishlist';
 import userImg from '../../../src/assets/images/userImage.png'
 import MovieCard from '../../components/MovieCard';
+import { useTranslation } from 'react-i18next';
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -19,6 +20,7 @@ const MovieDetails = () => {
   const { data: movieData = [] } = useGetMoviesQuery({ category: '' });
   const [rel, setReal] = useState([]);
   const moviDataLength = movieData?.data?.length;
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (movieData?.data?.length > 4) {
@@ -92,7 +94,7 @@ const MovieDetails = () => {
       {isLoading ? <div style={{ height: '100vh' }} className='d-flex justify-content-center align-items-center my-5'><Preloader /></div> :
         <div className="container-fluid">
           <div className="page-title">
-            <p>Movies / Shop / {movieDetailID?.category?.name} / {movieDetailID?.title}</p>
+            <p>{t("movieBlog.movTit")} / {movieDetailID?.category?.name} / {movieDetailID?.title}</p>
           </div>
           <div className="row">
             <div className="col-lg-6 col-md-12">
@@ -103,11 +105,11 @@ const MovieDetails = () => {
                     {movieDetailID?.price == movieDetailID?.discountedPrice ?
                       movieDetailID?.isProductNew == true ?
                         <span className='new-mark'>
-                          <span className="new-mark-text">New</span>
+                          <span className="new-mark-text">{t("new")}</span>
                         </span> :
                         <span></span> :
                       <span className='sale-mark'>
-                        <span className="sale-mark-text">Sale</span>
+                        <span className="sale-mark-text">{t("sale")}</span>
                       </span>
                     }
                   </div>
@@ -132,21 +134,21 @@ const MovieDetails = () => {
                     <p>{movieDetailID?.description}</p>
 
                     <div className="right-center_bottom d-flex gap-3">
-                      <Link to='/movies-shop' onClick={() => window.scrollTo(0, 0)} className='btn back-pg'>Back To Page</Link>
-                      <button className='add-cart btn' onClick={() => { handleAddToCart(movieDetailID) }}>Add To Cart</button>
+                      <Link to='/movies-shop' onClick={() => window.scrollTo(0, 0)} className='btn back-pg'>{t("movieBlog.details.backBtn")}</Link>
+                      <button className='add-cart btn' onClick={() => { handleAddToCart(movieDetailID) }}>{t("movieBlog.details.addBtn")}</button>
                       <button onClick={() => {
                         handleAddToWishlist(movieDetailID);
                       }} className="btn fav-btn">
                         {getWishlistItem(movieDetailID?._id) ?
                           <>
                             <FaHeart className='fill' />
-                            <span>Added</span>
+                            <span>{t("movieBlog.details.addedWishBtn")}</span>
                           </>
                           :
                           <div className='empty-hover'>
                             <FaHeart className='fill' />
                             <FaRegHeart className='empty' />
-                            <span>Add to WishList</span>
+                            <span>{t("movieBlog.details.wishBtn")}</span>
                           </div>
                         }
                       </button>
@@ -166,11 +168,11 @@ const MovieDetails = () => {
           <div className="row">
             <div className="reviews">
               <div className="reviews-title">
-                <p>Reviews (2)</p>
+                <p>{t("movieBlog.details.reviews")} (2)</p>
               </div>
               <div className="reviews-body">
                 <div className="reviews-body_title">
-                  <p>2 review for {movieDetailID?.title}</p>
+                  <p>2 {t("movieBlog.details.review")} {movieDetailID?.title}</p>
                 </div>
                 <div className="review-user">
                   <div className="row">
@@ -218,7 +220,7 @@ const MovieDetails = () => {
           <div className="row">
             <div className="related-movies">
               <div className="related-movies_title">
-                <p>RELATED MOVIES</p>
+                <p>{t("movieBlog.details.relatedMov")}</p>
               </div>
               <div className="related-movies-body">
                 <div className="row">

@@ -3,27 +3,29 @@ import team1 from '../../assets/images/h1-team1.jpg'
 import team2 from '../../assets/images/h1-team2.jpg'
 import team3 from '../../assets/images/h1-team3.jpg'
 import team4 from '../../assets/images/h1-team4.jpg'
+import { useTranslation } from 'react-i18next'
 
 const FifthHomeSect = () => {
+  const { t } = useTranslation();
 
   return (
     <div className='fifth-home-sect'>
       <div className="story-about-sect">
-        <h6>THE STORY ABOUT</h6>
+        <h6>{t("home.fifthSixSect.aboutTit")}</h6>
         <div className="ad-container">
           <div className="ad-content">
-            <span> DRAMA </span>
-            <span> LOVE </span>
-            <span> PASSION </span>
-            <span> DRAMA </span>
-            <span> LOVE </span>
-            <span> PASSION </span>
+            <span> {t("home.fifthSixSect.cont1")} </span>
+            <span> {t("home.fifthSixSect.cont2")} </span>
+            <span> {t("home.fifthSixSect.cont3")} </span>
+            <span> {t("home.fifthSixSect.cont1")} </span>
+            <span> {t("home.fifthSixSect.cont2")} </span>
+            <span> {t("home.fifthSixSect.cont3")} </span>
           </div>
         </div>
       </div>
       <div className="story-starring-team">
         <div className="container-fluid">
-          <h6>STARRING</h6>
+          <h6>{t("home.fifthSixSect.starsTit")}</h6>
           <div className="row">
             <div className="col-12 col-lg-3 col-md-6 col-sm-6">
               <div className="starring-box">

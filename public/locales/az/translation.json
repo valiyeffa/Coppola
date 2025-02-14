@@ -1,0 +1,159 @@
+{
+    "new": "Yeni",
+    "sale": "Endirim",
+    "logout": "Çıxış",
+    "header": {
+        "home": "Ana Səhifə",
+        "movies": "FILMLƏR",
+        "aboutus": "Haqqımızda",
+        "dashboard": "Panel",
+        "contact": "ƏLAQƏ",
+        "basket": "Səbət",
+        "hi": "Salam"
+    },
+    "footer": {
+        "helpfaq": "Kömək və FAQ",
+        "lang": "Dil",
+        "team": "Komanda",
+        "contactus": "Bizimlə Əlaqə",
+        "shop": "Mağaza",
+        "placeholder": "Yeni xəbərlər üçün qeydiyyatdan keç"
+    },
+    "home": {
+        "firstScndSect": {
+            "presents": "SELECT PRODUCTION TƏQDİM EDİR",
+            "logan": "SIZI HƏYƏCAN İÇİNDƏ SAXLAYACAQ MÖHTƏŞƏM MACƏRA.",
+            "synopTit": "SINOPSIS",
+            "synop": "İÇ-İÇƏ KEÇƏN İKİ HƏYATIN HEKAYƏSİ. KÜTLƏVİ",
+            "destr": "MƏHV",
+            "about": "İç-içə keçən iki həyatın dramatik hekayəsi. Gərgin anlar, dönüş nöqtələri və gözlənilməz hadisələr fonunda, taleləri bir-birinə bağlanan iki insanın yaşadıqları mübarizə və kəşflər. Həyatın amansız sınaqları və böyük dağıntılar içində onlar seçim qarşısında qalırlar – ümid etmək, yoxsa təslim olmaq?",
+            "film1Nm": "OTEL ROSE",
+            "film2Nm": "MAVİ OTAQ",
+            "film3Nm": "BERLIN, TEKSAS"
+        },
+        "thrdFourSect": {
+            "newtit": "XƏBƏRLƏR",
+            "boxTit1": "Filmin prodüseri Brian Harrington ilə müsahibə",
+            "boxTit2": "Londonda filmin prodüseri Sebastian Ring ilə müsahibə",
+            "viewBtn": "Ətraflı Bax",
+            "dir1": "Kino yalnız əyləncə deyil, həm də duyğuların, düşüncələrin və həyatın əksi olan bir sənətdir.",
+            "dir2": "Hekayələr insanları birləşdirir və yeni dünyalar açır.",
+            "dir3": "Hər bir ssenari, hər bir kadr tamaşaçıya unudulmaz hisslər bəxş etmək üçün yaradılır.",
+            "movieCtg": "ROMANS",
+            "movieTit": "ROMANTİKLƏR ÜÇÜN SEHRLİ BİR",
+            "movieDel": "EŞQ HEKAYƏSİ",
+            "getBtn": "Bilet Al"
+        },
+        "fifthSixSect": {
+            "aboutTit": "FILM HAQQINDA",
+            "cont1": "DRAM",
+            "cont2": "SEVGİ",
+            "cont3": "EHTİRAS",
+            "starsTit": "ULDUZLAR",
+            "movCtg": "TRILLER",
+            "movTit": "CİNAYƏT VƏ SİRR DOLU HİSSLƏRLƏ ZƏNGİN BİR",
+            "movTidel": "SƏYAHƏT"
+        }
+    },
+    "movieBlog": {
+        "search": "Axtar",
+        "movTit": "Filmlər / Mağaza",
+        "catg": "KATEQORİYA",
+        "prc": "QİYMƏT",
+        "apply": "Tətbiq et",
+        "reset": "Sıfırla",
+        "blogTit": "ANA SƏHİFƏ / BLOQ",
+        "blogTxt": "Burada, film xəbərlərini paylaşırıq",
+        "details": {
+            "backBtn": "Geri Qayıt",
+            "addBtn": "Səbətə Əlavə Et",
+            "wishBtn": "Favorilərə Əlavə Et",
+            "addedWishBtn": "Əlavə edilib",
+            "reviews": "Şərhlər",
+            "comment": "Şərhlər",
+            "review": "Şərh üçün",
+            "relatedMov": "TÖVSİYYƏ EDİLƏNLƏR",
+            "readAlso": "HƏMÇİNİN OXU",
+            "seeDet": "Detalları Gör"
+        }
+    },
+    "aboutus": {
+        "firstSect": {
+            "aboutTit": "HAQQIMIZDA",
+            "aboutBigTit": "İKİ HEKAYƏ, MƏHV OLMAĞA GÖZƏL BİR ODE",
+            "aboutTxt1": "Ziddiyyətlərin hekayəsi, burada gözəllik və xaos bir-birinə toxunur və bu, insan ruhunun dözümlülüyünə işarə edir. İki bir-birinə bağlı həyatın açılması, ümid və itkinin aydın bir təsvirini yaradır, həyatın dərin mürəkkəbliklərini araşdıran təsirli bir nağıl yaradır.",
+            "aboutTxt2": "Hekayələr irəlilədikcə, biz məhv olmağın yavaşca alovlanmasını və bunun xarakterlər üzərində qoyduğu silinməz izləri müşahidə edirik; bütün bunlara baxmayaraq, onlar qırıq bir dünyada mənanı tapmağa davam edirlər."
+        },
+        "scndSect": {
+            "taleof": "BİR HEKAYƏ",
+            "taleofAbt": "ROMANTİK FİLM, CİNAYƏT KOMEDİYA-DRAMASI",
+            "contactTxt1": "BİZƏ",
+            "high": "MESAJ",
+            "contactTxt2": "GÖNDƏRİN, YAXIN ZAMANDA SİZƏ CAVAB VERƏCƏYİK",
+            "awards": "MÜKAFATLAR"
+        }
+    },
+    "team": {
+        "this": "BU BIZIM",
+        "crew": "EKIPAJ"
+    },
+    "contact": {
+        "contTit": "SALAM DE. UTANMA",
+        "contTxt": "Biz buradayıq və hər hansı bir sualınıza kömək etməyə hazırıq. Komandamız, sizə mümkün olan ən yaxşı xidməti göstərməyə həsr olunub. Dəstəyə ehtiyacınız varsa və ya fikirlərinizi bölüşmək istəyirsinizsə, bizə bir mesajla asanlıqla çata bilərsiniz.",
+        "mess": "Mesaj",
+        "name": "Adın",
+        "email": "Emailin",
+        "sendBtn": "Mesajı Göndər",
+        "cntInf": "ƏLAQƏ MƏLUMATI"
+    },
+    "shops": {
+        "returnBtn": "Mağazaya Geri Qayıt",
+        "basket": {
+            "basketTit1": "ANA SƏHİFƏ / KART",
+            "basketTit2": "Kart",
+            "empty": "Səbətiniz hazırda boşdur.",
+            "totalTitBig": "Səbətin cəmi",
+            "subtotalTit": "Ara cəmi",
+            "discountTit": "Endirim",
+            "deliveryTit": "Çatdırılma",
+            "totalTit": "Cəmi",
+            "proc": "Ödəməyə Keç",
+            "basketCard": {
+                "onsale": "Endirimdə",
+                "save": "Saxla",
+                "saved": "Saxlanıldı",
+                "del": "Sil"
+            }
+        },
+        "wishlist": {
+            "wishBigTit": "ANA SƏHİFƏ / FAVORİLƏR",
+            "wishTit": "İstək siyahısı",
+            "emptyWish": "İstək siyahınız hazırda boşdur."
+        }
+    },
+    "checkout": {
+        "count": "Say:",
+        "checkoutTit": "Ödəniş",
+        "rewTit": "Səbətinizi gözdən keçirin",
+        "billTit": "Faktura Məlumatları",
+        "fullNm": "Tam Ad*",
+        "emailad": "Email adres*",
+        "phone": "Telefon Nömrəsi*",
+        "country": "Ölkə*",
+        "city": "Şəhər*",
+        "state": "Qəsəbə*",
+        "method": "Ödəniş metodunu seçin:",
+        "card": "Kartla Ödəniş",
+        "cash": "Nağd Ödəniş",
+        "nameCard": "Kartdakı Ad",
+        "numCard": "Kart Nömrəsi",
+        "zip": "ZIP Kod",
+        "terms": "Mən Şərtləri və Qaydaları oxudum və qəbul edirəm.",
+        "order": "Sifariş et",
+        "successOrder": {
+            "succTxt1": "Sifarişiniz uğurla həyata keçirildi.",
+            "succTxt2": "Bizimlə alış-veriş etdiyiniz üçün təşəkkür edirik! :)",
+            "backShop": "Mağazaya Qayıt"
+        }
+    }
+}

@@ -6,10 +6,12 @@ import { environment } from '../../environments/environment';
 import Swal from 'sweetalert2';
 import { FaShoppingCart, FaTrash } from 'react-icons/fa';
 import { useCart } from 'react-use-cart';
+import { useTranslation } from 'react-i18next';
 
 const Wishlist = () => {
     const { isWishlistEmpty, items, removeWishlistItem } = useWishlist();
     const { addItem, getItem } = useCart();
+    const { t } = useTranslation();
 
     const handleAddToCart = (product) => {
         const cartItem = getItem(product.id);
@@ -47,14 +49,14 @@ const Wishlist = () => {
     return (
         <div className='wishlist basket-page'>
             <div className="container-fluid">
-                <p className='basket-title'>HOME / WISHLIST</p>
+                <p className='basket-title'>{t("shops.wishlist.wishBigTit")}</p>
                 {isWishlistEmpty ? <div className='empty'>
                     <img src={emptyGif} alt="" />
-                    <p className='h1'>Your wishlist is currently empty.</p>
-                    <Link to="/movies-shop" onClick={topPage} className='btn btn-basket'>Return To Shop</Link>
+                    <p className='h1'>{t("shops.wishlist.emptyWish")}</p>
+                    <Link to="/movies-shop" onClick={topPage} className='btn btn-basket'>{t("shops.returnBtn")}</Link>
                 </div> :
                     <div className="row">
-                        <h2 className='basket-body_title border-bottom '>Wishlist</h2>
+                        <h2 className='basket-body_title border-bottom '>{t("shops.wishlist.wishTit")}</h2>
                         {items.map((item) => (
                             <div key={item.id} className="col-md-6">
                                 <div className="basket-prod-sect">
@@ -62,7 +64,7 @@ const Wishlist = () => {
                                         <div className="card py-3">
                                             <div className="row g-0">
                                                 <div className="col-md-2">
-                                                    <div className="card-img" style={{borderRadius:'0'}}>
+                                                    <div className="card-img" style={{ borderRadius: '0' }}>
                                                         <img src={`${environment.baseUrl}${item.image.url}`} className="img-fluid" alt={item.title} />
                                                     </div>
                                                 </div>
@@ -73,10 +75,10 @@ const Wishlist = () => {
                                                         </div>
                                                         {item.price == item.originalPrice ?
                                                             item.isProductNew == true ?
-                                                                <p className="card-text">${item.discountedPrice}<span className='new-text'>New</span></p>
+                                                                <p className="card-text">${item.discountedPrice}<span className='new-text'>{t("new")}</span></p>
                                                                 : <p className="card-text">${item.discountedPrice}</p>
                                                             :
-                                                            <p className="card-text"><del className='sale'>${item.originalPrice}</del> ${item.discountedPrice} <span className='sale-text'>On Sale</span></p>
+                                                            <p className="card-text"><del className='sale'>${item.originalPrice}</del> ${item.discountedPrice} <span className='sale-text'>{t("shops.basket.basketCard.onsale")}</span></p>
                                                         }
                                                         <p className="card-text">{item.category.name}</p>
                                                         <p className="card-text">{item.description.slice(0, 50)}...</p>
@@ -84,7 +86,7 @@ const Wishlist = () => {
                                                             <div className="card-remove-fav">
                                                                 <button onClick={() => {
                                                                     handleAddToCart(item);
-                                                                }} className='btn fav-btn'><FaShoppingCart /> Add to cart</button>
+                                                                }} className='btn fav-btn'><FaShoppingCart /> {t("movieBlog.details.addBtn")}</button>
                                                                 <button onClick={() => {
                                                                     Swal.fire({
                                                                         title: "Are you sure?",
@@ -103,7 +105,7 @@ const Wishlist = () => {
                                                                             });
                                                                         }
                                                                     });
-                                                                }} className='btn del-btn'><FaTrash /> Delete</button>
+                                                                }} className='btn del-btn'><FaTrash /> {t("shops.basket.basketCard.del")}</button>
                                                             </div>
                                                         </div>
                                                     </div>

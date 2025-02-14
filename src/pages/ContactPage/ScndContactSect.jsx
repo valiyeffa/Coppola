@@ -1,11 +1,15 @@
 import React from 'react'
 import innerImg from '../../../src/assets/images/contactus/inner-img-2.jpg'
+import { useTranslation } from 'react-i18next';
+
 const ScndContactSect = () => {
+    const { t } = useTranslation();
+
     return (
         <div className='scnd-contact-sect'>
             <div className='scndf-contact-sect'>
                 <div className="container-fluid">
-                    <h4>CONTACT INFO</h4>
+                    <h4>{t("contact.cntInf")}</h4>
                     <div className="contact-info-table">
                         <table>
                             <tr>

@@ -8,6 +8,7 @@ import { Bounce, toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Preloader from '../../components/Preloader';
+import { useTranslation } from 'react-i18next';
 
 const Checkout = () => {
     const { items, cartTotal, emptyCart } = useCart();
@@ -16,6 +17,7 @@ const Checkout = () => {
     const [countryCode, setCountryCode] = useState("+994");
     const [check, setCheck] = useState(false);
     const [submit, setSubmit] = useState(false);
+    const { t } = useTranslation();
     const navigate = useNavigate();
     const nameRef = useRef();
     const emailRef = useRef();
@@ -23,7 +25,6 @@ const Checkout = () => {
     const cityRef = useRef();
     const stateRef = useRef();
     const zipRef = useRef();
-
     const [cardDetails, setCardDetails] = useState({
         number: '',
         name: '',
@@ -96,13 +97,13 @@ const Checkout = () => {
                 <div className="container-fluid">
                     <ToastContainer />
                     <div className="checkout-title my-4">
-                        <h1>Checkout</h1>
+                        <h1>{t("checkout.checkoutTit")}</h1>
                     </div>
                     <div className="row">
                         <div className="col-md-6">
                             <div className="checkout-body left-side my-5">
                                 <div className="checkout-info">
-                                    <b>Review your cart</b>
+                                    <b>{t("checkout.rewTit")}</b>
                                     <div className="products">
                                         {items.map((item) => (
                                             <OrderCard key={item.id} item={item} />
@@ -112,20 +113,20 @@ const Checkout = () => {
                                         <div className="basket-total-body">
                                             <div className="basket-total-body_top">
                                                 <div className="subtotal sub-top">
-                                                    <p className='sub-mini-title'>Subtotal</p>
+                                                    <p className='sub-mini-title'>{t("shops.basket.subtotalTit")}</p>
                                                     <p className='subtotal-val'>${cartTotal.toFixed(2)}</p>
                                                 </div>
                                                 <div className="subtotal">
-                                                    <p className='mini-title'>Discount</p>
+                                                    <p className='mini-title'>{t("shops.basket.discountTit")}</p>
                                                     <p className='delivery-count'>(15%) - ${(cartTotal * 0.15).toFixed(2)}</p>
                                                 </div>
                                                 <div className="subtotal">
-                                                    <p className='mini-title'>Delivery</p>
+                                                    <p className='mini-title'>{t("shops.basket.deliveryTit")}</p>
                                                     <p className='delivery-count'>$13</p>
                                                 </div>
                                             </div>
                                             <div className="basket-total-body_bottom">
-                                                <p className='total-text'>Total</p>
+                                                <p className='total-text'>{t("shops.basket.totalTit")}</p>
                                                 <p className='total-price'>${(cartTotal + 13 - (cartTotal * 0.15).toFixed(2)).toFixed(2)}</p>
                                             </div>
                                         </div>
@@ -136,18 +137,18 @@ const Checkout = () => {
                         <div className="col-md-6">
                             <div className="checkout-body right-side">
                                 <div className="checkout-info my-5">
-                                    <b>Billing Details</b>
+                                    <b>{t("checkout.billTit")}</b>
                                     <form className='my-4' onSubmit={submitedForm}>
                                         <div className="mb-3">
-                                            <label className="form-label">Full name*</label>
+                                            <label className="form-label">{t("checkout.fullNm")}</label>
                                             <input type="text" ref={nameRef} placeholder='Enter full name' className="form-control" />
                                         </div>
                                         <div className="mb-3">
-                                            <label className="form-label">Email address*</label>
+                                            <label className="form-label">{t("checkout.emailad")}</label>
                                             <input type="email" ref={emailRef} placeholder='Enter email address' className="form-control" />
                                         </div>
                                         <div className="mb-3">
-                                            <label className="form-label">Phone number*</label>
+                                            <label className="form-label">{t("checkout.phone")}</label>
                                             <div className="input-group mb-3">
                                                 <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">{countryCode}</button>
                                                 <ul className="dropdown-menu">
@@ -159,7 +160,7 @@ const Checkout = () => {
                                             </div>
                                         </div>
                                         <div className="mb-3">
-                                            <label className="form-label">Country*</label>
+                                            <label className="form-label">{t("checkout.country")}</label>
                                             <ConfigProvider
                                                 theme={{
                                                     components: {
@@ -190,23 +191,23 @@ const Checkout = () => {
                                             </ConfigProvider>
                                         </div>
                                         <div className='city mb-3'>
-                                            <label className="form-label">City*</label>
+                                            <label className="form-label">{t("checkout.city")}</label>
                                             <input placeholder='Enter city' ref={cityRef} type="text" className="form-control" />
                                         </div>
                                         <div className="state mb-3">
-                                            <label className="form-label">State*</label>
+                                            <label className="form-label">{t("checkout.state")}</label>
                                             <input placeholder='Enter state' ref={stateRef} type="text" className="form-control" />
                                         </div>
                                         <div className="payment-method mb-3">
-                                            <label className="form-label">Choose Payment method:</label><br />
+                                            <label className="form-label">{t("checkout.method")}</label><br />
                                             <button onClick={() => {
                                                 setCash(false);
                                                 setCard(true);
-                                            }} type='button' className={`btn card-cash-btn ${card === true ? 'active-btn' : ''}`}>Card on Delivery</button>
+                                            }} type='button' className={`btn card-cash-btn ${card === true ? 'active-btn' : ''}`}>{t("checkout.card")}</button>
                                             <button onClick={() => {
                                                 setCard(false);
                                                 setCash(true);
-                                            }} type='button' className={`btn card-cash-btn mx-2 ${cash === true ? 'active-btn' : ''}`}>Cash on Delivery</button>
+                                            }} type='button' className={`btn card-cash-btn mx-2 ${cash === true ? 'active-btn' : ''}`}>{t("checkout.cash")}</button>
                                         </div>
                                         {card === true ?
                                             <div className="card-on-delivery mb-3">
@@ -219,7 +220,7 @@ const Checkout = () => {
                                                         focused={cardDetails.focus}
                                                     />
                                                     <div className="card-name mb-3">
-                                                        <label className="form-label">Name on Card</label>
+                                                        <label className="form-label">{t("checkout.nameCard")}</label>
                                                         <input
                                                             type="text"
                                                             name="name"
@@ -232,7 +233,7 @@ const Checkout = () => {
                                                         />
                                                     </div>
                                                     <div className="card-num">
-                                                        <label className="form-label">Card Number</label>
+                                                        <label className="form-label">{t("checkout.numCard")}</label>
                                                         <input
                                                             type="text"
                                                             name="number"
@@ -273,18 +274,18 @@ const Checkout = () => {
                                             </div> :
                                             <div className="cash-on-delivery mb-3" >
                                                 <div className="zip-code">
-                                                    <label className="form-label">ZIP Code</label>
+                                                    <label className="form-label">{t("checkout.zip")}</label>
                                                     <input type="number" ref={zipRef} className="form-control" />
                                                 </div>
                                             </div>
                                         }
                                         <div className="mb-3 form-check">
                                             <input onClick={() => { check === false ? setCheck(true) : setCheck(false) }} type="checkbox" className="form-check-input" />
-                                            <label className="form-check-label">I have read and agree to the Terms and Conditions.</label>
+                                            <label className="form-check-label">{t("checkout.terms")}</label>
                                         </div>
                                         {check === true ?
-                                            <button type="submit" onClick={() => window.scrollTo(0, 0)} className="btn btn-submit">Order now</button> :
-                                            <button disabled type="submit" onClick={() => window.scrollTo(0, 0)} className="btn btn-submit">Order now</button>
+                                            <button type="submit" onClick={() => window.scrollTo(0, 0)} className="btn btn-submit">{t("checkout.order")}</button> :
+                                            <button disabled type="submit" onClick={() => window.scrollTo(0, 0)} className="btn btn-submit">{t("checkout.order")}</button>
                                         }
                                     </form>
                                 </div>

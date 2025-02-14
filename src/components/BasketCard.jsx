@@ -5,10 +5,12 @@ import { FaHeart, FaTrash } from 'react-icons/fa';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
 import { useWishlist } from 'react-use-wishlist';
+import { useTranslation } from 'react-i18next';
 
 const BasketCard = ({ item }) => {
     const { updateItemQuantity, removeItem } = useCart();
     const { getWishlistItem, addWishlistItem, removeWishlistItem } = useWishlist();
+    const { t } = useTranslation();
 
     const handleAddToWishlist = (product) => {
         const wishItem = getWishlistItem(product.id);
@@ -57,7 +59,7 @@ const BasketCard = ({ item }) => {
             />
             <div className="row g-0">
                 <div className="col-md-2">
-                    <div className="card-img" style={{borderRadius:'0'}}>
+                    <div className="card-img" style={{ borderRadius: '0' }}>
                         <img src={`${environment.baseUrl}${item.image.url}`} className="img-fluid" alt={item.title} />
                     </div>
                 </div>
@@ -69,10 +71,10 @@ const BasketCard = ({ item }) => {
                         </div>
                         {item.price == item.originalPrice ?
                             item.isProductNew == true ?
-                                <p className="card-text">${item.discountedPrice}<span className='new-text'>New</span></p>
+                                <p className="card-text">${item.discountedPrice}<span className='new-text'>{t("new")}</span></p>
                                 : <p className="card-text">${item.discountedPrice}</p>
                             :
-                            <p className="card-text"><del className='sale'>${item.originalPrice}</del> ${item.discountedPrice} <span className='sale-text'>On Sale</span></p>
+                            <p className="card-text"><del className='sale'>${item.originalPrice}</del> ${item.discountedPrice} <span className='sale-text'>{t("shops.basket.basketCard.onsale")}</span></p>
                         }
                         <div className="card-body-bottom">
                             <div className="card-quantity">
@@ -101,11 +103,11 @@ const BasketCard = ({ item }) => {
                                     {getWishlistItem(item.id) ?
                                         <div className='saved-btn'>
                                             <FaHeart />
-                                            <span>Saved</span>
+                                            <span>{t("shops.basket.basketCard.saved")}</span>
                                         </div> :
                                         <>
                                             <FaHeart />
-                                            <span>Save</span>
+                                            <span>{t("shops.basket.basketCard.save")}</span>
                                         </>
                                     }
                                 </button>
@@ -127,7 +129,7 @@ const BasketCard = ({ item }) => {
                                             });
                                         }
                                     });
-                                }} className='btn del-btn'><FaTrash /> Delete</button>
+                                }} className='btn del-btn'><FaTrash /> {t("shops.basket.basketCard.del")}</button>
                             </div>
                         </div>
                     </div>

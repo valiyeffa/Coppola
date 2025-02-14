@@ -10,10 +10,10 @@ export const blogApi = createApi({
 
     endpoints: (builder) => ({
         getBlogs: builder.query({
-            query: ({ search }) => {
+            query: (search) => {
                 let url = '/blogs';
                 if (search) {
-                    url += `?search=${encodeURIComponent(search)}`;
+                    url += `?search=${search}`;
                 }
                 return url;
             }

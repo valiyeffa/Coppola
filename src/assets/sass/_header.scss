@@ -67,6 +67,7 @@
                             font-size: 0.8em;
                             font-weight: 500;
                             position: relative;
+                            text-transform: uppercase;
 
                             &::after {
                                 content: '';
@@ -182,6 +183,7 @@ nav {
                         font-size: 0.8em;
                         font-weight: 500;
                         position: relative;
+                        text-transform: uppercase;
 
                         &::after {
                             content: '';

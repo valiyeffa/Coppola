@@ -9,8 +9,11 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const BlogFirstSect = () => {
+    const { t } = useTranslation();
+
     return (
         <div className='blog-first-sect'>
             <Swiper
@@ -33,7 +36,7 @@ const BlogFirstSect = () => {
                         <p>Written and directed by Lars Johnson/ Sweden 2011 Written and directed by Lars Johnson ...</p>
                     </div>
                     <div className="slide-blog-btns">
-                        <Link to={`/blog/frankly-my-dear-i-dont-give-a-damn`} state={{ blogID: '67965e599ae447e57245dfea' }} className='btn btn-add btn-outline-light'>See Details</Link>
+                        <Link to={`/blog/frankly-my-dear-i-dont-give-a-damn`} state={{ blogID: '67965e599ae447e57245dfea' }} className='btn btn-add btn-outline-light'>{t("movieBlog.details.seeDet")}</Link>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide><img src={img2} alt="" />
@@ -43,7 +46,7 @@ const BlogFirstSect = () => {
                         <p>Written and directed by Lars Johnson/ Sweden 2011 Written and directed by Lars Johnson ...</p>
                     </div>
                     <div className="slide-blog-btns">
-                        <Link to={`/blog/frankly-my-dear-i-dont-give-a-damn`} state={{ blogID: '67965e599ae447e57245dfea' }} className='btn btn-add btn-outline-light'>See Details</Link>
+                        <Link to={`/blog/frankly-my-dear-i-dont-give-a-damn`} state={{ blogID: '67965e599ae447e57245dfea' }} className='btn btn-add btn-outline-light'>{t("movieBlog.details.seeDet")}</Link>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide><img src={img3} alt="" />
@@ -53,7 +56,7 @@ const BlogFirstSect = () => {
                         <p>Written and directed by Lars Johnson/ Sweden 2011 Written and directed by Lars Johnson ...</p>
                     </div>
                     <div className="slide-blog-btns">
-                        <Link to={`/blog/frankly-my-dear-i-dont-give-a-damn`} state={{ blogID: '67965e599ae447e57245dfea' }} className='btn btn-add btn-outline-light'>See Details</Link>
+                        <Link to={`/blog/frankly-my-dear-i-dont-give-a-damn`} state={{ blogID: '67965e599ae447e57245dfea' }} className='btn btn-add btn-outline-light'>{t("movieBlog.details.seeDet")}</Link>
                     </div>
                 </SwiperSlide>
             </Swiper>

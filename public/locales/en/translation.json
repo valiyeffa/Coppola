@@ -1,0 +1,159 @@
+{
+    "new": "New",
+    "sale": "Sale",
+    "logout": "Log Out",
+    "header": {
+        "home": "Home",
+        "movies": "MOVIES",
+        "aboutus": "About Us",
+        "dashboard": "Dashboard",
+        "contact": "CONTACT",
+        "basket": "Get Basket",
+        "hi": "Hi"
+    },
+    "footer": {
+        "helpfaq": "Help and faq",
+        "lang": "Language",
+        "team": "Team",
+        "contactus": "Contact us",
+        "shop": "Shop",
+        "placeholder": "Sign up to Newsletter"
+    },
+    "home": {
+        "firstScndSect": {
+            "presents": "SELECT PRODUCTION PRESENTS",
+            "logan": "THRILLING ADVENTURE THAT WILL KEEP YOU ON ENDGE.",
+            "synopTit": "SYNOPSIS",
+            "synop": "THE TELLING OF TWO INTERTWINING LIVES. MASS",
+            "destr": "DESTRUCTION",
+            "about": "Cum sociis Theme natoque penatibus et magnis dis part montes, nascetur ridiculus mus. Aliquam loremante, dapibus in, viverra. Dolor orem Ipsn vuctor aliquet re ipsum dolor sit amet rem Ipsn gravida nibh vel velit auct Curabitur ullamcorper ultricies nisi. Nam eget, etiam mea.",
+            "film1Nm": "HOTEL ROSE",
+            "film2Nm": "BLUE ROOM",
+            "film3Nm": "BERLIN, TEXAS"
+        },
+        "thrdFourSect": {
+            "newtit": "NEWS",
+            "boxTit1": "Interview with movie producer Brian harington",
+            "boxTit2": "Interview in london with movie producer sebastian ring",
+            "viewBtn": "View More",
+            "dir1": "Cinema is not just entertainment, it is also an art form that reflects emotions, thoughts, and life.",
+            "dir2": "Stories bring people together and open new worlds.",
+            "dir3": "Every script, every shot is created to give the audience unforgettable emotions.",
+            "movieCtg": "ROMANCE",
+            "movieTit": "MESMERIZING LOVE STORY FOR",
+            "movieDel": "ROMATICS",
+            "getBtn": "Get Tickets"
+        },
+        "fifthSixSect": {
+            "aboutTit": "THE STORY ABOUT",
+            "cont1": "DRAMA",
+            "cont2": "LOVE",
+            "cont3": "PASSION",
+            "starsTit": "STARRING",
+            "movCtg": "THRILLER",
+            "movTit": "A HEARTFELT JOURNEY FILLED WITH CRIME &",
+            "movTidel": "MYSTERY"
+        }
+    },
+    "movieBlog": {
+        "search": "Search",
+        "movTit": "Movies / Shop",
+        "catg": "CATEGORY",
+        "prc": "PRICE",
+        "apply": "Apply",
+        "reset": "Reset",
+        "blogTit": "HOME / BLOG",
+        "blogTxt": "Here, we share movie news",
+        "details": {
+            "backBtn": "Back To Page",
+            "addBtn": "Add To Cart",
+            "wishBtn": "Add To WishList",
+            "addedWishBtn": "Added",
+            "reviews": "Reviews",
+            "comment": "Comments",
+            "review": "Review for",
+            "relatedMov": "RELATED MOVIES",
+            "readAlso": "READ ALSO",
+            "seeDet": "See Details"
+        }
+    },
+    "aboutus": {
+        "firstSect": {
+            "aboutTit": "ABOUT US",
+            "aboutBigTit": "TWO STORIES A BEAUTIFUL ODE TO DESTRUCTION.",
+            "aboutTxt1": "A tale of contrasts, where beauty and chaos collide in a way that speaks to the resilience of the human spirit. The unraveling of two interconnected lives paints a vivid picture of hope and loss, creating a poignant narrative that explores the deep complexities of life.",
+            "aboutTxt2": "As the stories progress, we witness the slow burn of destruction and the indelible mark it leaves on the characters, who, despite it all, continue to seek meaning in a seemingly fractured world."
+        },
+        "scndSect": {
+            "taleof": "A TALE OF",
+            "taleofAbt": "ROMANTIC MOVIE CRIME COMEDY-DRAMA",
+            "contactTxt1": "DROP US A ",
+            "high": "NOTE",
+            "contactTxt2": "NOTE WE WILL GET BACK TO YOU SOON",
+            "awards": "AWARDS"
+        }
+    },
+    "team": {
+        "this": "THIS IS OUR",
+        "crew": "CREW"
+    },
+    "contact": {
+        "contTit": "SAY HI. DON'T BE SHY",
+        "contTxt": "We are here to assist you with any questions. Our team is dedicated to providing you with the best service possible. Whether you need support, or to share feedback, we are just a message away.",
+        "mess": "Message",
+        "name": "Your Name",
+        "email": "Your Email",
+        "sendBtn": "Send Message",
+        "cntInf": "CONTACT INFO"
+    },
+    "shops": {
+        "returnBtn": "Return To Shop",
+        "basket": {
+            "basketTit1": "HOME / CART",
+            "basketTit2": "Cart",
+            "empty": "Your cart is currently empty.",
+            "totalTitBig": "Cart totals",
+            "subtotalTit": "Subtotal",
+            "discountTit": "Discount",
+            "deliveryTit": "Delivery",
+            "totalTit": "Total",
+            "proc": "Proceed To Checkout",
+            "basketCard": {
+                "onsale": "On Sale",
+                "save": "Save",
+                "saved": "Saved",
+                "del": "Delete"
+            }
+        },
+        "wishlist": {
+            "wishBigTit": "HOME / WISHLIST",
+            "wishTit": "Wishlist",
+            "emptyWish": "Your wishlist is currently empty."
+        }
+    },
+    "checkout": {
+        "count": "Count:",
+        "checkoutTit": "Checkout",
+        "rewTit": "Review your cart",
+        "billTit": "Billing Details",
+        "fullNm": "Full name*",
+        "emailad": "Email address*",
+        "phone": "Phone number*",
+        "country": "Country*",
+        "city": "City*",
+        "state": "State*",
+        "method": "Choose Payment method",
+        "card": "Card on Delivery",
+        "cash": "Cash on Delivery",
+        "nameCard": "Name on Card",
+        "numCard": "Card Number",
+        "zip": "ZIP Code",
+        "terms": "I have read and agree to the Terms and Conditions.",
+        "order": "Order now",
+        "successOrder": {
+            "succTxt1": "Your order has been successfully processed.",
+            "succTxt2": "Thanks for shopping with us! :)",
+            "backShop": "Back to Shop"
+        }
+    }
+}

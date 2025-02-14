@@ -13,26 +13,25 @@ import './sass/home.scss'
 
 import { Autoplay, EffectCoverflow } from 'swiper/modules';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function SecondHomeSect() {
+  const { t } = useTranslation();
+
   return (
     <div className='scnd-home-sect'>
       <div className="container-fluid">
         <div className="scnd-sect-title">
           <div className="row">
-            <span>SYNOPSIS</span>
+            <span>{t("home.firstScndSect.synopTit")}</span>
             <div className="col-12 col-lg-6 col-md-12 col-sm-12">
               <div className="scnd-title">
-                <h3>THE TELLING OF TWO INTERTWINING LIVES. MASS <del>DESTRUCTION</del>.</h3>
+                <h3>{t("home.firstScndSect.synop")} <del>{t("home.firstScndSect.destr")}</del>.</h3>
               </div>
             </div>
             <div className="col-12 col-lg-6 col-md-12 col-sm-12">
               <div className="scnd-title">
-                <p>Cum sociis Theme natoque penatibus et magnis dis part montes,
-                  nascetur ridiculus mus. Aliquam loremante, dapibus in, viverra.
-                  Dolor orem Ipsn vuctor aliquet re ipsum dolor sit amet rem Ipsn
-                  gravida nibh vel velit auct Curabitur ullamcorper ultricies nisi.
-                  Nam eget, etiam mea.</p>
+                <p>{t("home.firstScndSect.about")}</p>
               </div>
             </div>
           </div>
@@ -64,7 +63,7 @@ export default function SecondHomeSect() {
             <img src={home1portlist1} />
             <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
-              <h4>HOTEL ROSE</h4>
+              <h4>{t("home.firstScndSect.film1Nm")}</h4>
               <p>Huang Jordan / Vietnam</p>
             </div>
           </SwiperSlide>
@@ -72,7 +71,7 @@ export default function SecondHomeSect() {
             <img src={home1portlist2} />
             <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
-              <h4>BLUE ROOM</h4>
+              <h4>{t("home.firstScndSect.film2Nm")}</h4>
               <p>Naomi Takeda / Japan</p>
             </div>
           </SwiperSlide>
@@ -80,7 +79,7 @@ export default function SecondHomeSect() {
             <img src={home1portlist3} />
             <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
-              <h4>BERLIN, TEXAS</h4>
+              <h4>{t("home.firstScndSect.film3Nm")}</h4>
               <p>Lourdes Kumar / Germany</p>
             </div>
           </SwiperSlide>
@@ -88,7 +87,7 @@ export default function SecondHomeSect() {
             <img src={home1portlist1} />
             <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
-              <h4>HOTEL ROSE</h4>
+              <h4>{t("home.firstScndSect.film1Nm")}</h4>
               <p>Huang Jordan / Vietnam</p>
             </div>
           </SwiperSlide>
@@ -96,7 +95,7 @@ export default function SecondHomeSect() {
             <img src={home1portlist2} />
             <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
-              <h4>BLUE ROOM</h4>
+              <h4>{t("home.firstScndSect.film2Nm")}</h4>
               <p>Naomi Takeda / Japan</p>
             </div>
           </SwiperSlide>
@@ -104,7 +103,7 @@ export default function SecondHomeSect() {
             <img src={home1portlist3} />
             <Link to="/movies-shop" onClick={() => window.scrollTo(0, 0)} className='slider-btn'><RiPlayLargeLine /></Link>
             <div className="slider-text">
-              <h4>BERLIN, TEXAS</h4>
+              <h4>{t("home.firstScndSect.film3Nm")}</h4>
               <p>Lourdes Kumar / Germany</p>
             </div>
           </SwiperSlide>

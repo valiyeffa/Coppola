@@ -10,8 +10,10 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './sass/home.scss'
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const FourthHomeSect = () => {
+  const { t } = useTranslation();
 
   const topPage = () => {
     window.scrollTo(0, 0);
@@ -39,19 +41,19 @@ const FourthHomeSect = () => {
         <div className="custom-button-next"><FaArrowRight /></div>
         <SwiperSlide>
           <img src={stars} alt="" />
-          <h4>“Lorem ipsum dolor sit amet, cum porro platon."</h4>
+          <h4>“{t("home.thrdFourSect.dir1")}"</h4>
           <p>Movie Director</p>
         </SwiperSlide>
 
         <SwiperSlide>
           <img src={stars} alt="" />
-          <h4>“Lorem ipsum dolor sit amet, cum porro platon."</h4>
+          <h4>“{t("home.thrdFourSect.dir2")}"</h4>
           <p>Film Producer</p>
         </SwiperSlide>
 
         <SwiperSlide>
           <img src={stars} alt="" />
-          <h4>“Lorem ipsum dolor sit amet, cum porro platon."</h4>
+          <h4>“{t("home.thrdFourSect.dir3")}"</h4>
           <p>Casting Director</p>
         </SwiperSlide>
       </Swiper>
@@ -67,16 +69,15 @@ const FourthHomeSect = () => {
             <div className="col-12 col-lg-6 col-md-12 col-sm-12">
               <div className="right-side-movie-text">
                 <div className="movie-text-body">
-                  <p>ROMANCE</p>
-                  <h3>MESMERIZING LOVE STORY FOR <del>ROMATICS</del></h3>
+                  <p>{t("home.thrdFourSect.movieCtg")}</p>
+                  <h3>{t("home.thrdFourSect.movieTit")} <del>{t("home.thrdFourSect.movieDel")}</del></h3>
                 </div>
-                <NavLink to='/movies-shop' onClick={topPage} className='btn-shop btn btn-outline-light'>Get Tickets</NavLink>
+                <NavLink to='/movies-shop' onClick={topPage} className='btn-shop btn btn-outline-light'>{t("home.thrdFourSect.getBtn")}</NavLink>
               </div>
             </div>
           </div>
         </div>
       </div>
-
     </div>
   )
 }

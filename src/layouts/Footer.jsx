@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import footerImg from '../assets/images/footer-img.png'
 import { FaInstagram, FaYoutube, FaVimeoV, FaTwitter } from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
 import { NavLink, useLocation, useParams } from 'react-router-dom';
+import i18next from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
     const location = useLocation();
     const { slug, blogSlug, movieSlug } = useParams();
+    const [lang, setLang] = useState('');
+    const { t } = useTranslation();
+
+    useEffect(() => {
+        i18next.changeLanguage(lang);
+    }, [lang])
 
     const topPage = () => {
         window.scrollTo(0, 0);
@@ -29,10 +37,10 @@ const Footer = () => {
                         <div className="col mb-3"></div>
                         <div className="col mb-3">
                             <ul className="nav flex-column">
-                                <li className="nav-item mb-2"><NavLink to='/about-us' onClick={topPage} className="nav-link p-0">ABOUT US</NavLink></li>
-                                <li className="nav-item mb-2"><NavLink to='/faq' onClick={topPage} className="nav-link p-0">HELP AND FAQ</NavLink></li>
-                                <li className="nav-item mb-2"><p className="nav-link p-0">LANGUAGE:
-                                    <select className='lang-btn btn p-0 mx-2'>
+                                <li className="nav-item mb-2"><NavLink to='/about-us' onClick={topPage} className="nav-link p-0">{t("header.aboutus")}</NavLink></li>
+                                <li className="nav-item mb-2"><NavLink to='/faq' onClick={topPage} className="nav-link p-0">{t("footer.helpfaq")}</NavLink></li>
+                                <li className="nav-item mb-2"><p className="nav-link p-0">{t("footer.lang")}:
+                                    <select value={localStorage.getItem('i18nextLng')} onChange={(e) => setLang(e.target.value)} className='lang-btn btn p-0 mx-2'>
                                         <option value="en" className='btn'>En</option>
                                         <option value="az" className='btn'>Az</option>
                                     </select>
@@ -41,13 +49,13 @@ const Footer = () => {
                         </div>
                         <div className="col mb-3">
                             <ul className="nav flex-column">
-                                <li className="nav-item mb-2"><NavLink to='/our-team' onClick={topPage} className="nav-link p-0 ">TEAM</NavLink></li>
-                                <li className="nav-item mb-2"><NavLink to='/contact-us' onClick={topPage} className="nav-link p-0 ">CONTACT US</NavLink></li>
+                                <li className="nav-item mb-2"><NavLink to='/our-team' onClick={topPage} className="nav-link p-0 ">{t("footer.team")}</NavLink></li>
+                                <li className="nav-item mb-2"><NavLink to='/contact-us' onClick={topPage} className="nav-link p-0 ">{t("footer.contactus")}</NavLink></li>
                             </ul>
                         </div>
                         <div className="col mb-3">
                             <ul className="nav flex-column">
-                                <li className="nav-item mb-2"><NavLink to="/movies-shop" onClick={topPage} className="nav-link p-0 ">SHOP</NavLink></li>
+                                <li className="nav-item mb-2"><NavLink to="/movies-shop" onClick={topPage} className="nav-link p-0 ">{t("footer.shop")}</NavLink></li>
                                 <li className="nav-item mb-2"><NavLink to="/blog" onClick={topPage} className="nav-link p-0 ">BLOG</NavLink></li>
                             </ul>
                         </div>
@@ -69,7 +77,7 @@ const Footer = () => {
 
                             <form>
                                 <div className="d-flex justify-content-between border-bottom">
-                                    <input type="email" placeholder="Sign up to Newsletter" />
+                                    <input type="email" placeholder={t("footer.placeholder")} />
                                     <button className="btn" type="submit"><FiArrowUpRight /></button>
                                 </div>
                             </form>
