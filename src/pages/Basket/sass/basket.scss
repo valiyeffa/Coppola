@@ -1,7 +1,16 @@
+.dark {
+    --basketBg: #212121;
+}
+
+.light {
+    --basketBg: #FBFBFB;
+}
+
 .basket-page {
     width: 100%;
     font-family: $textfontname;
-    background-color: #FBFBFB;
+    background-color: var(--basketBg);
+    color: var(--textColor);
 
     .container-fluid {
         width: 96%;
@@ -48,6 +57,8 @@
                         border: none;
                         border-bottom: 2px solid rgba(128, 128, 128, 0.133);
                         border-radius: 0;
+                        background-color: var(--basketBg);
+                        color: var(--textColor);
 
                         .row {
                             width: 100%;
@@ -225,7 +236,9 @@
 
                 &:hover {
                     background-color: transparent;
-                    color: black;
+                    color: var(--textColor);
+                    border-color: var(--textColor);
+
                 }
             }
         }

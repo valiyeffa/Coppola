@@ -1,6 +1,7 @@
 .scnd-blog-sect {
     font-family: $textfontname;
     width: 100%;
+    background-color: var(--bgColorMain);
 
     .container-fluid {
         .blog-page-title {
@@ -14,14 +15,21 @@
                     border: 2px solid;
 
                     input {
+                        background-color: var(--bgColorMain);
+                        color: var(--textColor);
                         border-radius: 0;
                         border: none;
                         box-shadow: none;
+
+                        &::placeholder {
+                            color: var(--textColor);
+                        }
                     }
 
                     button {
                         border: none;
                         @include centerflex();
+                        color: var(--textColor);
                     }
                 }
             }
@@ -29,7 +37,7 @@
 
         .blog-page-body {
             width: 100%;
-            margin: 70px 0 170px;
+            padding: 50px 0 170px;
 
             .row {
                 row-gap: 30px;

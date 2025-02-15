@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useWishlist } from 'react-use-wishlist';
 import emptyGif from '../../../src/assets/images/empty-wishlist.gif'
 import { Link } from 'react-router-dom';
 import { environment } from '../../environments/environment';
 import Swal from 'sweetalert2';
-import { FaShoppingCart, FaTrash } from 'react-icons/fa';
+import { FaMoon, FaShoppingCart, FaTrash } from 'react-icons/fa';
 import { useCart } from 'react-use-cart';
 import { useTranslation } from 'react-i18next';
+import { MdSunny } from 'react-icons/md';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const Wishlist = () => {
     const { isWishlistEmpty, items, removeWishlistItem } = useWishlist();
     const { addItem, getItem } = useCart();
     const { t } = useTranslation();
+    const [theme, setTheme] = useContext(ThemeContext);
 
     const handleAddToCart = (product) => {
         const cartItem = getItem(product.id);
@@ -118,6 +121,12 @@ const Wishlist = () => {
                         ))}
                     </div>
                 }
+            </div>
+            <div className="right-mini-sect">
+                <button className='theme-btn' onClick={() => {
+                    theme === "light" ? setTheme('dark') : setTheme('light');
+                    theme === "light" ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'light');
+                }}>{theme === "light" ? <><FaMoon /> <span>Dark Mode</span> </> : <> <MdSunny /> <span>Light Mode</span></>}</button>
             </div>
         </div>
     )

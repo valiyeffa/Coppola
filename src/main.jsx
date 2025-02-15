@@ -8,13 +8,16 @@ import { Provider } from 'react-redux'
 import { store } from './tools/store.js'
 import { CartProvider } from 'react-use-cart'
 import { WishlistProvider } from 'react-use-wishlist'
+import { ThemeProvider } from './context/ThemeContext.jsx'
 
 createRoot(document.getElementById('root')).render(
-  <CartProvider>
-    <WishlistProvider>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </WishlistProvider>
-  </CartProvider >
+  <ThemeProvider>
+    <CartProvider>
+      <WishlistProvider>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </WishlistProvider>
+    </CartProvider>
+  </ThemeProvider>
 )

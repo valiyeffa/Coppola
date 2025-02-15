@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/HomePage/Home'
 import NotFoundPage from './components/NotFoundPage'
@@ -27,8 +27,11 @@ import MovieDetails from './pages/Details/MovieDetails'
 import BlogDetails from './pages/Details/BlogDetails'
 import Checkout from './pages/CheckoutPage/Checkout'
 import OrderSuccess from './components/OrderSuccess'
+import { ThemeContext } from './context/ThemeContext'
 
 const App = () => {
+  const [theme, setTheme] = useContext(ThemeContext);
+
   const routes = [
     { path: "/", element: <Home /> },
     { path: "/about-us", element: <AboutUs /> },
@@ -46,45 +49,47 @@ const App = () => {
   ];
 
   return (
-    <BrowserRouter>
-      <Routes>
-        {routes.map(({ path, element }) => (
-          <Route
-            key={path}
-            path={path}
-            element={<Layout>{element}</Layout>}
-          />
-        ))}
+    <div className={theme}>
+      <BrowserRouter>
+        <Routes>
+          {routes.map(({ path, element }) => (
+            <Route
+              key={path}
+              path={path}
+              element={<Layout>{element}</Layout>}
+            />
+          ))}
 
-        <Route element={<Layout />}>
-          <Route element={<ProtectedRoute />}>
+          <Route element={<Layout />}>
+            <Route element={<ProtectedRoute />}>
 
-            <Route path='/dashboard/overview' element={<Overview />} />
+              <Route path='/dashboard/overview' element={<Overview />} />
 
             //!=================MOVIE-START=================
-            <Route path='/dashboard/movie-list' element={<MoviesList />} />
-            <Route path='/dashboard/movie-list/add-movie' element={<AddMovies />} />
-            <Route path='/dashboard/movie-list/edit-movie/:movieSlug' element={<EditMovies />} />
+              <Route path='/dashboard/movie-list' element={<MoviesList />} />
+              <Route path='/dashboard/movie-list/add-movie' element={<AddMovies />} />
+              <Route path='/dashboard/movie-list/edit-movie/:movieSlug' element={<EditMovies />} />
             //!=================MOVIE-END===================
 
-            //!=================CATEGORY-START================
-            <Route path='/dashboard/categories-list' element={<Categories />} />
-            <Route path='/dashboard/categories-list/add-category' element={<AddCategory />} />
-            <Route path='/dashboard/categories-list/edit-category/:slug' element={<EditCategory />} />
+              //!=================CATEGORY-START================
+              <Route path='/dashboard/categories-list' element={<Categories />} />
+              <Route path='/dashboard/categories-list/add-category' element={<AddCategory />} />
+              <Route path='/dashboard/categories-list/edit-category/:slug' element={<EditCategory />} />
             //!=================CATEGORY-END==================
 
-            //!=================BLOG-START==================
-            <Route path='/dashboard/blog-list' element={<BlogList />} />
-            <Route path='/dashboard/blog-list/add-blogs' element={<AddBlogs />} />
-            <Route path='/dashboard/blog-list/edit-blog/:blogSlug' element={<EditBlog />} />
+              //!=================BLOG-START==================
+              <Route path='/dashboard/blog-list' element={<BlogList />} />
+              <Route path='/dashboard/blog-list/add-blogs' element={<AddBlogs />} />
+              <Route path='/dashboard/blog-list/edit-blog/:blogSlug' element={<EditBlog />} />
             //!=================BLOG-END====================
+            </Route>
           </Route>
-        </Route>
 
-        <Route path='/login-register' element={<AccLogReg />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path='/login-register' element={<AccLogReg />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 

@@ -60,6 +60,14 @@
     }
 }
 
+.table-container {
+  width: 100%;
+  overflow-x: auto; 
+  max-width: 100%;
+  padding-bottom: 0px;
+  position: relative;
+}
+
 @media (max-width:768px) {
     .dashboard {
         .movie-list {

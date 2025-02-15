@@ -84,7 +84,7 @@ const MoviesList = () => {
           </div>
           {isLoading ? <Preloader /> :
             <>
-              <div className="list my-4">
+              <div className="list table-container my-4">
                 <table className="table">
                   <thead>
                     <tr>

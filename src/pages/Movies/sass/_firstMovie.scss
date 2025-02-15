@@ -1,11 +1,13 @@
-.dark-mode {
+.dark {
     --bgColorMain: #212121;
-    --bgColorSpecial: #2C2C2C;
+    --bgColorSpecial: #545454;
+    --textColor: white;
 }
 
-.light-mode {
+.light {
     --bgColorMain: white;
     --bgColorSpecial: white;
+    --textColor: black;
 }
 
 .movie-ctg {
@@ -20,11 +22,12 @@
 }
 
 .head-sect-movie {
+    background-color: var(--bgColorMain);
+    color: var(--textColor);
     width: 100%;
     height: fit-content;
-    background-color: var(--bgColorMain);
     font-family: $textfontname;
-    margin-bottom: 150px;
+    padding-bottom: 150px;
     @include centerflex();
     flex-direction: column;
 
@@ -54,30 +57,46 @@
                 .left-side-body {
 
                     .search-bar {
+
                         .input-group {
                             border-radius: 0;
-                            border: 2px solid;
+                            border: 2px solid var(--textColor);
 
                             input {
+                                background-color: var(--bgColorSpecial);
                                 border-radius: 0;
                                 border: none;
                                 box-shadow: none;
+                                color: var(--textColor);
+
+                                &::placeholder {
+                                    color: var(--textColor);
+                                }
                             }
 
                             button {
+                                background-color: var(--bgColorSpecial);
                                 border: none;
                                 @include centerflex();
+                                color: var(--textColor);
                             }
                         }
                     }
 
                     .categories {
+                        h6 {
+                            color: var(--textColor);
+                        }
+
                         ul {
                             li {
+                                background-color: transparent;
                                 border: none;
+                                border-radius: 0;
                                 padding: 7px 0;
                                 cursor: pointer;
                                 transition: all 0.3s ease;
+                                color: var(--textColor);
 
                                 &:hover {
                                     color: $textcolor;
@@ -86,6 +105,13 @@
                         }
                     }
 
+                    .prices {
+                        color: var(--textColor);
+
+                        button {
+                            color: var(--textColor);
+                        }
+                    }
                 }
             }
 
@@ -207,6 +233,7 @@
     .head-sect-movie {
         .container-fluid {
             width: 100%;
+
             .row {
                 .movie-left-side {
                     width: 100%;

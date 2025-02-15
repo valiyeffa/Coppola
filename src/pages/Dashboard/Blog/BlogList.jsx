@@ -79,8 +79,8 @@ const BlogList = () => {
           <div className="add-btn">
             <Link to={'/dashboard/blog-list/add-blogs'} className='btn btn-outline-dark btn-shop btn-add'>Add New</Link>
           </div>
-          {isLoading ? <Preloader /> :
-            <div className="list my-4">
+          {isLoading ? <Preloader /> : <>
+            <div className="list table-container my-4">
               <table className="table">
                 <thead>
                   <tr>
@@ -111,6 +111,7 @@ const BlogList = () => {
                 </tbody>
               </table>
             </div>
+          </>
           }
         </div>
       </div>

@@ -1,5 +1,5 @@
 import { ConfigProvider, Select } from 'antd';
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import Cards from 'react-credit-cards';
 import 'react-credit-cards/es/styles-compiled.css';
 import { useCart } from 'react-use-cart';
@@ -9,6 +9,9 @@ import Swal from 'sweetalert2';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Preloader from '../../components/Preloader';
 import { useTranslation } from 'react-i18next';
+import { FaMoon } from 'react-icons/fa';
+import { MdSunny } from 'react-icons/md';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const Checkout = () => {
     const { items, cartTotal, emptyCart } = useCart();
@@ -18,6 +21,7 @@ const Checkout = () => {
     const [check, setCheck] = useState(false);
     const [submit, setSubmit] = useState(false);
     const { t } = useTranslation();
+    const [theme, setTheme] = useContext(ThemeContext);
     const navigate = useNavigate();
     const nameRef = useRef();
     const emailRef = useRef();
@@ -159,7 +163,7 @@ const Checkout = () => {
                                                 <input type="number" ref={phoneRef} placeholder='Enter phone number' className="form-control" />
                                             </div>
                                         </div>
-                                        <div className="mb-3">
+                                        <div className="mb-3 country">
                                             <label className="form-label">{t("checkout.country")}</label>
                                             <ConfigProvider
                                                 theme={{
@@ -294,6 +298,12 @@ const Checkout = () => {
                     </div>
                 </div>
             }
+            <div className="right-mini-sect">
+                <button className='theme-btn' onClick={() => {
+                    theme === "light" ? setTheme('dark') : setTheme('light');
+                    theme === "light" ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'light');
+                }}>{theme === "light" ? <><FaMoon /> <span>Dark Mode</span> </> : <> <MdSunny /> <span>Light Mode</span></>}</button>
+            </div>
         </div>
     )
 }

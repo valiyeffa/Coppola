@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { LuLayoutDashboard } from "react-icons/lu";
 import { MdOutlineMovie } from "react-icons/md";
 import { FaRegNewspaper } from "react-icons/fa6";
@@ -7,9 +7,12 @@ import { NavLink } from 'react-router-dom';
 import { FaBars } from "react-icons/fa";
 import { BiCategory } from "react-icons/bi";
 import logoDark from '../../src/assets/images/logo-main-dark.png'
+import logolight from '../../src/assets/images/logo-light.png'
+import { ThemeContext } from '../context/ThemeContext';
 
 const SideHeader = () => {
   const [toggleBtn, setToggleBtn] = useState('toggle-active');
+  const [theme, setTheme] = useContext(ThemeContext);
 
   const toggle = () => {
     if (toggleBtn == '') {
@@ -20,35 +23,38 @@ const SideHeader = () => {
   }
 
   return (
-      <div className={`${toggleBtn} side-bar-header`}>
-        <div className='side-nav' >
+    <div className={`${toggleBtn} side-bar-header`}>
+      <div className='side-nav' >
         <div className="toggle-btn" onClick={toggle}>
           <FaBars />
         </div>
-          <div className="side-nav-body">
-            <div className="side-nav_logo">
+        <div className="side-nav-body">
+          <div className="side-nav_logo">
+            {theme == "light" ?
               <img src={logoDark} alt="" />
-            </div>
-            <ul>
-              <li>
-                <NavLink to='/dashboard/overview' onClick={toggle} className='nav-link'><LuLayoutDashboard className='left-icon' /> <span className='sidebar-title'>Overview</span></NavLink>
-              </li>
-              <li>
-                <NavLink to='/dashboard/categories-list' onClick={toggle} className='nav-link'><BiCategory className='left-icon' /> <span className='sidebar-title'>Categories</span></NavLink>
-              </li>
-              <li>
-                <NavLink to='/dashboard/movie-list' onClick={toggle} className='nav-link'><MdOutlineMovie className='left-icon' /> <span className='sidebar-title'>Movies List</span></NavLink>
-              </li>
-              <li>
-                <NavLink to='/dashboard/blog-list' onClick={toggle} className='nav-link'><FaRegNewspaper className='left-icon' /> <span className='sidebar-title'>Blog List</span></NavLink>
-              </li>
-              <li>
-                <NavLink to='/' onClick={toggle} className='nav-link'><IoHomeOutline className='left-icon' /> <span className='sidebar-title'>Back To Home</span></NavLink>
-              </li>
-            </ul>
+              : <img src={logolight} alt="" />
+            }
           </div>
+          <ul>
+            <li>
+              <NavLink to='/dashboard/overview' onClick={toggle} className='nav-link'><LuLayoutDashboard className='left-icon' /> <span className='sidebar-title'>Overview</span></NavLink>
+            </li>
+            <li>
+              <NavLink to='/dashboard/categories-list' onClick={toggle} className='nav-link'><BiCategory className='left-icon' /> <span className='sidebar-title'>Categories</span></NavLink>
+            </li>
+            <li>
+              <NavLink to='/dashboard/movie-list' onClick={toggle} className='nav-link'><MdOutlineMovie className='left-icon' /> <span className='sidebar-title'>Movies List</span></NavLink>
+            </li>
+            <li>
+              <NavLink to='/dashboard/blog-list' onClick={toggle} className='nav-link'><FaRegNewspaper className='left-icon' /> <span className='sidebar-title'>Blog List</span></NavLink>
+            </li>
+            <li>
+              <NavLink to='/' onClick={toggle} className='nav-link'><IoHomeOutline className='left-icon' /> <span className='sidebar-title'>Back To Home</span></NavLink>
+            </li>
+          </ul>
         </div>
       </div>
+    </div>
   )
 }
 

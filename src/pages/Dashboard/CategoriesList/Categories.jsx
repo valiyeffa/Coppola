@@ -16,7 +16,6 @@ const Categories = () => {
     const { data: userName } = useGetUsersQuery();
     const userId = cookies.get('user-id');
     const signedinAcc = userName && userName.find(p => p._id == userId);
-    // console.log(ctgData);
 
     const logout = () => {
         cookies.remove('role');
@@ -76,7 +75,7 @@ const Categories = () => {
                         <Link to={'/dashboard/categories-list/add-category'} className='btn btn-outline-dark btn-shop btn-add'>Add New</Link>
                     </div>
                     {isLoading ? <Preloader /> : <>
-                        <div className="list my-4">
+                        <div className="list table-container my-4">
                             <table className="table">
                                 <thead>
                                     <tr>

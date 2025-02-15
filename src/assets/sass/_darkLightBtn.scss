@@ -1,0 +1,29 @@
+.right-mini-sect {
+    position: fixed;
+    bottom: 50px;
+    right: 0;
+    z-index: 10000;
+
+    .theme-btn {
+        @include centerflex();
+        gap: 10px;
+        width: fit-content;
+        box-shadow: 0px 0px 10px rgba(129, 129, 129, 0.668);
+        padding: 2px 10px;
+        transition: all 0.3s ease;
+        transform: translateX(70%);
+        border: none;
+        font-size: 17px;
+
+        &:hover {
+            background-color: #d5d5d5;
+            transform: translateX(-0%);
+        }
+
+        span {
+            font-weight: 400;
+            font-size: 14px;
+        }
+    }
+
+}

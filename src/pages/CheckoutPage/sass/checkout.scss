@@ -2,6 +2,8 @@
     width: 100%;
     font-family: $textfontname;
     @include centerflex();
+    background-color: var(--bgColorMain);
+    color: var(--textColor);
 
     .container-fluid {
         width: 95%;
@@ -22,6 +24,12 @@
                             outline: none;
                             border-radius: 0;
                             border: 1px solid grey;
+                            background-color: var(--bgColorMain);
+                            color: var(--textColor);
+
+                            &::placeholder {
+                                color: var(--textColor);
+                            }
                         }
 
                         input[type="number"]::-webkit-inner-spin-button,
@@ -30,22 +38,27 @@
                             margin: 0;
                         }
 
-                        .dropdown-toggle {
-                            border: 1px solid grey;
-                            border-radius: 0;
-                        }
+                        .input-group {
+                            .dropdown-toggle {
+                                background-color: var(--bgColorMain);
+                                color: var(--textColor);
+                                border: 1px solid grey;
+                                border-radius: 0;
 
-                        .dropdown-menu {
-                            .dropdown-item:active {
-                                background-color: #e9ecef !important;
-                                color: black;
+                                .dropdown-menu {
+                                    .dropdown-item:active {
+                                        background-color: #e9ecef;
+                                        color: black;
+                                    }
+                                }
                             }
                         }
 
                         .payment-method {
                             .card-cash-btn {
-                                border: 2px solid black;
+                                border: 2px solid var(--textColor);
                                 border-radius: 0;
+                                color: var(--textColor);
 
                                 &:hover {
                                     background-color: black;
@@ -55,13 +68,14 @@
                         }
 
                         .btn-submit {
-                            border: 2px solid black;
+                            border: 2px solid var(--textColor);
                             border-radius: 0;
                             padding: 10px 25px;
+                            color: var(--textColor);
 
                             &:hover {
                                 background-color: black;
-                                color: white;
+                                color: var(--textColor);
                             }
                         }
                     }
@@ -116,9 +130,9 @@
                                 }
                             }
 
-                            .card-on-delivery{
-                                .credit-card{
-                                    .rccs{
+                            .card-on-delivery {
+                                .credit-card {
+                                    .rccs {
                                         display: none !important;
                                     }
                                 }

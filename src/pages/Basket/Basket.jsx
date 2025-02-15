@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useCart } from 'react-use-cart';
 import emptyGif from '../../../src/assets/images/cart-empty-gif.gif'
 import { Link, useNavigate } from 'react-router-dom';
@@ -6,12 +6,16 @@ import BasketCard from '../../components/BasketCard';
 import Cookies from 'universal-cookie';
 import Swal from 'sweetalert2';
 import { useTranslation } from 'react-i18next';
+import { ThemeContext } from '../../context/ThemeContext';
+import { FaMoon } from 'react-icons/fa';
+import { MdSunny } from 'react-icons/md';
 
 const Basket = () => {
     const { isEmpty, items, cartTotal } = useCart();
     const cookies = new Cookies(null, { path: '/' });
     const navigate = useNavigate();
     const { t } = useTranslation();
+    const [theme, setTheme] = useContext(ThemeContext);
 
     const topPage = () => {
         window.scrollTo(0, 0);
@@ -91,6 +95,12 @@ const Basket = () => {
                         </div>
                     </div>
                 }
+            </div>
+            <div className="right-mini-sect">
+                <button className='theme-btn' onClick={() => {
+                    theme === "light" ? setTheme('dark') : setTheme('light');
+                    theme === "light" ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'light');
+                }}>{theme === "light" ? <><FaMoon /> <span>Dark Mode</span> </> : <> <MdSunny /> <span>Light Mode</span></>}</button>
             </div>
         </div>
     )

@@ -2,9 +2,13 @@
     @include centerflex();
     flex-direction: column;
     height: 100vh;
+    background-color: var(--bgColorMain);
+    color: var(--textColor);
 }
 
 .active {
+    color: var(--textColor);
+
     .sign-in {
         transform: translateX(100%);
     }
@@ -36,7 +40,7 @@
 
 .form {
     font-family: $textfontname;
-    background-color: #fff;
+    background-color: var(--bgColorSpecial);
     border-radius: 30px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     position: relative;
@@ -46,7 +50,7 @@
     min-height: 600px;
 
     h1 {
-        color: black;
+        color: var(--textColor);
     }
 
     p {
@@ -56,13 +60,8 @@
         margin: 20px 0;
     }
 
-    span {
-        font-size: 12px;
-        color: #333;
-    }
-
     a {
-        color: #333;
+        color: var(--textColor);
         font-size: 13px;
         text-decoration: none;
         margin: 15px 0 10px;
@@ -78,24 +77,36 @@
     }
 
     form {
-        background-color: #fff;
+        background-color: var(--bgColorSpecial);
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         padding: 0 40px;
         height: 100%;
+
+        button {
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            cursor: pointer;
+            color: var(--textColor);
+        }
     }
 
     input {
         background-color: transparent;
         border: none;
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid var(--textColor);
         margin: 8px 0;
         padding: 10px 15px;
         font-size: 13px;
         width: 100%;
         outline: none;
+        color: var(--textColor);
+
     }
 }
 
@@ -108,7 +119,7 @@
     .pass-box {
         width: 100%;
         @include flex();
-        border-bottom: 1px solid black;
+        border-bottom: 1px solid var(--textColor);
         margin: 8px 0;
 
         .pass-input {

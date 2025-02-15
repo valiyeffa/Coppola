@@ -1,7 +1,8 @@
 import { ConfigProvider, Slider } from 'antd';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaSearch } from "react-icons/fa";
 import logoDark from '../../../src/assets/images/logo-main-dark.png';
+import logoLight from '../../../src/assets/images/logo-light.png'
 import { MdOutlineArrowOutward } from "react-icons/md";
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -10,12 +11,14 @@ import { useGetCategoriesQuery } from '../../tools/services/categoryApi';
 import { useGetMoviesQuery } from '../../tools/services/moviesApi';
 import Preloader from '../../components/Preloader';
 import { useTranslation } from 'react-i18next';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const HeadMovie = () => {
     const [ct, setCt] = useState();
     const [searchTerm, setSearchTerm] = useState("");
     const [priceRange, setPriceRange] = useState([10, 60]);
     const [appliedPrice, setAppliedPrice] = useState([10, 60]);
+    const [theme, setTheme] = useContext(ThemeContext);
     const { t } = useTranslation();
 
     const { data: ctgData } = useGetCategoriesQuery();
@@ -39,7 +42,10 @@ const HeadMovie = () => {
                     <div className="row">
                         <div className="col-12 col-lg-2 col-md-11 col-sm-12">
                             <div className="movie-left-side">
-                                <img className='dark-logo' src={logoDark} alt="" />
+                                {theme == "light" ?
+                                    <img className='dark-logo' src={logoDark} alt="" /> :
+                                    <img className='dark-logo' src={logoLight} alt="" />
+                                }
                                 <div className="left-side-body">
                                     <div className="search-bar py-3 border-bottom">
                                         <div className="input-group">

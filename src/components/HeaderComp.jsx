@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 import { useCart } from 'react-use-cart';
 import { useWishlist } from 'react-use-wishlist';
 import { useTranslation } from 'react-i18next';
+import logoLight from '../../src/assets/images/logo-light.png'
 
 const HeaderComp = () => {
     const cookies = new Cookies(null, { path: '/' });
@@ -70,7 +71,7 @@ const HeaderComp = () => {
     return (
         <nav className="navbar navbar-expand-lg">
             <div className="container-fluid">
-                <a className="navbar-brand" href="/"><img src="https://coppola.qodeinteractive.com/wp-content/uploads/2021/12/logo-main-light-height14px.png" width={110} alt="" /></a>
+                <a className="navbar-brand" href="/"><img src={logoLight} width={110} alt="" /></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <HiMiniBars3BottomRight />
                 </button>

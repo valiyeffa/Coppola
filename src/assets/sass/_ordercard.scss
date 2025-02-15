@@ -3,6 +3,8 @@
     border: none;
     border-bottom: 2px solid rgba(128, 128, 128, 0.133);
     border-radius: 0;
+    background-color: var(--bgColorMain);
+    color: var(--textColor);
 
     .row {
         width: 100%;
