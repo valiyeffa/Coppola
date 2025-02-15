@@ -1,6 +1,9 @@
-.movie-detail, .details {
+.movie-detail,
+.details {
     width: 100%;
     font-family: $textfontname;
+    background-color: var(--bgColorMain);
+    color: var(--textColor);
 
     .container-fluid {
         width: 96%;
@@ -31,9 +34,9 @@
                     flex-direction: column;
 
                     .right-top-title {
-                        color: black;
+                        color: var(--textColor);
                         padding: 0 30px 40px;
-                        border-bottom: 1px solid rgba(0, 0, 0, 0.349);
+                        border-bottom: 1px solid var(--borderColor);
 
                         h1 {
                             text-transform: uppercase;
@@ -49,10 +52,11 @@
 
                     .right-center {
                         padding: 40px 30px;
-                        border-bottom: 1px solid rgba(0, 0, 0, 0.349);
+                        border-bottom: 1px solid var(--borderColor);
 
                         p {
                             font-size: 18px;
+
                         }
 
                         .right-center_bottom {
@@ -67,7 +71,7 @@
 
                                 &:hover {
                                     background-color: transparent;
-                                    color: black;
+                                    color: var(--textColor);
                                 }
                             }
 
@@ -83,6 +87,8 @@
                                 }
 
                                 .empty-hover {
+                                    color: var(--textColor);
+
                                     .fill {
                                         display: none;
                                     }
@@ -102,8 +108,9 @@
 
                             .back-pg {
                                 border: none;
-                                border-bottom: 2px solid black;
+                                border-bottom: 2px solid var(--textColor);
                                 border-radius: 0;
+                                color: var(--textColor);
                             }
                         }
                     }
@@ -116,7 +123,7 @@
                             font-size: 18.5px;
 
                             b {
-                                color: black;
+                                color: var(--textColor);
                                 font-weight: 500;
                             }
 
@@ -141,13 +148,13 @@
 
 .reviews {
     .reviews-title {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.349);
+        border-bottom: 1px solid var(--borderColor);
 
         p {
             font-size: 20px;
             color: rgb(91, 91, 91);
             padding: 0 20px;
-            border-left: 1px solid rgba(0, 0, 0, 0.349);
+            border-left: 1px solid var(--borderColor);
         }
     }
 
@@ -167,13 +174,14 @@
                 padding: 0 0 25px;
 
                 .review-text {
+
                     .user-title {
                         color: gray;
                         font-size: 14px;
 
                         b {
                             font-size: 18px;
-                            color: black;
+                            color: var(--textColor);
                         }
                     }
 
@@ -190,7 +198,7 @@
     padding-bottom: 70px;
 
     .related-movies_title {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.349);
+        border-bottom: 1px solid var(--borderColor);
 
         p {
             font-size: 20px;

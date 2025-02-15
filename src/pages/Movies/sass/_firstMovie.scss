@@ -2,12 +2,14 @@
     --bgColorMain: #212121;
     --bgColorSpecial: #545454;
     --textColor: white;
+    --borderColor: white;
 }
 
 .light {
     --bgColorMain: white;
     --bgColorSpecial: white;
     --textColor: black;
+    --borderColor: rgba(0, 0, 0, 0.349);
 }
 
 .movie-ctg {

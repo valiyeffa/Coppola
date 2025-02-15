@@ -51,8 +51,10 @@
                 .back-pg {
                     margin-top: 60px;
                     border: none;
-                    border-bottom: 2px solid black;
+                    border-bottom: 2px solid var(--textColor);
                     border-radius: 0;
+                    color: var(--textColor);
+
                 }
             }
         }
