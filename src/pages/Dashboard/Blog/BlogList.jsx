@@ -8,6 +8,7 @@ import Cookies from 'universal-cookie';
 import { useDeleteBlogMutation, useGetBlogsQuery } from '../../../tools/services/blogApi';
 import Swal from 'sweetalert2';
 import { useGetUsersQuery } from '../../../tools/services/categoryApi';
+import { useTranslation } from 'react-i18next';
 
 const BlogList = () => {
   const { data: blogsData, isLoading } = useGetBlogsQuery();
@@ -17,6 +18,7 @@ const BlogList = () => {
   const { data: userName } = useGetUsersQuery();
   const userId = cookies.get('user-id');
   const signedinAcc = userName && userName.find(p => p._id == userId);
+  const { t } = useTranslation();
 
   const logout = () => {
     cookies.remove('role');
@@ -33,7 +35,7 @@ const BlogList = () => {
 
   const items = [
     {
-      label: 'Sign Out',
+      label: `${t("logout")}`,
       onClick: logout,
     }
   ];
@@ -72,12 +74,12 @@ const BlogList = () => {
 
       <div className="blog-list my-4">
         <div className="blog-list-title text-center">
-          <h1>Blog List</h1>
+          <h1>{t("dashboard.movies.blogTit")}</h1>
         </div>
 
         <div className="blog-list-body my-5">
           <div className="add-btn">
-            <Link to={'/dashboard/blog-list/add-blogs'} className='btn btn-outline-dark btn-shop btn-add'>Add New</Link>
+            <Link to={'/dashboard/blog-list/add-blogs'} className='btn btn-outline-dark btn-shop btn-add'>{t("dashboard.categories.addBtn")}</Link>
           </div>
           {isLoading ? <Preloader /> : <>
             <div className="list table-container my-4">
@@ -89,7 +91,7 @@ const BlogList = () => {
                     <th scope="col">Image</th>
                     <th scope="col">Category</th>
                     <th scope="col">Content</th>
-                    <th scope="col">Edit / Delete</th>
+                    <th scope="col">{t("dashboard.categories.ctgEdit")} / {t("dashboard.categories.ctgDel")}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -102,8 +104,8 @@ const BlogList = () => {
                       <td>{blog.content.slice(0, 5)}...</td>
                       <td>
                         <div className="list-btns">
-                          <Link to={`/dashboard/blog-list/edit-blog/${blog.slug}`} type='button' className='btn btn-outline-warning list-btn'>Edit</Link>
-                          <button onClick={() => delBlog(blog._id)} type='button' className='ms-2 btn btn-outline-danger list-btn'>Delete</button>
+                          <Link to={`/dashboard/blog-list/edit-blog/${blog.slug}`} type='button' className='btn btn-outline-warning list-btn'>{t("dashboard.categories.ctgEdit")}</Link>
+                          <button onClick={() => delBlog(blog._id)} type='button' className='ms-2 btn btn-outline-danger list-btn'>{t("dashboard.categories.ctgDel")}</button>
                         </div>
                       </td>
                     </tr>

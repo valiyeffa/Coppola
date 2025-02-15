@@ -6,9 +6,11 @@ import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import Cookies from 'universal-cookie';
 import { environment } from '../../environments/environment';
 import logoImg from '../../../src/assets/images/logo-main-dark.png';
+import { useTranslation } from 'react-i18next';
 
 const AccLogReg = () => {
     const cookies = new Cookies(null, { path: '/' });
+    const { t } = useTranslation();
 
     const navigate = useNavigate();
     const [active, setActive] = useState(false);
@@ -131,46 +133,46 @@ const AccLogReg = () => {
                 <div className="form-container sign-up">
                     <form onSubmit={registerSubmit}>
                         <img className='sm-logo-img' height={25} src={logoImg} />
-                        <h1 className='my-4'>Create Account</h1>
-                        <input ref={regNameRef} type="text" placeholder="Name" />
-                        <input ref={regSnameRef} type="text" placeholder="Surname" />
+                        <h1 className='my-4'>{t("auth.create")}</h1>
+                        <input ref={regNameRef} type="text" placeholder={t("auth.name")} />
+                        <input ref={regSnameRef} type="text" placeholder={t("auth.sName")} />
                         <input ref={regEmailRef} type="email" placeholder="Email" />
                         <div className="pass-box">
-                            <input ref={regPassRef} type={inputType} placeholder="Password" className='pass-input' />
+                            <input ref={regPassRef} type={inputType} placeholder={t("auth.pass")} className='pass-input' />
                             <button type='button' onClick={passToggleShow} className='btn btn-toggle-show'>{eye === true ? <FaRegEye /> : <FaRegEyeSlash />}</button>
                         </div>
-                        <button type='submit' className='btn-send btn btn-outline-dark btn-shop px-3 py-2'>Sign Up</button>
-                        <p className='sm-text' onClick={() => setActive(false)}>Have you account? Login there!</p>
+                        <button type='submit' className='btn-send btn btn-outline-dark btn-shop px-3 py-2'>{t("auth.signUp")}</button>
+                        <p className='sm-text' onClick={() => setActive(false)}>{t("auth.haveYou")}</p>
                     </form>
                 </div>
 
                 <div className="form-container sign-in">
                     <form onSubmit={loginSubmit}>
                         <img className='sm-logo-img' height={25} src={logoImg} />
-                        <h1 className='my-4'>Sign In</h1>
+                        <h1 className='my-4'>{t("auth.signIn")}</h1>
                         <input type="email" ref={emailRef} placeholder="Email" />
                         <div className="pass-box">
-                            <input type={inputType} ref={passwordRef} placeholder="Password" className='pass-input' />
+                            <input type={inputType} ref={passwordRef} placeholder={t("auth.pass")} className='pass-input' />
                             <button type='button' onClick={passToggleShow} className='btn btn-toggle-show'>{eye === true ? <FaRegEye /> : <FaRegEyeSlash />}</button>
                         </div>
                         {/* <a href="#">Forget Your Password?</a> */}
-                        <button type='submit' className='btn btn-outline-dark btn-shop px-3 py-2'>Sign In</button>
-                        <p className='sm-text' onClick={() => setActive(true)}>Don't you still have account? Register there!</p>
+                        <button type='submit' className='btn btn-outline-dark btn-shop px-3 py-2'>{t("auth.signIn")}</button>
+                        <p className='sm-text' onClick={() => setActive(true)}>{t("auth.dontYou")}</p>
                     </form>
                 </div>
 
                 <div className="toggle-container">
                     <div className="toggle">
                         <div className="toggle-panel toggle-left">
-                            <h2>Welcome Back!</h2>
-                            <p>Enter your personal details to use all of site features</p>
-                            <button type='submit' className='btn btn-outline-light btn-shop px-3 py-2 hidden' onClick={() => setActive(false)}>Sign In</button>
+                            <h2>{t("auth.welcome")}</h2>
+                            <p>{t("auth.welcomeTxt")}</p>
+                            <button type='submit' className='btn btn-outline-light btn-shop px-3 py-2 hidden' onClick={() => setActive(false)}>{t("auth.signIn")}</button>
                         </div>
 
                         <div className="toggle-panel toggle-right">
-                            <h2>Hello, Friend!</h2>
-                            <p>Register with your personal details to use all of site features</p>
-                            <button className="btn btn-outline-light btn-shop px-3 py-2 hidden" onClick={() => setActive(true)}>Sign Up</button>
+                            <h2>{t("auth.hello")}</h2>
+                            <p>{t("auth.helloTxt")}</p>
+                            <button className="btn btn-outline-light btn-shop px-3 py-2 hidden" onClick={() => setActive(true)}>{t("auth.signUp")}</button>
                         </div>
                     </div>
                 </div>

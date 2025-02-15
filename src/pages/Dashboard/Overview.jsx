@@ -9,6 +9,7 @@ import Cookies from "universal-cookie";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useGetUsersQuery } from "../../tools/services/categoryApi";
+import { useTranslation } from "react-i18next";
 
 const Overview = () => {
     const cookies = new Cookies(null, { path: '/' });
@@ -17,6 +18,7 @@ const Overview = () => {
     const { data: userName } = useGetUsersQuery();
     const userId = cookies.get('user-id');
     const signedinAcc = userName && userName.find(p => p._id == userId);
+    const { t } = useTranslation();
 
     const logout = () => {
         cookies.remove('role');
@@ -36,7 +38,7 @@ const Overview = () => {
 
     const items = [
         {
-            label: 'Sign Out',
+            label: `${t("logout")}`,
             onClick: logout,
         }
     ];
@@ -61,9 +63,9 @@ const Overview = () => {
             </div>
             <div className="dashboard-head d-flex justify-content-between">
                 <div className="left-side-text">
-                    <h1 className="display-5 text-body-emphasis">Welcome back, {signedinAcc && signedinAcc.name}!</h1>
+                    <h1 className="display-5 text-body-emphasis">{t("dashboard.overview.welcome")}, {signedinAcc && signedinAcc.name}!</h1>
                     <div className="col-lg-12">
-                        <p>Here's you current users overview</p>
+                        <p>{t("dashboard.overview.welcomeTxt")}</p>
                     </div>
                 </div>
             </div>
@@ -75,7 +77,7 @@ const Overview = () => {
                             <thead>
                                 <tr>
                                     <th scope="col">No</th>
-                                    <th scope="col">Name Surname</th>
+                                    <th scope="col">{t("dashboard.overview.tableNmTxt")}</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Role</th>
                                 </tr>

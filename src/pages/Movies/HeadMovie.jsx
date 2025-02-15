@@ -20,6 +20,7 @@ const HeadMovie = () => {
     const [appliedPrice, setAppliedPrice] = useState([10, 60]);
     const [theme, setTheme] = useContext(ThemeContext);
     const { t } = useTranslation();
+    const [sortOrder, setSortOrder] = useState("asc");
 
     const { data: ctgData } = useGetCategoriesQuery();
     const { data: movieData = [], isLoading } = useGetMoviesQuery({ category: ct, search: searchTerm });
@@ -33,6 +34,13 @@ const HeadMovie = () => {
         item.price <= appliedPrice[1] &&
         item.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    const sortedMovies = [...(filteredMovies || [])].sort((a, b) => {
+        if (sortOrder === "asc") return a.price - b.price;
+        if (sortOrder === "desc") return b.price - a.price;
+        if (sortOrder === "latest") return new Date(b.releaseDate) - new Date(a.releaseDate);
+        return 0;
+    });
 
     return (
         <div className='head-sect-movie light-mode'>
@@ -59,7 +67,6 @@ const HeadMovie = () => {
                                             <button className="btn" type="submit"><FaSearch /></button>
                                         </div>
                                     </div>
-
                                     <div className="categories py-3 border-bottom">
                                         <h6>{t("movieBlog.catg")}</h6>
                                         <ul className="list-group">
@@ -69,7 +76,6 @@ const HeadMovie = () => {
                                             ))}
                                         </ul>
                                     </div>
-
                                     <div className="prices py-3">
                                         <h6>{t("movieBlog.prc")}</h6>
                                         <ConfigProvider
@@ -112,10 +118,25 @@ const HeadMovie = () => {
                         </div>
                         <div className="col-12 col-lg-10 col-md-12 col-sm-12">
                             <div className="movie-right-side">
-                                <div className="movie-right-body-products">
+                                <div className="movie-right-body-products flex-column">
                                     <div className="row">
-                                        {filteredMovies.length > 0 ? (
-                                            filteredMovies.map((item) => (
+                                        <div className="sorts d-flex justify-content-between py-3">
+                                            <p>{t("movieBlog.sortTit")} {sortedMovies?.length} {t("movieBlog.sortTitres")}</p>
+                                            <div className="dropdown">
+                                                <button className="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    {sortOrder === "asc" ? `${t("movieBlog.sortLowHigh")}` : sortOrder === "desc" ? `${t("movieBlog.sortHighLow")}` : `${t("movieBlog.sortLate")}`}
+                                                </button>
+                                                <ul className="dropdown-menu">
+                                                    <li><button className="dropdown-item" onClick={() => setSortOrder("latest")}>{t("movieBlog.sortLate")}</button></li>
+                                                    <li><button className="dropdown-item" onClick={() => setSortOrder("asc")}>{t("movieBlog.sortLowHigh")}</button></li>
+                                                    <li><button className="dropdown-item" onClick={() => setSortOrder("desc")}>{t("movieBlog.sortHighLow")}</button></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="row">
+                                        {sortedMovies.length > 0 ? (
+                                            sortedMovies.map((item) => (
                                                 <div key={item._id} className="movie-card-col col-12 col-lg-4 col-md-4 col-sm-12">
                                                     <MovieCard alldata={item} />
                                                 </div>

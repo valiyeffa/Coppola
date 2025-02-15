@@ -64,6 +64,11 @@
         "reset": "Reset",
         "blogTit": "HOME / BLOG",
         "blogTxt": "Here, we share movie news",
+        "sortTit": "Showing all of",
+        "sortTitres": "results",
+        "sortLate": "Sort by latest",
+        "sortLowHigh": "Sort by price: Low to High",
+        "sortHighLow": "Sort by price: High to Low",
         "details": {
             "backBtn": "Back To Page",
             "addBtn": "Add To Cart",
@@ -155,5 +160,39 @@
             "succTxt2": "Thanks for shopping with us! :)",
             "backShop": "Back to Shop"
         }
+    },
+    "dashboard": {
+        "overTxt":"Overview",
+        "backHomeBtn":"Back To Home",
+        "overview": {
+            "welcome": "Welcome back",
+            "welcomeTxt": "Here's you current users overview",
+            "tableNmTxt": "Name Surname"
+        },
+        "categories": {
+            "ctgTit": "Movie Categories",
+            "addBtn": "Add New",
+            "ctgNm": "Name",
+            "ctgEdit": "Edit",
+            "ctgDel": "Delete"
+        },
+        "movies": {
+            "movieTit": "Movie List",
+            "blogTit": "Blog List"
+        }
+    },
+    "auth":{
+        "signIn":"Sign In",
+        "signUp":"Sign Up",
+        "create":"Crate Account",
+        "welcome":"Welcome Back!",
+        "welcomeTxt":"Enter your personal details to use all of site features",
+        "hello":"Hello, Friend!",
+        "helloTxt":"Register with your personal details to use all of site features",
+        "pass":"Password",
+        "name":"Name",
+        "sName":"Surname",
+        "haveYou":"Have you account? Login there!",
+        "dontYou":"Don't you still have account? Register there!"
     }
 }

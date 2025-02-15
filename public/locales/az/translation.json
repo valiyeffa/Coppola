@@ -64,6 +64,11 @@
         "reset": "Sıfırla",
         "blogTit": "ANA SƏHİFƏ / BLOQ",
         "blogTxt": "Burada, film xəbərlərini paylaşırıq",
+        "sortTit": "Göstərilən",
+        "sortTitres": "nəticənin hamısı",
+        "sortLate": "Ən Yeni",
+        "sortLowHigh": "Qiymət filteri: Azdan Çoxa",
+        "sortHighLow": "Qiymət filteri: Çoxdan Aza",
         "details": {
             "backBtn": "Geri Qayıt",
             "addBtn": "Səbətə Əlavə Et",
@@ -155,5 +160,39 @@
             "succTxt2": "Bizimlə alış-veriş etdiyiniz üçün təşəkkür edirik! :)",
             "backShop": "Mağazaya Qayıt"
         }
+    },
+    "dashboard": {
+        "overTxt": "Icmal",
+        "backHomeBtn": "Ana Səhifəyə Qayıt",
+        "overview": {
+            "welcome": "Xoş gəldiniz",
+            "welcomeTxt": "Bu, cari istifadəçilərinizin icmalıdır.",
+            "tableNmTxt": "Ad Soyad"
+        },
+        "categories": {
+            "ctgTit": "Film Kateqoriyaları",
+            "addBtn": "Əlavə Et",
+            "ctgNm": "Ad",
+            "ctgEdit": "Düzəliş",
+            "ctgDel": "Sil"
+        },
+        "movies": {
+            "movieTit": "Filmlər",
+            "blogTit": "Bloqlar"
+        }
+    },
+    "auth": {
+        "signIn": "Giriş Et",
+        "signUp": "Qeydiyyat",
+        "create": "Hesab Yarat",
+        "welcome": "Xoş gəldiniz!",
+        "welcomeTxt": "Saytın bütün funksiyalarından istifadə etmək üçün şəxsi məlumatlarınızı daxil edin",
+        "hello": "Salam, Dost!",
+        "helloTxt": "Saytın bütün funksiyalarından istifadə etmək üçün şəxsi məlumatlarınızla qeydiyyatdan keçin",
+        "pass": "Parol",
+        "name": "Ad",
+        "sName": "Soyad",
+        "haveYou": "Hesabın var? Buradan giriş et!",
+        "dontYou": "Hələ də hesabın yoxdur? Buradan qeydiyyatdan keç!"
     }
 }

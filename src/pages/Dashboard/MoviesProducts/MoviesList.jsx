@@ -9,6 +9,7 @@ import Cookies from 'universal-cookie';
 import Swal from 'sweetalert2';
 import { useGetUsersQuery } from '../../../tools/services/categoryApi';
 import { useDeleteMovieMutation, useGetMoviesQuery } from '../../../tools/services/moviesApi';
+import { useTranslation } from 'react-i18next';
 
 const MoviesList = () => {
   const cookies = new Cookies(null, { path: '/' });
@@ -19,6 +20,7 @@ const MoviesList = () => {
   const [deleteMovie] = useDeleteMovieMutation();
   const userId = cookies.get('user-id');
   const signedinAcc = userName && userName.find(p => p._id == userId);
+  const { t } = useTranslation();
 
   const logout = () => {
     cookies.remove('role');
@@ -36,7 +38,7 @@ const MoviesList = () => {
 
   const items = [
     {
-      label: 'Sign Out',
+      label: `${t("logout")}`,
       onClick: logout,
     }
   ];
@@ -75,12 +77,12 @@ const MoviesList = () => {
 
       <div className="movie-list my-4">
         <div className="movie-list-title text-center">
-          <h1>Movies List</h1>
+          <h1>{t("dashboard.movies.movieTit")}</h1>
         </div>
 
         <div className="movie-list-body my-5">
           <div className="add-btn ">
-            <Link to={'/dashboard/movie-list/add-movie'} className='btn btn-outline-dark btn-shop btn-add'>Add New</Link>
+            <Link to={'/dashboard/movie-list/add-movie'} className='btn btn-outline-dark btn-shop btn-add'>{t("dashboard.categories.addBtn")}</Link>
           </div>
           {isLoading ? <Preloader /> :
             <>
@@ -97,7 +99,7 @@ const MoviesList = () => {
                       <th scope="col">Discount</th>
                       <th scope="col">Discounded Price</th>
                       <th scope="col">New</th>
-                      <th scope="col">Edit / Delete</th>
+                      <th scope="col">{t("dashboard.categories.ctgEdit")} / {t("dashboard.categories.ctgDel")}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -113,8 +115,8 @@ const MoviesList = () => {
                         <td>{item.discountedPrice}$</td>
                         <td>{item.isProductNew == true ? <p>True</p> : <p>False</p>}</td>
                         <td>
-                          <Link to={`/dashboard/movie-list/edit-movie/${item.slug}`} className='btn list-btn btn-outline-warning'>Edit</Link>
-                          <button onClick={() => delMovie(item._id)} className='btn btn-outline-danger list-btn ms-2'>Delete</button>
+                          <Link to={`/dashboard/movie-list/edit-movie/${item.slug}`} className='btn list-btn btn-outline-warning'>{t("dashboard.categories.ctgEdit")}</Link>
+                          <button onClick={() => delMovie(item._id)} className='btn btn-outline-danger list-btn ms-2'>{t("dashboard.categories.ctgDel")}</button>
                         </td>
                       </tr>
                     ))}

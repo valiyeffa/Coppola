@@ -7,6 +7,7 @@ import Preloader from '../../../components/Preloader';
 import { useDeleteCategoryMutation, useGetCategoriesQuery, useGetUsersQuery } from '../../../tools/services/categoryApi';
 import Swal from 'sweetalert2';
 import Cookies from 'universal-cookie';
+import { useTranslation } from 'react-i18next';
 
 const Categories = () => {
     const { data: ctgData, isLoading } = useGetCategoriesQuery();
@@ -16,6 +17,7 @@ const Categories = () => {
     const { data: userName } = useGetUsersQuery();
     const userId = cookies.get('user-id');
     const signedinAcc = userName && userName.find(p => p._id == userId);
+    const { t } = useTranslation();
 
     const logout = () => {
         cookies.remove('role');
@@ -33,7 +35,7 @@ const Categories = () => {
 
     const items = [
         {
-            label: 'Sign Out',
+            label: `${t("logout")}`,
             onClick: logout,
         }
     ];
@@ -67,12 +69,12 @@ const Categories = () => {
 
             <div className="categories-list my-5">
                 <div className="ctg-list-title text-center">
-                    <h1>Movie Categories</h1>
+                    <h1>{t("dashboard.categories.ctgTit")}</h1>
                 </div>
 
                 <div className="ctg-list-body my-5 col-5">
                     <div className="add-btn">
-                        <Link to={'/dashboard/categories-list/add-category'} className='btn btn-outline-dark btn-shop btn-add'>Add New</Link>
+                        <Link to={'/dashboard/categories-list/add-category'} className='btn btn-outline-dark btn-shop btn-add'>{t("dashboard.categories.addBtn")}</Link>
                     </div>
                     {isLoading ? <Preloader /> : <>
                         <div className="list table-container my-4">
@@ -80,9 +82,9 @@ const Categories = () => {
                                 <thead>
                                     <tr>
                                         <th scope="col">No</th>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">{t("dashboard.categories.ctgNm")}</th>
                                         <th scope="col">Slug</th>
-                                        <th scope="col">Edit / Delete</th>
+                                        <th scope="col">{t("dashboard.categories.ctgEdit")} / {t("dashboard.categories.ctgDel")}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -93,8 +95,8 @@ const Categories = () => {
                                             <td>{item.slug}</td>
                                             <td>
                                                 <div className="list-btns">
-                                                    <Link to={`/dashboard/categories-list/edit-category/${item.slug}`} type='button' className='btn btn-outline-warning list-btn'>Edit</Link>
-                                                    <button onClick={() => { deleteCtg(item._id) }} type='button' className='ms-2 btn btn-outline-danger list-btn'>Delete</button>
+                                                    <Link to={`/dashboard/categories-list/edit-category/${item.slug}`} type='button' className='btn btn-outline-warning list-btn'>{t("dashboard.categories.ctgEdit")}</Link>
+                                                    <button onClick={() => { deleteCtg(item._id) }} type='button' className='ms-2 btn btn-outline-danger list-btn'>{t("dashboard.categories.ctgDel")}</button>
                                                 </div>
                                             </td>
                                         </tr>

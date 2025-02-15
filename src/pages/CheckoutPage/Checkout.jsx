@@ -5,8 +5,7 @@ import 'react-credit-cards/es/styles-compiled.css';
 import { useCart } from 'react-use-cart';
 import OrderCard from '../../components/OrderCard';
 import { Bounce, toast, ToastContainer } from 'react-toastify';
-import Swal from 'sweetalert2';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Preloader from '../../components/Preloader';
 import { useTranslation } from 'react-i18next';
 import { FaMoon } from 'react-icons/fa';
@@ -18,6 +17,7 @@ const Checkout = () => {
     const [card, setCard] = useState(true);
     const [cash, setCash] = useState(false);
     const [countryCode, setCountryCode] = useState("+994");
+    const [country, setCountry] = useState("Choose state");
     const [check, setCheck] = useState(false);
     const [submit, setSubmit] = useState(false);
     const { t } = useTranslation();
@@ -73,7 +73,7 @@ const Checkout = () => {
         const state = stateRef.current.value;
         const zip = zipRef.current ? zipRef.current.value : '';
 
-        if (!fullname || !email || !phone || !city || !state || (cash && !zip)) {
+        if (!fullname || !email || !phone || !country || !city || !state || (cash && !zip)) {
             setSubmit(false);
             toast.error('Please fill in all required fields.', {
                 position: "top-right",
@@ -165,34 +165,14 @@ const Checkout = () => {
                                         </div>
                                         <div className="mb-3 country">
                                             <label className="form-label">{t("checkout.country")}</label>
-                                            <ConfigProvider
-                                                theme={{
-                                                    components: {
-                                                        Select: {
-                                                            activeBorderColor: 'black',
-                                                            activeOutlineColor: 'none',
-                                                            hoverBorderColor: 'black',
-                                                        },
-                                                    },
-                                                    token: {
-                                                        borderRadius: 0,
-                                                        colorBorder: 'black',
-                                                        colorPrimary: '#BFBFBF',
-                                                    },
-                                                }}
-                                            >
-                                                <Select
-                                                    defaultValue="Choose State"
-                                                    style={{
-                                                        width: '100%',
-                                                    }}
-                                                    options={[
-                                                        { value: 'aze', label: 'Azerbaijan' },
-                                                        { value: 'tr', label: 'Turkiye' },
-                                                        { value: 'gurc', label: 'Georgia' }
-                                                    ]}
-                                                />
-                                            </ConfigProvider>
+                                            <div className="input-group mb-3" >
+                                                <button style={{ width: '100%', textAlign: "start" }} className="btn dropdown-toggle d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">{country}</button>
+                                                <ul className="dropdown-menu" style={{ width: '100%', borderRadius: '0' }}>
+                                                    <li><a className="dropdown-item" href="#" onClick={() => setCountry("Azerbaijan")}>Azerbaijan</a></li>
+                                                    <li><a className="dropdown-item" href="#" onClick={() => setCountry("Turkiye")}>Turkiye</a></li>
+                                                    <li><a className="dropdown-item" href="#" onClick={() => setCountry("Georgia")}>Georgia</a></li>
+                                                </ul>
+                                            </div>
                                         </div>
                                         <div className='city mb-3'>
                                             <label className="form-label">{t("checkout.city")}</label>
