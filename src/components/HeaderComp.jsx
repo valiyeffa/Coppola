@@ -116,9 +116,6 @@ const HeaderComp = () => {
                                 theme={{
                                     token: {
                                         borderRadiusLG: 0,
-                                        colorSplit: 'black',
-                                        colorBgElevated: 'black',
-                                        colorText: 'white'
                                     },
                                 }}>
                                 <Dropdown className='btn account-btn m-0' menu={{ items }}>
